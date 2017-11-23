@@ -20,16 +20,16 @@
     // 关闭绘制的"性能开关",如果alpha不为1,最好将opaque设为NO,让绘图系统优化性能
     hud.opaque = NO;
     // 背景方框的颜色
-    //hud.bezelView.color = [[UIColor blackColor] colorWithAlphaComponent:0.9f];
+    hud.bezelView.color = [[UIColor blackColor] colorWithAlphaComponent:0.9f];
     // 将转圈和文字设置成白色
-    //hud.contentColor = [UIColor whiteColor];
+    hud.contentColor = [UIColor whiteColor];
     // HUD边缘与内部元素的间距
     hud.margin = 15.0f / kScaleFit;
     // 设置显示文字
-    //hud.label.font = [UIFont systemFontOfSize:15.0f];
-    //hud.label.textAlignment = NSTextAlignmentCenter;
-    //hud.label.text = message;
-    hud.labelText = message;
+    hud.label.font = [UIFont systemFontOfSize:15.0f];
+    hud.label.textAlignment = NSTextAlignmentCenter;
+    hud.label.text = message;
+    //hud.labelText = message;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
     // 屏幕背景是否有遮罩
@@ -44,8 +44,8 @@
     // 设置显示模式：纯文本模式
     hud.mode = MBProgressHUDModeText;
     // 1秒之后再消失
-    [hud hide:YES afterDelay:1.0f];
-    //[hud hideAnimated:YES afterDelay:1.0f];
+    //[hud hide:YES afterDelay:1.0f];
+    [hud hideAnimated:YES afterDelay:1.0f];
 }
 
 #pragma mark - 显示 文字 提示
@@ -60,8 +60,8 @@
     hud.mode = MBProgressHUDModeIndeterminate;
     if (delay > 0) {
         // 如果设置了消失时间，时间到了就自动消失
-        //[hud hideAnimated:YES afterDelay:delay];
-        [hud hide:YES afterDelay:1.0f];
+        [hud hideAnimated:YES afterDelay:delay];
+        //[hud hide:YES afterDelay:1.0f];
     }
 }
 
@@ -75,8 +75,8 @@
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[@"MBProgressHUD+BR.bundle/MBProgressHUD" stringByAppendingPathComponent:iconName]]];
     // 设置显示模式：自定义视图
     hud.mode = MBProgressHUDModeCustomView;
-    [hud hide:YES afterDelay:1.0f];
-    //[hud hideAnimated:YES afterDelay:1.0f];
+    //[hud hide:YES afterDelay:1.0f];
+    [hud hideAnimated:YES afterDelay:1.0f];
 }
 
 #pragma mark - 显示 成功/错误/信息/警告 图标 + 文字 提示

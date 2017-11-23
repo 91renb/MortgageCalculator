@@ -11,13 +11,6 @@
 @interface BRTabBarController : UITabBarController
 
 /**
- *  初始化
- *
- *  @param identityFlag   标记
- */
-- (instancetype)initWithIdentityFlag:(NSString *)identityFlag;
-
-/**
  *  数字角标
  *
  *  @param badge   所要显示数字

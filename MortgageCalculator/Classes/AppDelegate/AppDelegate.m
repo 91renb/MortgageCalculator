@@ -39,7 +39,7 @@
 
 #pragma mark - 设置根视图控制器
 - (void)setupRootViewController:(NSString *)identityFlag {
-    self.window.rootViewController = [[BRTabBarController alloc]initWithIdentityFlag:identityFlag];
+    self.window.rootViewController = [[BRTabBarController alloc]init];
 }
 
 #pragma mark - 懒加载 window

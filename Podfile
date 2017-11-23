@@ -13,6 +13,7 @@ target 'MortgageCalculator' do
   pod 'MJExtension', '~> 3.0.13'
   pod 'IQKeyboardManager', '~> 4.0.4'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'WMPageController', '~> 2.3.0'
   pod 'JPush', '~> 3.0.6'
   pod 'BmobSDK', '~> 2.2.3'
 

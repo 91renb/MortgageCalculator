@@ -22,8 +22,6 @@
     UIButton *_lastBtn;
     
     UIButton *_defaultSelBtn;   // 保存默认首页对应的按钮
-    
-    NSString *_identityFlag;
 }
 /** 自定义tabBar视图 */
 @property (nonatomic, strong) UIView *customTabBarView;
@@ -32,9 +30,8 @@
 
 @implementation BRTabBarController
 
-- (instancetype)initWithIdentityFlag:(NSString *)identityFlag {
+- (instancetype)init {
     if (self = [super init]) {
-        _identityFlag = identityFlag;
         // 设置数据源
         [self setupDataSource];
         // 设置UI
@@ -51,17 +48,10 @@
 #pragma mark - 加载数据
 - (void)setupDataSource {
     // 1.初始化数据
-    if ([_identityFlag isEqualToString:App_ReviewingStatus]) {
-        _childVCArr = @[@"TuWanViewController", @"BRLotteryViewController", @"BRClockViewController"];
-        _titleArr = @[@"赏美女", @"看彩票", @"玩游戏"];
-        _imageArr = @[@"tabbar_home", @"tabbar_kaijiang", @"tabbar_mine"];
-        _selImageArr = @[@"tabbar_home_sel", @"tabbar_kaijiang_sel", @"tabbar_mine_sel"];
-    } else {
-        _childVCArr = @[@"BRHomeViewController", @"BRNewsViewController", @"BRLotteryViewController", @"BRMineViewController"];
-        _titleArr = @[@"首页", @"彩讯", @"开奖", @"我的"];
-        _imageArr = @[@"tabbar_home", @"tabbar_youhui", @"tabbar_kaijiang", @"tabbar_mine"];
-        _selImageArr = @[@"tabbar_home_sel", @"tabbar_youhui_sel", @"tabbar_kaijiang_sel", @"tabbar_mine_sel"];
-    }
+    _childVCArr = @[@"BRHomeViewController", @"BRNewsViewController", @"BRMineViewController"];
+    _titleArr = @[@"首页", @"资讯", @"我的"];
+    _imageArr = @[@"tabbar_home", @"tabbar_kaijiang", @"tabbar_mine"];
+    _selImageArr = @[@"tabbar_home_sel", @"tabbar_kaijiang_sel", @"tabbar_mine_sel"];
     // 2.设置控制器
     [self setupChildControllers];
 }
@@ -219,6 +209,5 @@
     UILabel *numLabel = (UILabel *)[self.customTabBarView viewWithTag:1010 + index];
     numLabel.hidden = YES;
 }
-
 
 @end

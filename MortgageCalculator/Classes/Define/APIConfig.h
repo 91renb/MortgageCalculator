@@ -9,6 +9,9 @@
 #ifndef APIConfig_h
 #define APIConfig_h
 
+// 是否发布(0 测试环境  1 正式环境)
+#define IS_DISTRIBUTION 0
+
 /** TODO:APP配置信息 */
 #define APP_ID @"c8app165" // 测试1：cbapp105  测试2：c8app165
 #define JPushAppKey  @"25c723449a62fc1e813efa6e"
@@ -20,12 +23,12 @@
 #define App_MyStatus @"2"           // 自定义我的状态
 
 /** TODO:服务器地址 */
-#ifdef DEBUG
-/** ------------------调试状态------------------ */
+#if IS_DISTRIBUTION
+/** ------------------发布状态------------------ */
 #define SERVER_HOST @"http://client.lotunion.com"
 
 #else
-/** ------------------发布状态------------------ */
+/** ------------------调试状态------------------ */
 #define SERVER_HOST @"http://client.lotunion.com"
 
 #endif
@@ -39,7 +42,7 @@
 /** TODO:URL详细地址 */
 
 /** 获取短信验证码地址 */
-#define PhoneMessageCodeUrl @"http://test.holier.cn/FSFY/disPatchJson?clazz=RMISERVICE&sUserID=null&key=SENDSMS&sExParams=http://apps.junbaotech.cn/FSFY/disPatchJson&sParams="
+#define PhoneMessageCodeUrl @"http://ibaby.junbaotech.cn/FSFY/disPatchJson?clazz=RMISERVICE&sUserID=null&key=SENDSMS&sExParams=http://apps.junbaotech.cn/FSFY/disPatchJson&sParams="
 
 // 开奖URL
 #define URL_KaiJiang @"https://qs.888.qq.com/m_qq/mqq2.info.html?_wv=1&vb2ctag=4_2087_3_2581&nodownload=1&id=805#info=getIssueAll"
