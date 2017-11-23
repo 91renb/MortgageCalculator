@@ -19,13 +19,6 @@
 		C50C2AE11FC5980E00D23C85 /* BRUserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41971FC5957100DECD23 /* BRUserHelper.m */; };
 		C50C2AE21FC5980E00D23C85 /* MBProgressHUD+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D419F1FC595A300DECD23 /* MBProgressHUD+BR.m */; };
 		C50C2AF21FC59C7E00D23C85 /* BRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AF11FC59C7E00D23C85 /* BRHomeViewController.m */; };
-		C50C2AF51FC59CBE00D23C85 /* BRNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AF41FC59CBE00D23C85 /* BRNewsViewController.m */; };
-		C50C2AF81FC59CDC00D23C85 /* BRMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AF71FC59CDC00D23C85 /* BRMineViewController.m */; };
-		C50C2B011FC59E1B00D23C85 /* BRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AFA1FC59E1900D23C85 /* BRLoginViewController.m */; };
-		C50C2B021FC59E1B00D23C85 /* BRResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AFB1FC59E1900D23C85 /* BRResetPwdViewController.m */; };
-		C50C2B031FC59E1B00D23C85 /* BRRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AFC1FC59E1A00D23C85 /* BRRegisterViewController.m */; };
-		C50C2B041FC59E1B00D23C85 /* BRForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2AFE1FC59E1A00D23C85 /* BRForgetPwdViewController.m */; };
-		C50C2B071FC59F4B00D23C85 /* BRMineHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B061FC59E6B00D23C85 /* BRMineHandler.m */; };
 		C50C2B0C1FC65EF200D23C85 /* BRInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B0B1FC65EF200D23C85 /* BRInputModel.m */; };
 		C50C2B0F1FC65F0900D23C85 /* BRResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B0E1FC65F0900D23C85 /* BRResultModel.m */; };
 		C50C2B121FC6609300D23C85 /* BRMortgageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B111FC6609300D23C85 /* BRMortgageHelper.m */; };
@@ -45,6 +38,24 @@
 		C54D417A1FC594DE00DECD23 /* WapWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41731FC594DD00DECD23 /* WapWebViewController.m */; };
 		C54D417B1FC594DE00DECD23 /* BRMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41741FC594DE00DECD23 /* BRMyViewController.m */; };
 		C54D417C1FC594DE00DECD23 /* BRWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41751FC594DE00DECD23 /* BRWebViewController.m */; };
+		C5C2866A1FC67A57005DE4E7 /* BRBusinessLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286691FC67A57005DE4E7 /* BRBusinessLoanViewController.m */; };
+		C5C2866D1FC67A8C005DE4E7 /* BRFundLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2866C1FC67A8C005DE4E7 /* BRFundLoanViewController.m */; };
+		C5C286701FC67BF1005DE4E7 /* BRCombinedLoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2866F1FC67BF1005DE4E7 /* BRCombinedLoanViewController.m */; };
+		C5C286871FC67F23005DE4E7 /* BRNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286761FC67E72005DE4E7 /* BRNewsViewController.m */; };
+		C5C286881FC67F23005DE4E7 /* BRMineHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2867A1FC67E85005DE4E7 /* BRMineHandler.m */; };
+		C5C286891FC67F23005DE4E7 /* BRForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2867E1FC67E86005DE4E7 /* BRForgetPwdViewController.m */; };
+		C5C2868A1FC67F23005DE4E7 /* BRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */; };
+		C5C2868B1FC67F23005DE4E7 /* BRMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286821FC67E86005DE4E7 /* BRMineViewController.m */; };
+		C5C2868C1FC67F23005DE4E7 /* BRRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286841FC67E86005DE4E7 /* BRRegisterViewController.m */; };
+		C5C2868D1FC67F23005DE4E7 /* BRResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286861FC67E86005DE4E7 /* BRResetPwdViewController.m */; };
+		C5C286931FC69ED1005DE4E7 /* UIView+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286921FC69ED1005DE4E7 /* UIView+BRAdd.m */; };
+		C5C286A51FC6A6CD005DE4E7 /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286971FC6A6AE005DE4E7 /* BRAddressModel.m */; };
+		C5C286A61FC6A6CD005DE4E7 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286991FC6A6AE005DE4E7 /* BRAddressPickerView.m */; };
+		C5C286A71FC6A6CD005DE4E7 /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2869D1FC6A6AE005DE4E7 /* BRBaseView.m */; };
+		C5C286A81FC6A6CD005DE4E7 /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286A11FC6A6AE005DE4E7 /* BRDatePickerView.m */; };
+		C5C286A91FC6A6CD005DE4E7 /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */; };
+		C5C286AF1FC6FCD7005DE4E7 /* loanTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */; };
+		C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286B01FC70DFF005DE4E7 /* loanRates.plist */; };
 		E2BC6EBA81495840BB780812 /* libPods-MortgageCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B658DF9A1BB2760BC0954 /* libPods-MortgageCalculator.a */; };
 /* End PBXBuildFile section */
 
@@ -53,20 +64,6 @@
 		A5385C71D36DD70022BD1294 /* Pods-MortgageCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortgageCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MortgageCalculator/Pods-MortgageCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		C50C2AF01FC59C7E00D23C85 /* BRHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRHomeViewController.h; sourceTree = "<group>"; };
 		C50C2AF11FC59C7E00D23C85 /* BRHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRHomeViewController.m; sourceTree = "<group>"; };
-		C50C2AF31FC59CBE00D23C85 /* BRNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsViewController.h; sourceTree = "<group>"; };
-		C50C2AF41FC59CBE00D23C85 /* BRNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsViewController.m; sourceTree = "<group>"; };
-		C50C2AF61FC59CDC00D23C85 /* BRMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRMineViewController.h; sourceTree = "<group>"; };
-		C50C2AF71FC59CDC00D23C85 /* BRMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMineViewController.m; sourceTree = "<group>"; };
-		C50C2AF91FC59E1900D23C85 /* BRResetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResetPwdViewController.h; sourceTree = "<group>"; };
-		C50C2AFA1FC59E1900D23C85 /* BRLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRLoginViewController.m; sourceTree = "<group>"; };
-		C50C2AFB1FC59E1900D23C85 /* BRResetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRResetPwdViewController.m; sourceTree = "<group>"; };
-		C50C2AFC1FC59E1A00D23C85 /* BRRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRRegisterViewController.m; sourceTree = "<group>"; };
-		C50C2AFD1FC59E1A00D23C85 /* BRForgetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRForgetPwdViewController.h; sourceTree = "<group>"; };
-		C50C2AFE1FC59E1A00D23C85 /* BRForgetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRForgetPwdViewController.m; sourceTree = "<group>"; };
-		C50C2AFF1FC59E1A00D23C85 /* BRLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRLoginViewController.h; sourceTree = "<group>"; };
-		C50C2B001FC59E1A00D23C85 /* BRRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRRegisterViewController.h; sourceTree = "<group>"; };
-		C50C2B051FC59E6B00D23C85 /* BRMineHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRMineHandler.h; sourceTree = "<group>"; };
-		C50C2B061FC59E6B00D23C85 /* BRMineHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMineHandler.m; sourceTree = "<group>"; };
 		C50C2B081FC5A2D100D23C85 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		C50C2B0A1FC65EF200D23C85 /* BRInputModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRInputModel.h; sourceTree = "<group>"; };
 		C50C2B0B1FC65EF200D23C85 /* BRInputModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRInputModel.m; sourceTree = "<group>"; };
@@ -131,6 +128,42 @@
 		C54D419E1FC595A300DECD23 /* MBProgressHUD+BR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+BR.h"; sourceTree = "<group>"; };
 		C54D419F1FC595A300DECD23 /* MBProgressHUD+BR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+BR.m"; sourceTree = "<group>"; };
 		C54D41A11FC595E100DECD23 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C5C286681FC67A57005DE4E7 /* BRBusinessLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBusinessLoanViewController.h; sourceTree = "<group>"; };
+		C5C286691FC67A57005DE4E7 /* BRBusinessLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBusinessLoanViewController.m; sourceTree = "<group>"; };
+		C5C2866B1FC67A8C005DE4E7 /* BRFundLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRFundLoanViewController.h; sourceTree = "<group>"; };
+		C5C2866C1FC67A8C005DE4E7 /* BRFundLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRFundLoanViewController.m; sourceTree = "<group>"; };
+		C5C2866E1FC67BF1005DE4E7 /* BRCombinedLoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCombinedLoanViewController.h; sourceTree = "<group>"; };
+		C5C2866F1FC67BF1005DE4E7 /* BRCombinedLoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCombinedLoanViewController.m; sourceTree = "<group>"; };
+		C5C286751FC67E72005DE4E7 /* BRNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsViewController.h; sourceTree = "<group>"; };
+		C5C286761FC67E72005DE4E7 /* BRNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsViewController.m; sourceTree = "<group>"; };
+		C5C286791FC67E85005DE4E7 /* BRMineHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRMineHandler.h; sourceTree = "<group>"; };
+		C5C2867A1FC67E85005DE4E7 /* BRMineHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMineHandler.m; sourceTree = "<group>"; };
+		C5C2867D1FC67E86005DE4E7 /* BRForgetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRForgetPwdViewController.h; sourceTree = "<group>"; };
+		C5C2867E1FC67E86005DE4E7 /* BRForgetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRForgetPwdViewController.m; sourceTree = "<group>"; };
+		C5C2867F1FC67E86005DE4E7 /* BRLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRLoginViewController.h; sourceTree = "<group>"; };
+		C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRLoginViewController.m; sourceTree = "<group>"; };
+		C5C286811FC67E86005DE4E7 /* BRMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRMineViewController.h; sourceTree = "<group>"; };
+		C5C286821FC67E86005DE4E7 /* BRMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMineViewController.m; sourceTree = "<group>"; };
+		C5C286831FC67E86005DE4E7 /* BRRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRRegisterViewController.h; sourceTree = "<group>"; };
+		C5C286841FC67E86005DE4E7 /* BRRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRRegisterViewController.m; sourceTree = "<group>"; };
+		C5C286851FC67E86005DE4E7 /* BRResetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResetPwdViewController.h; sourceTree = "<group>"; };
+		C5C286861FC67E86005DE4E7 /* BRResetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRResetPwdViewController.m; sourceTree = "<group>"; };
+		C5C286911FC69ED1005DE4E7 /* UIView+BRAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BRAdd.h"; sourceTree = "<group>"; };
+		C5C286921FC69ED1005DE4E7 /* UIView+BRAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BRAdd.m"; sourceTree = "<group>"; };
+		C5C286961FC6A6AE005DE4E7 /* BRAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
+		C5C286971FC6A6AE005DE4E7 /* BRAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
+		C5C286981FC6A6AE005DE4E7 /* BRAddressPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		C5C286991FC6A6AE005DE4E7 /* BRAddressPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		C5C2869A1FC6A6AE005DE4E7 /* BRCity.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BRCity.plist; sourceTree = "<group>"; };
+		C5C2869C1FC6A6AE005DE4E7 /* BRBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		C5C2869D1FC6A6AE005DE4E7 /* BRBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		C5C2869E1FC6A6AE005DE4E7 /* BRPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
+		C5C286A01FC6A6AE005DE4E7 /* BRDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
+		C5C286A11FC6A6AE005DE4E7 /* BRDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
+		C5C286A31FC6A6AE005DE4E7 /* BRStringPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
+		C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanTime.plist; sourceTree = "<group>"; };
+		C5C286B01FC70DFF005DE4E7 /* loanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanRates.plist; sourceTree = "<group>"; };
 		E40FA558D620B74354F7C4D4 /* Pods-MortgageCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortgageCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MortgageCalculator/Pods-MortgageCalculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +192,12 @@
 			children = (
 				C50C2AF01FC59C7E00D23C85 /* BRHomeViewController.h */,
 				C50C2AF11FC59C7E00D23C85 /* BRHomeViewController.m */,
+				C5C286681FC67A57005DE4E7 /* BRBusinessLoanViewController.h */,
+				C5C286691FC67A57005DE4E7 /* BRBusinessLoanViewController.m */,
+				C5C2866B1FC67A8C005DE4E7 /* BRFundLoanViewController.h */,
+				C5C2866C1FC67A8C005DE4E7 /* BRFundLoanViewController.m */,
+				C5C2866E1FC67BF1005DE4E7 /* BRCombinedLoanViewController.h */,
+				C5C2866F1FC67BF1005DE4E7 /* BRCombinedLoanViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -191,91 +230,13 @@
 		C50C2AE71FC59BD400D23C85 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C50C2AE81FC59BF900D23C85 /* Handler */,
-				C50C2AEB1FC59BF900D23C85 /* Model */,
-				C50C2AE91FC59BF900D23C85 /* View */,
-				C50C2AEA1FC59BF900D23C85 /* ViewController */,
+				C5C286711FC67E72005DE4E7 /* Handler */,
+				C5C286731FC67E72005DE4E7 /* Model */,
+				C5C286721FC67E72005DE4E7 /* View */,
+				C5C286741FC67E72005DE4E7 /* ViewController */,
 			);
 			path = News;
 			sourceTree = "<group>";
-		};
-		C50C2AE81FC59BF900D23C85 /* Handler */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Handler;
-			path = MortgageCalculator/Classes/Modules/Home/Handler;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AE91FC59BF900D23C85 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = MortgageCalculator/Classes/Modules/Home/View;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AEA1FC59BF900D23C85 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C50C2AF31FC59CBE00D23C85 /* BRNewsViewController.h */,
-				C50C2AF41FC59CBE00D23C85 /* BRNewsViewController.m */,
-			);
-			name = ViewController;
-			path = MortgageCalculator/Classes/Modules/Home/ViewController;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AEB1FC59BF900D23C85 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = MortgageCalculator/Classes/Modules/Home/Model;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AEC1FC59C0C00D23C85 /* Handler */ = {
-			isa = PBXGroup;
-			children = (
-				C50C2B051FC59E6B00D23C85 /* BRMineHandler.h */,
-				C50C2B061FC59E6B00D23C85 /* BRMineHandler.m */,
-			);
-			name = Handler;
-			path = MortgageCalculator/Classes/Modules/Home/Handler;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AED1FC59C0C00D23C85 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = MortgageCalculator/Classes/Modules/Home/View;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AEE1FC59C0C00D23C85 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C50C2AF61FC59CDC00D23C85 /* BRMineViewController.h */,
-				C50C2AF71FC59CDC00D23C85 /* BRMineViewController.m */,
-				C50C2AFD1FC59E1A00D23C85 /* BRForgetPwdViewController.h */,
-				C50C2AFE1FC59E1A00D23C85 /* BRForgetPwdViewController.m */,
-				C50C2AFF1FC59E1A00D23C85 /* BRLoginViewController.h */,
-				C50C2AFA1FC59E1900D23C85 /* BRLoginViewController.m */,
-				C50C2B001FC59E1A00D23C85 /* BRRegisterViewController.h */,
-				C50C2AFC1FC59E1A00D23C85 /* BRRegisterViewController.m */,
-				C50C2AF91FC59E1900D23C85 /* BRResetPwdViewController.h */,
-				C50C2AFB1FC59E1900D23C85 /* BRResetPwdViewController.m */,
-			);
-			name = ViewController;
-			path = MortgageCalculator/Classes/Modules/Home/ViewController;
-			sourceTree = SOURCE_ROOT;
-		};
-		C50C2AEF1FC59C0C00D23C85 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = MortgageCalculator/Classes/Modules/Home/Model;
-			sourceTree = SOURCE_ROOT;
 		};
 		C54D41341FC5928600DECD23 = {
 			isa = PBXGroup;
@@ -400,10 +361,10 @@
 		C54D41821FC5955800DECD23 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				C50C2AEC1FC59C0C00D23C85 /* Handler */,
-				C50C2AEF1FC59C0C00D23C85 /* Model */,
-				C50C2AED1FC59C0C00D23C85 /* View */,
-				C50C2AEE1FC59C0C00D23C85 /* ViewController */,
+				C5C286781FC67E85005DE4E7 /* Handler */,
+				C5C2867B1FC67E85005DE4E7 /* Model */,
+				C5C286771FC67E85005DE4E7 /* View */,
+				C5C2867C1FC67E86005DE4E7 /* ViewController */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -436,6 +397,8 @@
 				C54D41921FC5957100DECD23 /* UIImageView+BRAdd.m */,
 				C54D41931FC5957100DECD23 /* UIScrollView+Refresh.h */,
 				C54D41941FC5957100DECD23 /* UIScrollView+Refresh.m */,
+				C5C286911FC69ED1005DE4E7 /* UIView+BRAdd.h */,
+				C5C286921FC69ED1005DE4E7 /* UIView+BRAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -456,6 +419,8 @@
 			children = (
 				C54D41491FC5928600DECD23 /* Assets.xcassets */,
 				C54D419A1FC5958900DECD23 /* LaunchImage@2x.png */,
+				C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */,
+				C5C286B01FC70DFF005DE4E7 /* loanRates.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -463,6 +428,7 @@
 		C54D419B1FC595A300DECD23 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C5C286941FC6A6AE005DE4E7 /* BRPickerView */,
 				C54D419C1FC595A300DECD23 /* MBProgressHUD+BR */,
 			);
 			path = Vendor;
@@ -488,6 +454,127 @@
 				C54D414F1FC5928600DECD23 /* main.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		C5C286711FC67E72005DE4E7 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		C5C286721FC67E72005DE4E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5C286731FC67E72005DE4E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5C286741FC67E72005DE4E7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286751FC67E72005DE4E7 /* BRNewsViewController.h */,
+				C5C286761FC67E72005DE4E7 /* BRNewsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5C286771FC67E85005DE4E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5C286781FC67E85005DE4E7 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286791FC67E85005DE4E7 /* BRMineHandler.h */,
+				C5C2867A1FC67E85005DE4E7 /* BRMineHandler.m */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		C5C2867B1FC67E85005DE4E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5C2867C1FC67E86005DE4E7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5C2867D1FC67E86005DE4E7 /* BRForgetPwdViewController.h */,
+				C5C2867E1FC67E86005DE4E7 /* BRForgetPwdViewController.m */,
+				C5C2867F1FC67E86005DE4E7 /* BRLoginViewController.h */,
+				C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */,
+				C5C286811FC67E86005DE4E7 /* BRMineViewController.h */,
+				C5C286821FC67E86005DE4E7 /* BRMineViewController.m */,
+				C5C286831FC67E86005DE4E7 /* BRRegisterViewController.h */,
+				C5C286841FC67E86005DE4E7 /* BRRegisterViewController.m */,
+				C5C286851FC67E86005DE4E7 /* BRResetPwdViewController.h */,
+				C5C286861FC67E86005DE4E7 /* BRResetPwdViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5C286941FC6A6AE005DE4E7 /* BRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286951FC6A6AE005DE4E7 /* AddressPickerView */,
+				C5C2869B1FC6A6AE005DE4E7 /* Base */,
+				C5C2869E1FC6A6AE005DE4E7 /* BRPickerView.h */,
+				C5C2869F1FC6A6AE005DE4E7 /* DatePickerView */,
+				C5C286A21FC6A6AE005DE4E7 /* StringPickerView */,
+			);
+			path = BRPickerView;
+			sourceTree = "<group>";
+		};
+		C5C286951FC6A6AE005DE4E7 /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286961FC6A6AE005DE4E7 /* BRAddressModel.h */,
+				C5C286971FC6A6AE005DE4E7 /* BRAddressModel.m */,
+				C5C286981FC6A6AE005DE4E7 /* BRAddressPickerView.h */,
+				C5C286991FC6A6AE005DE4E7 /* BRAddressPickerView.m */,
+				C5C2869A1FC6A6AE005DE4E7 /* BRCity.plist */,
+			);
+			path = AddressPickerView;
+			sourceTree = "<group>";
+		};
+		C5C2869B1FC6A6AE005DE4E7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C5C2869C1FC6A6AE005DE4E7 /* BRBaseView.h */,
+				C5C2869D1FC6A6AE005DE4E7 /* BRBaseView.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C5C2869F1FC6A6AE005DE4E7 /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286A01FC6A6AE005DE4E7 /* BRDatePickerView.h */,
+				C5C286A11FC6A6AE005DE4E7 /* BRDatePickerView.m */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		C5C286A21FC6A6AE005DE4E7 /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C286A31FC6A6AE005DE4E7 /* BRStringPickerView.h */,
+				C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */,
+			);
+			path = StringPickerView;
 			sourceTree = "<group>";
 		};
 		E7E968F897B3C71A40169073 /* Pods */ = {
@@ -561,8 +648,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C54D414D1FC5928600DECD23 /* LaunchScreen.storyboard in Resources */,
+				C5C286AF1FC6FCD7005DE4E7 /* loanTime.plist in Resources */,
 				C54D414A1FC5928600DECD23 /* Assets.xcassets in Resources */,
 				C54D41481FC5928600DECD23 /* Main.storyboard in Resources */,
+				C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,39 +717,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C286A51FC6A6CD005DE4E7 /* BRAddressModel.m in Sources */,
+				C5C286A61FC6A6CD005DE4E7 /* BRAddressPickerView.m in Sources */,
+				C5C286A71FC6A6CD005DE4E7 /* BRBaseView.m in Sources */,
+				C5C286A81FC6A6CD005DE4E7 /* BRDatePickerView.m in Sources */,
+				C5C286A91FC6A6CD005DE4E7 /* BRStringPickerView.m in Sources */,
+				C5C286871FC67F23005DE4E7 /* BRNewsViewController.m in Sources */,
+				C5C286881FC67F23005DE4E7 /* BRMineHandler.m in Sources */,
+				C5C286891FC67F23005DE4E7 /* BRForgetPwdViewController.m in Sources */,
+				C5C2868A1FC67F23005DE4E7 /* BRLoginViewController.m in Sources */,
+				C5C2868B1FC67F23005DE4E7 /* BRMineViewController.m in Sources */,
+				C5C2868C1FC67F23005DE4E7 /* BRRegisterViewController.m in Sources */,
+				C5C2868D1FC67F23005DE4E7 /* BRResetPwdViewController.m in Sources */,
 				C50C2B0F1FC65F0900D23C85 /* BRResultModel.m in Sources */,
-				C50C2B071FC59F4B00D23C85 /* BRMineHandler.m in Sources */,
-				C50C2B041FC59E1B00D23C85 /* BRForgetPwdViewController.m in Sources */,
 				C50C2AD81FC5980E00D23C85 /* HttpTool.m in Sources */,
 				C50C2AD91FC5980E00D23C85 /* NSArray+BRAdd.m in Sources */,
 				C50C2ADA1FC5980E00D23C85 /* NSDictionary+BRAdd.m in Sources */,
-				C50C2B021FC59E1B00D23C85 /* BRResetPwdViewController.m in Sources */,
 				C50C2ADB1FC5980E00D23C85 /* NSObject+Parse.m in Sources */,
 				C50C2ADC1FC5980E00D23C85 /* NSString+BRAdd.m in Sources */,
 				C50C2ADD1FC5980E00D23C85 /* UIButton+CountDown.m in Sources */,
 				C50C2B0C1FC65EF200D23C85 /* BRInputModel.m in Sources */,
-				C50C2B011FC59E1B00D23C85 /* BRLoginViewController.m in Sources */,
 				C50C2ADE1FC5980E00D23C85 /* UIImage+BRAdd.m in Sources */,
 				C50C2ADF1FC5980E00D23C85 /* UIImageView+BRAdd.m in Sources */,
+				C5C286931FC69ED1005DE4E7 /* UIView+BRAdd.m in Sources */,
 				C50C2AE01FC5980E00D23C85 /* UIScrollView+Refresh.m in Sources */,
 				C50C2AE11FC5980E00D23C85 /* BRUserHelper.m in Sources */,
 				C50C2AE21FC5980E00D23C85 /* MBProgressHUD+BR.m in Sources */,
-				C50C2B031FC59E1B00D23C85 /* BRRegisterViewController.m in Sources */,
 				C54D417B1FC594DE00DECD23 /* BRMyViewController.m in Sources */,
 				C54D41501FC5928600DECD23 /* main.m in Sources */,
 				C50C2B121FC6609300D23C85 /* BRMortgageHelper.m in Sources */,
-				C50C2AF51FC59CBE00D23C85 /* BRNewsViewController.m in Sources */,
+				C5C2866A1FC67A57005DE4E7 /* BRBusinessLoanViewController.m in Sources */,
+				C5C286701FC67BF1005DE4E7 /* BRCombinedLoanViewController.m in Sources */,
 				C54D417C1FC594DE00DECD23 /* BRWebViewController.m in Sources */,
 				C54D41761FC594DE00DECD23 /* BRLaunchingViewController.m in Sources */,
 				C54D415A1FC5937400DECD23 /* AppDelegate+Category.m in Sources */,
 				C54D41641FC5948700DECD23 /* BaseHandler.m in Sources */,
+				C5C2866D1FC67A8C005DE4E7 /* BRFundLoanViewController.m in Sources */,
 				C54D41421FC5928600DECD23 /* AppDelegate.m in Sources */,
 				C54D417A1FC594DE00DECD23 /* WapWebViewController.m in Sources */,
 				C54D41671FC594B700DECD23 /* BaseViewController.m in Sources */,
 				C50C2AF21FC59C7E00D23C85 /* BRHomeViewController.m in Sources */,
 				C54D415D1FC593B000DECD23 /* AppDelegate+Push.m in Sources */,
 				C54D41771FC594DE00DECD23 /* BRNavigationController.m in Sources */,
-				C50C2AF81FC59CDC00D23C85 /* BRMineViewController.m in Sources */,
 				C54D41791FC594DE00DECD23 /* BRTabBarController.m in Sources */,
 				C54D41781FC594DE00DECD23 /* BRTabBarButton.m in Sources */,
 			);

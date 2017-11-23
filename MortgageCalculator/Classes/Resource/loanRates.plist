@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>最新基准利率7折（3.43%）</string>
+	<string>最新基准利率7.5折（3.68%）</string>
+	<string>最新基准利率8折（3.92%）</string>
+	<string>最新基准利率8.5折（4.17%）</string>
+	<string>最新基准利率9折（4.41%）</string>
+	<string>最新基准利率9.5折（4.66%）</string>
+	<string>最新基准利率（4.90%）</string>
+	<string>最新基准利率1.05倍（5.15%）</string>
+	<string>最新基准利率1.1倍（5.39%）</string>
+	<string>最新基准利率1.2倍（5.88%）</string>
+	<string>最新基准利率1.3倍（6.37%）</string>
+</array>
+</plist>

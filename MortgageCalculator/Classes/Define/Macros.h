@@ -27,8 +27,7 @@
 
 #define TABBAR_HEIGHT 49
 
-#define CustomBlack RGB(110, 110, 110, 1) //自定义黑色
-#define NavColor RGB(242, 242, 242, 1)
+#define kThemeColor RGB_HEX(0x46b2f0, 1.0f)
 
 // 一个像素点
 #define LINE_HEIGHT (1 / [UIScreen mainScreen].scale)

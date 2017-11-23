@@ -47,7 +47,7 @@
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.keyboardDistanceFromTextField = 100 * kScaleFit;
     // 控制是否显示键盘上的工具条
-    manager.enableAutoToolbar = NO;
+    manager.enableAutoToolbar = YES;
 }
 
 - (void)dealloc {
