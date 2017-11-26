@@ -9,21 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface BRInputModel : NSObject
-/** 单价 */
-@property (nonatomic, assign) CGFloat unitPrice;
-/** 面积 */
-@property (nonatomic, assign) CGFloat area;
 /** 商业贷款总额 */
-@property (nonatomic, assign) CGFloat businessTotalPrice;
+@property (nonatomic, assign) NSInteger businessTotalPrice;
 /** 公积金贷款总额 */
-@property (nonatomic, assign) CGFloat fundTotalPrice;
+@property (nonatomic, assign) NSInteger fundTotalPrice;
+/** 单价 */
+@property (nonatomic, assign) double unitPrice;
+/** 面积 */
+@property (nonatomic, assign) double area;
 /** 按揭年数 */
 @property (nonatomic, assign) NSInteger mortgageYear;
 /** 按揭成数 */
 @property (nonatomic, assign) NSInteger mortgageMulti;
 /** 银行利率 */
-@property (nonatomic, assign) CGFloat bankRate;
+@property (nonatomic, assign) double bankRate;
 /** 公积金利率 */
-@property (nonatomic, assign) CGFloat fundRate;
+@property (nonatomic, assign) double fundRate;
 
 @end

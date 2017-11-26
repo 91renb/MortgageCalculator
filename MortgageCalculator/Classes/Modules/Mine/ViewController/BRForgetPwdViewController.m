@@ -59,7 +59,7 @@
 #pragma mark - 设置UI
 - (void)initUI {
     //白色背景视图
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
     [backView setBackgroundColor:[UIColor whiteColor]];
     backView.layer.borderWidth = 0.4;
     backView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;

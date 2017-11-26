@@ -11,6 +11,7 @@
 #import "BRUserHelper.h"
 #import "NSString+BRAdd.h"
 #import <UIView+YYAdd.h>
+#import "UIImage+BRAdd.h"
 
 #define kHeaderH 200 * kScaleFit
 
@@ -81,16 +82,16 @@
 /** 自定义导航栏 */
 - (void)setupNav {
     // 背景图片
-    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAV_HEIGHT)];
     bgImageView.backgroundColor = [UIColor clearColor];
-    bgImageView.image = [UIImage imageNamed:@"navbar_bg"];
+    bgImageView.image = [UIImage imageWithColor:RGB_HEX(0x4181e1, 1.0f)];
     [self.view addSubview:bgImageView];
     bgImageView.alpha = 0;
     self.navBgImageView = bgImageView;
     
     // 设置分割线
     CGFloat lineHeight = 1 / [UIScreen mainScreen].scale; // 一个像素点
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 64 - lineHeight, SCREEN_WIDTH, lineHeight)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - lineHeight, SCREEN_WIDTH, lineHeight)];
     lineView.backgroundColor = RGB_HEX(0XE3E3E3, 1.0);
     [bgImageView addSubview:lineView];
     
@@ -102,7 +103,7 @@
     titleLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(20);
+        make.top.mas_equalTo(STATUSBAR_HEIGHT);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
@@ -373,7 +374,7 @@
         _headView.height = kHeaderH;
         
         // headerImageView 的最小高度
-        CGFloat minHeight = kHeaderH - 64;
+        CGFloat minHeight = kHeaderH - NAV_HEIGHT;
         _headView.top = -MIN(offsetY, minHeight);
         // 设置透明度
         CGFloat alpha = 1 - (offsetY / minHeight);

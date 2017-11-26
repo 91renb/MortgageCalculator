@@ -83,7 +83,7 @@
 - (UITextField *)getTextField:(UITableViewCell *)cell rightMargin:(CGFloat)rightMargin {
     UITextField *textField = [[UITextField alloc]init];
     textField.backgroundColor = [UIColor clearColor];
-    textField.textColor = RGB_HEX(0x464646, 1.0f);
+    textField.textColor = kTextDefaultColor;
     textField.font = [UIFont systemFontOfSize:14.0f * kScaleFit];
     textField.textAlignment = NSTextAlignmentRight;
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone; // 关闭首字母大写

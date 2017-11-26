@@ -56,6 +56,8 @@
 		C5C286A91FC6A6CD005DE4E7 /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */; };
 		C5C286AF1FC6FCD7005DE4E7 /* loanTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */; };
 		C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286B01FC70DFF005DE4E7 /* loanRates.plist */; };
+		C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */; };
+		C5C287101FCAA7C3005DE4E7 /* BRCalculateResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */; };
 		E2BC6EBA81495840BB780812 /* libPods-MortgageCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B658DF9A1BB2760BC0954 /* libPods-MortgageCalculator.a */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +166,10 @@
 		C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
 		C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanTime.plist; sourceTree = "<group>"; };
 		C5C286B01FC70DFF005DE4E7 /* loanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanRates.plist; sourceTree = "<group>"; };
+		C5C286B21FC82513005DE4E7 /* BRCalculateResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultViewController.h; sourceTree = "<group>"; };
+		C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultViewController.m; sourceTree = "<group>"; };
+		C5C2870E1FCAA7C3005DE4E7 /* BRCalculateResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultCell.h; sourceTree = "<group>"; };
+		C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultCell.m; sourceTree = "<group>"; };
 		E40FA558D620B74354F7C4D4 /* Pods-MortgageCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortgageCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MortgageCalculator/Pods-MortgageCalculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +204,8 @@
 				C5C2866C1FC67A8C005DE4E7 /* BRFundLoanViewController.m */,
 				C5C2866E1FC67BF1005DE4E7 /* BRCombinedLoanViewController.h */,
 				C5C2866F1FC67BF1005DE4E7 /* BRCombinedLoanViewController.m */,
+				C5C286B21FC82513005DE4E7 /* BRCalculateResultViewController.h */,
+				C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 		C50C2AE41FC59BB100D23C85 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5C2870E1FCAA7C3005DE4E7 /* BRCalculateResultCell.h */,
+				C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,14 +522,14 @@
 		C5C2867C1FC67E86005DE4E7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C5C2867D1FC67E86005DE4E7 /* BRForgetPwdViewController.h */,
-				C5C2867E1FC67E86005DE4E7 /* BRForgetPwdViewController.m */,
-				C5C2867F1FC67E86005DE4E7 /* BRLoginViewController.h */,
-				C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */,
 				C5C286811FC67E86005DE4E7 /* BRMineViewController.h */,
 				C5C286821FC67E86005DE4E7 /* BRMineViewController.m */,
+				C5C2867F1FC67E86005DE4E7 /* BRLoginViewController.h */,
+				C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */,
 				C5C286831FC67E86005DE4E7 /* BRRegisterViewController.h */,
 				C5C286841FC67E86005DE4E7 /* BRRegisterViewController.m */,
+				C5C2867D1FC67E86005DE4E7 /* BRForgetPwdViewController.h */,
+				C5C2867E1FC67E86005DE4E7 /* BRForgetPwdViewController.m */,
 				C5C286851FC67E86005DE4E7 /* BRResetPwdViewController.h */,
 				C5C286861FC67E86005DE4E7 /* BRResetPwdViewController.m */,
 			);
@@ -746,6 +756,7 @@
 				C54D417B1FC594DE00DECD23 /* BRMyViewController.m in Sources */,
 				C54D41501FC5928600DECD23 /* main.m in Sources */,
 				C50C2B121FC6609300D23C85 /* BRMortgageHelper.m in Sources */,
+				C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */,
 				C5C2866A1FC67A57005DE4E7 /* BRBusinessLoanViewController.m in Sources */,
 				C5C286701FC67BF1005DE4E7 /* BRCombinedLoanViewController.m in Sources */,
 				C54D417C1FC594DE00DECD23 /* BRWebViewController.m in Sources */,
@@ -753,6 +764,7 @@
 				C54D415A1FC5937400DECD23 /* AppDelegate+Category.m in Sources */,
 				C54D41641FC5948700DECD23 /* BaseHandler.m in Sources */,
 				C5C2866D1FC67A8C005DE4E7 /* BRFundLoanViewController.m in Sources */,
+				C5C287101FCAA7C3005DE4E7 /* BRCalculateResultCell.m in Sources */,
 				C54D41421FC5928600DECD23 /* AppDelegate.m in Sources */,
 				C54D417A1FC594DE00DECD23 /* WapWebViewController.m in Sources */,
 				C54D41671FC594B700DECD23 /* BaseViewController.m in Sources */,

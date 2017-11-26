@@ -9,8 +9,9 @@
 #import "BRResultModel.h"
 
 @implementation BRResultModel
-- (NSString *)description {
-    return [NSString stringWithFormat:@"贷款总额: %f \n 还款总额: %f \n 支付利息: %f \n 按揭年数: %f \n 月均还款: %f \n 首月还款: %f \n ", self.loanTotalPrice, self.repayTotalPrice, self.interestPayment, self.mortgageYear, self.avgMonthRepayment, self.firstMonthRepayment];
-}
+
+@end
+
+@implementation BRMonthResultModel
 
 @end

@@ -22,12 +22,20 @@
 
 #define SuccessFlag 0
 
-/// 导航栏的高度
-#define NAV_HEIGHT 64
 
-#define TABBAR_HEIGHT 49
+// 状态栏的高度(20 / 44(iPhoneX))
+#define STATUSBAR_HEIGHT ([UIApplication sharedApplication].statusBarFrame.size.height)
+// 标题栏的高度(44)
+#define NAVBAR_HEIGHT (self.navigationController.navigationBar.frame.size.height)
+/// 导航栏的高度(64 / 88(iPhoneX))
+#define NAV_HEIGHT (STATUSBAR_HEIGHT + NAVBAR_HEIGHT)
+
+/// tabbar高度：49 / 83(iPhoneX)
+#define TABBAR_HEIGHT ((STATUSBAR_HEIGHT == 44) ? 83 : 49)
 
 #define kThemeColor RGB_HEX(0x46b2f0, 1.0f)
+
+#define kTextDefaultColor RGB_HEX(0x464646, 1.0f)
 
 // 一个像素点
 #define LINE_HEIGHT (1 / [UIScreen mainScreen].scale)

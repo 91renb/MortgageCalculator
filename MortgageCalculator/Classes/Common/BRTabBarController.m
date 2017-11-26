@@ -97,7 +97,7 @@
 
 - (UIView *)customTabBarView {
     if (!_customTabBarView) {
-        _customTabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49.0f)];
+        _customTabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT)];
         _customTabBarView.backgroundColor = [UIColor whiteColor];
         [self.tabBar addSubview:_customTabBarView];
     }
@@ -108,7 +108,7 @@
 - (void)setupTabBarButton {
     NSInteger num = self.viewControllers.count;
     for(int i = 0; i < num; i++) {
-        BRTabBarButton *btn = [[BRTabBarButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / num * i, 0, SCREEN_WIDTH / num, 49.0)];
+        BRTabBarButton *btn = [[BRTabBarButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / num * i, 0, SCREEN_WIDTH / num, 49.0f)];
         // 默认文字颜色
         [btn setTitleColor:RGB_HEX(0x8a8a8a, 1.0f) forState:UIControlStateNormal];
         // 选中文字颜色
