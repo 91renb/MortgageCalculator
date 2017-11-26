@@ -108,8 +108,12 @@
         avgMonthRepayLabel.textColor = RGB_HEX(0xeeeeee, 1.0f);
         avgMonthRepayLabel.numberOfLines = 0;
         avgMonthRepayLabel.textAlignment = NSTextAlignmentCenter;
-        NSString *avgMonthRepayText = [NSString stringWithFormat:@"每月月供\n %@元", self.resultModel.avgMonthRepayment];
+        NSString *avgMonthRepayText = [NSString stringWithFormat:@"月均还款\n %@元", self.resultModel.avgMonthRepayment];
         NSString *changeText = [NSString stringWithFormat:@"%@", self.resultModel.avgMonthRepayment];
+        if (self.repaymentWay == BRRepaymentWayPriceSame) {
+            avgMonthRepayText = [NSString stringWithFormat:@"首月还款\n %@元", self.resultModel.firstMonthRepayment];
+            changeText = [NSString stringWithFormat:@"%@", self.resultModel.firstMonthRepayment];
+        }
         avgMonthRepayLabel.attributedText = [self setLabelText:avgMonthRepayText changeText:changeText changeFont:[UIFont systemFontOfSize:28.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:10 * kScaleFit];
         [_headView addSubview:avgMonthRepayLabel];
         [avgMonthRepayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,21 +121,37 @@
             make.centerX.mas_equalTo(_headView.mas_centerX);
             make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 70 * kScaleFit));
         }];
-        // 累计还款金额
+        // 还款总额
         UILabel *repayTotalPriceLabel = [[UILabel alloc]init];
         repayTotalPriceLabel.backgroundColor = [UIColor clearColor];
         repayTotalPriceLabel.font = [UIFont systemFontOfSize:12.0f * kScaleFit];
         repayTotalPriceLabel.textColor = RGB_HEX(0xeeeeee, 1.0f);
         repayTotalPriceLabel.numberOfLines = 0;
         repayTotalPriceLabel.textAlignment = NSTextAlignmentCenter;
-        NSString *repayTotalPriceText = [NSString stringWithFormat:@"累计还款金额(元)\n %@", self.resultModel.repayTotalPrice];
-        NSString *changeText3 = [NSString stringWithFormat:@"%@", self.resultModel.repayTotalPrice];
-        repayTotalPriceLabel.attributedText = [self setLabelText:repayTotalPriceText changeText:changeText3 changeFont:[UIFont systemFontOfSize:18.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:6 * kScaleFit];
+        NSString *repayTotalPriceText = [NSString stringWithFormat:@"还款总额(元)\n %@", self.resultModel.repayTotalPrice];
+        NSString *changeText2 = [NSString stringWithFormat:@"%@", self.resultModel.repayTotalPrice];
+        repayTotalPriceLabel.attributedText = [self setLabelText:repayTotalPriceText changeText:changeText2 changeFont:[UIFont systemFontOfSize:16.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:6 * kScaleFit];
         [_headView addSubview:repayTotalPriceLabel];
         [repayTotalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
             make.left.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 2, 60 * kScaleFit));
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
+        }];
+        // 贷款总额
+        UILabel *loanTotalPriceLabel = [[UILabel alloc]init];
+        loanTotalPriceLabel.backgroundColor = [UIColor clearColor];
+        loanTotalPriceLabel.font = [UIFont systemFontOfSize:12.0f * kScaleFit];
+        loanTotalPriceLabel.textColor = RGB_HEX(0xeeeeee, 1.0f);
+        loanTotalPriceLabel.numberOfLines = 0;
+        loanTotalPriceLabel.textAlignment = NSTextAlignmentCenter;
+        NSString *loanTotalPriceText = [NSString stringWithFormat:@"贷款总额(元)\n %@", self.resultModel.loanTotalPrice];
+        NSString *changeText3 = [NSString stringWithFormat:@"%@", self.resultModel.loanTotalPrice];
+        loanTotalPriceLabel.attributedText = [self setLabelText:loanTotalPriceText changeText:changeText3 changeFont:[UIFont systemFontOfSize:16.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:6 * kScaleFit];
+        [_headView addSubview:loanTotalPriceLabel];
+        [loanTotalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
+            make.left.mas_equalTo(SCREEN_WIDTH / 3);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
         }];
         // 累计利息
         UILabel *repayTotalInterestLabel = [[UILabel alloc]init];
@@ -141,13 +161,13 @@
         repayTotalInterestLabel.numberOfLines = 0;
         repayTotalInterestLabel.textAlignment = NSTextAlignmentCenter;
         NSString *repayTotalInterestText = [NSString stringWithFormat:@"累计利息(元)\n %@", self.resultModel.repayTotalInterest];
-        NSString *changeText2 = [NSString stringWithFormat:@"%@", self.resultModel.repayTotalInterest];
-        repayTotalInterestLabel.attributedText = [self setLabelText:repayTotalInterestText changeText:changeText2 changeFont:[UIFont systemFontOfSize:18.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:6 * kScaleFit];
+        NSString *changeText4 = [NSString stringWithFormat:@"%@", self.resultModel.repayTotalInterest];
+        repayTotalInterestLabel.attributedText = [self setLabelText:repayTotalInterestText changeText:changeText4 changeFont:[UIFont systemFontOfSize:16.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:6 * kScaleFit];
         [_headView addSubview:repayTotalInterestLabel];
         [repayTotalInterestLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
-            make.right.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 2, 60 * kScaleFit));
+            make.left.mas_equalTo(SCREEN_WIDTH * 2 / 3);
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
         }];
         // 分割线
         UIView *spLineView = [[UIView alloc]init];
@@ -158,12 +178,20 @@
             make.left.mas_equalTo(0);
             make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 0.3 * kScaleFit));
         }];
-        UIView *szLineView = [[UIView alloc]init];
-        szLineView.backgroundColor = RGB_HEX(0xe2e2e2, 1.0f);
-        [_headView addSubview:szLineView];
-        [szLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        UIView *szLineView1 = [[UIView alloc]init];
+        szLineView1.backgroundColor = RGB_HEX(0xe2e2e2, 1.0f);
+        [_headView addSubview:szLineView1];
+        [szLineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(30 * kScaleFit);
-            make.left.mas_equalTo(SCREEN_WIDTH / 2);
+            make.left.mas_equalTo(SCREEN_WIDTH / 3);
+            make.size.mas_equalTo(CGSizeMake(0.5 * kScaleFit, 40 * kScaleFit));
+        }];
+        UIView *szLineView2 = [[UIView alloc]init];
+        szLineView2.backgroundColor = RGB_HEX(0xe2e2e2, 1.0f);
+        [_headView addSubview:szLineView2];
+        [szLineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(30 * kScaleFit);
+            make.left.mas_equalTo(SCREEN_WIDTH * 2 / 3);
             make.size.mas_equalTo(CGSizeMake(0.5 * kScaleFit, 40 * kScaleFit));
         }];
     }

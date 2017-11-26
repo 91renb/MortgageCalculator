@@ -29,7 +29,7 @@
 }
 
 - (void)setMonthResultModel:(BRMonthResultModel *)monthResultModel {
-    self.numberLabel.text = [NSString stringWithFormat:@"第%@期", monthResultModel.number];
+    self.numberLabel.text = [NSString stringWithFormat:@"第 %@ 期", monthResultModel.number];
     self.totalPriceLabel.text = monthResultModel.monthRepayTotalPrice;
     self.priceLabel.text = monthResultModel.monthRepayPrice;
     self.interestLabel.text = monthResultModel.monthRepayInterest;

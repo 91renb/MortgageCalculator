@@ -454,15 +454,14 @@ typedef enum : NSUInteger {
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
     if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:inputModel];
-        NSArray *monthRepaymentArr = resultModel.monthRepaymentArr;
-        NSLog(@"计算结果：%@", resultModel);
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
+        calculateResultVC.repaymentWay = BRRepaymentWayPriceInterestSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:inputModel];
-        NSLog(@"计算结果：%@", resultModel);
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
+        calculateResultVC.repaymentWay = BRRepaymentWayPriceSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     }

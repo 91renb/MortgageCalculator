@@ -51,7 +51,7 @@
     // 贷款总额
     resultModel.loanTotalPrice = [NSString stringWithFormat:@"%zi", loanTotalPrice];
     // 首月还款（等额本息时，等于月均还款）
-    resultModel.firstMonthRepayment = [NSString stringWithFormat:@"%.2f", avgMonthRepayment];
+    //resultModel.firstMonthRepayment = [NSString stringWithFormat:@"%.2f", avgMonthRepayment];
     // 月均还款
     resultModel.avgMonthRepayment = [NSString stringWithFormat:@"%.2f", avgMonthRepayment];
     // 还款总利息
@@ -63,41 +63,55 @@
     
     return resultModel;
 }
+
 #pragma mark 按商业贷款等额本金总价计算(总价)
 + (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel {
     NSLog(@"按商业贷款等额本金总价计算(总价)");
-    // 每月还款数组
-    NSMutableArray *monthRepaymentArr = [[NSMutableArray alloc] init];
     // 贷款总额
-    CGFloat loanTotalPrice = calcModel.businessTotalPrice * 10000;
-    // 月利率
-    CGFloat monthRate = calcModel.bankRate / 100.0 / 12.0;
+    NSInteger loanTotalPrice = calcModel.businessTotalPrice * 10000;
     // 贷款月数
     NSInteger loanMonthCount = calcModel.mortgageYear * 12;
-    // 每月所还本金（每月还款）
-    CGFloat avgMonthPrincipalRepayment = loanTotalPrice / loanMonthCount;
+    // 月利率
+    double monthRate = calcModel.bankRate / 100.0 / 12.0;
+    // 每月应还本金 = 贷款本金 ÷ 还款月数
+    double avgMonthPrincipalRepayment = loanTotalPrice / (loanMonthCount * 1.0);
     // 还款总额
-    CGFloat repayTotalPrice = 0;
+    double repayTotalPrice = 0;
+    // 每月还款模型数组
+    NSMutableArray *monthRepaymentArr = [[NSMutableArray alloc] init];
     for (int i = 0; i < loanMonthCount; i++) {
-        // 每月还款
-        // 公式：每月还款 + (贷款总额 - 每月还款 * i) * 月利率
-        CGFloat monthRepayment = avgMonthPrincipalRepayment + (loanTotalPrice - avgMonthPrincipalRepayment * i) * monthRate;
-        [monthRepaymentArr addObject:[NSString stringWithFormat:@"%f", monthRepayment]];
-        repayTotalPrice += monthRepayment;
+        BRMonthResultModel *monthResultModel = [[BRMonthResultModel alloc]init];
+        monthResultModel.number = [NSString stringWithFormat:@"%zi", i + 1];
+        monthResultModel.monthRepayPrice = [NSString stringWithFormat:@"%.2f", avgMonthPrincipalRepayment];
+        // 每月月供额 = 每月应还本金 + (贷款总额 - 每月应还本金 * i) * 月利率
+        CGFloat monthRepayTotalPrice = avgMonthPrincipalRepayment + (loanTotalPrice - avgMonthPrincipalRepayment * i) * monthRate;
+        monthResultModel.monthRepayTotalPrice = [NSString stringWithFormat:@"%.2f", monthRepayTotalPrice];
+        // 每月应还利息 = 剩余本金 × 月利率 = (贷款总额 - 每月应还本金 * i) × 月利率
+        CGFloat monthRepayInterest = (loanTotalPrice - avgMonthPrincipalRepayment * i) * monthRate;
+        monthResultModel.monthRepayInterest = [NSString stringWithFormat:@"%.2f", monthRepayInterest];
+        
+        [monthRepaymentArr addObject:monthResultModel];
+        // 累加每月月供额
+        repayTotalPrice += monthRepayTotalPrice;
     }
-    // 支付利息
-    CGFloat interestPayment = repayTotalPrice - calcModel.businessTotalPrice;
+    // 还款总利息 = 还款总额 - 贷款总额
+    double repayTotalInterest = repayTotalPrice - loanTotalPrice;
     
-    BRResultModel *resultModel = [BRResultModel new];
-//    resultModel.loanTotalPrice           = loanTotalPrice;
-//    resultModel.repayTotalPrice          = repayTotalPrice;
-//    resultModel.interestPayment          = interestPayment;
-//    resultModel.mortgageYear             = calcModel.mortgageYear;
-//    resultModel.mortgageMonth            = loanMonthCount;
-//    resultModel.avgMonthRepayment        = [[monthRepaymentArr firstObject] doubleValue];;
-//    resultModel.firstMonthRepayment      = avgMonthPrincipalRepayment;
+    BRResultModel *resultModel = [[BRResultModel alloc]init];
+    // 贷款总额
+    resultModel.loanTotalPrice = [NSString stringWithFormat:@"%zi", loanTotalPrice];
+    // 首月还款（等额本息时，等于月均还款）
+    BRMonthResultModel *firstMonthResultModel = [monthRepaymentArr firstObject];
+    resultModel.firstMonthRepayment = [NSString stringWithFormat:@"%@", firstMonthResultModel.monthRepayTotalPrice];
+    // 还款总利息
+    resultModel.repayTotalInterest = [NSString stringWithFormat:@"%.2f", repayTotalInterest];
+    // 还款总额
+    resultModel.repayTotalPrice = [NSString stringWithFormat:@"%.2f", repayTotalPrice];
+    // 每月还款数组
+    resultModel.monthRepaymentArr = monthRepaymentArr;
     return resultModel;
 }
+
 #pragma mark 按商业贷款等额本息单价计算(单价和面积)
 + (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel {
     NSLog(@"按商业贷款等额本息单价计算(单价和面积)");
