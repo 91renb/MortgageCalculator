@@ -50,8 +50,8 @@
     // 1.初始化数据
     _childVCArr = @[@"BRHomeViewController", @"BRNewsViewController", @"BRMineViewController"];
     _titleArr = @[@"首页", @"资讯", @"我的"];
-    _imageArr = @[@"tabbar_home", @"tabbar_kaijiang", @"tabbar_mine"];
-    _selImageArr = @[@"tabbar_home_sel", @"tabbar_kaijiang_sel", @"tabbar_mine_sel"];
+    _imageArr = @[@"tabbar_home", @"tabbar_news", @"tabbar_mine"];
+    _selImageArr = @[@"tabbar_home_sel", @"tabbar_news_sel", @"tabbar_mine_sel"];
     // 2.设置控制器
     [self setupChildControllers];
 }
@@ -110,9 +110,9 @@
     for(int i = 0; i < num; i++) {
         BRTabBarButton *btn = [[BRTabBarButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / num * i, 0, SCREEN_WIDTH / num, 49.0f)];
         // 默认文字颜色
-        [btn setTitleColor:RGB_HEX(0x8a8a8a, 1.0f) forState:UIControlStateNormal];
+        [btn setTitleColor:RGB_HEX(0x999999, 1.0f) forState:UIControlStateNormal];
         // 选中文字颜色
-        [btn setTitleColor:RGB_HEX(0xfd8b47, 1.0f) forState:UIControlStateSelected];
+        [btn setTitleColor:RGB_HEX(0x4191e1, 1.0f) forState:UIControlStateSelected];
         btn.titleLabel.font = [UIFont systemFontOfSize:10.0f];
         [btn setTitle:_titleArr[i] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:_imageArr[i]] forState:UIControlStateNormal];
