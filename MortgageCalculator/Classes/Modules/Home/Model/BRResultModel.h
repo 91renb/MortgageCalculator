@@ -23,14 +23,6 @@
 /** 每月还款数组 */
 @property (nonatomic, strong) NSMutableArray *monthRepaymentArr;
 
-
-/* 房屋总价 */
-@property (nonatomic, strong) NSString *houseTotalPrice;
-/** 按揭年数 */
-@property (nonatomic, strong) NSString *mortgageYear;
-/** 按揭月数 */
-@property (nonatomic, strong) NSString *mortgageMonth;
-
 @end
 
 /// 月还款模型

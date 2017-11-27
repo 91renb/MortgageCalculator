@@ -369,7 +369,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return 20.0f * kScaleFit;
+        return 12.0f * kScaleFit;
     }
     return 10.0f * kScaleFit;
 }

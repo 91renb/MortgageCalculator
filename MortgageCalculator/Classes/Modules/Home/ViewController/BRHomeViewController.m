@@ -14,6 +14,8 @@
 
 @interface BRHomeViewController ()<WMPageControllerDataSource, WMPageControllerDelegate>
 @property (nonatomic, strong) WMPageController *pageController;
+@property (nonatomic, strong) UIView *lineView;
+
 @property (nonatomic, strong) NSArray *titleData;
 
 @end
@@ -29,6 +31,7 @@
 - (void)initUI {
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
+    [self.view addSubview:self.lineView];
 }
 
 - (WMPageController *)pageController {
@@ -37,17 +40,28 @@
         _pageController.viewFrame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT);
         _pageController.menuBGColor = [UIColor whiteColor];
         _pageController.titleSizeNormal = 15.0f * kScaleFit;
-        _pageController.titleSizeSelected = 15.0f * kScaleFit;
+        _pageController.titleSizeSelected = 16.0f * kScaleFit;
         _pageController.titleColorNormal = RGB_HEX(0x999999, 1.0f);
         _pageController.titleColorSelected = kThemeColor;
-        //_pageController.progressColor = kThemeColor;
-        _pageController.menuViewStyle = WMMenuViewStyleLine;
+        _pageController.progressColor = kThemeColor;
+        _pageController.menuViewStyle = WMMenuViewStyleTriangle;
+        //_pageController.progressWidth = 6;
+        _pageController.progressViewWidths = @[@(12 * kScaleFit), @(12 * kScaleFit), @(12 * kScaleFit)];
+        _pageController.progressHeight = 6.0f * kScaleFit;
         _pageController.menuItemWidth = SCREEN_WIDTH / self.titleData.count;
-        _pageController.menuHeight = 40;
+        _pageController.menuHeight = 40 * kScaleFit;
         _pageController.dataSource = self;
         _pageController.delegate = self;
     }
     return _pageController;
+}
+
+- (UIView *)lineView {
+    if (!_lineView) {
+        _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT + 40 * kScaleFit, SCREEN_WIDTH, 1.5f * kScaleFit)];
+        _lineView.backgroundColor = kThemeColor;
+    }
+    return _lineView;
 }
 
 #pragma mark - WMPageControllerDataSource, WMPageControllerDelegate
