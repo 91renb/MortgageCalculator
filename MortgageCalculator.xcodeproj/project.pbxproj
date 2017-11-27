@@ -58,6 +58,7 @@
 		C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286B01FC70DFF005DE4E7 /* loanRates.plist */; };
 		C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */; };
 		C5C287101FCAA7C3005DE4E7 /* BRCalculateResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */; };
+		C5C287121FCBC028005DE4E7 /* fundLoanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */; };
 		E2BC6EBA81495840BB780812 /* libPods-MortgageCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B658DF9A1BB2760BC0954 /* libPods-MortgageCalculator.a */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +171,7 @@
 		C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultViewController.m; sourceTree = "<group>"; };
 		C5C2870E1FCAA7C3005DE4E7 /* BRCalculateResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultCell.h; sourceTree = "<group>"; };
 		C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultCell.m; sourceTree = "<group>"; };
+		C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fundLoanRates.plist; sourceTree = "<group>"; };
 		E40FA558D620B74354F7C4D4 /* Pods-MortgageCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortgageCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MortgageCalculator/Pods-MortgageCalculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -431,6 +433,7 @@
 				C54D419A1FC5958900DECD23 /* LaunchImage@2x.png */,
 				C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */,
 				C5C286B01FC70DFF005DE4E7 /* loanRates.plist */,
+				C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				C54D414A1FC5928600DECD23 /* Assets.xcassets in Resources */,
 				C54D41481FC5928600DECD23 /* Main.storyboard in Resources */,
 				C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */,
+				C5C287121FCBC028005DE4E7 /* fundLoanRates.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

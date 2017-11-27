@@ -291,6 +291,7 @@
         if ([result containsString:@"折"]) {
             result = [result stringByReplacingOccurrencesOfString:@"折" withString:@""];
             CGFloat rate = [result floatValue];
+            // 加 0.0005 的目的是四舍五入
             result = [NSString stringWithFormat:@"%.2f", (rate / 10.0) * _currentStandRates + 0.0005];
             self.loanRatesTF.text = _loanRatesValue = result;
         } else if ([result containsString:@"倍"]) {
