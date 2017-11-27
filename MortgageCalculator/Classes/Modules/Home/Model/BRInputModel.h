@@ -14,9 +14,9 @@
 /** 公积金贷款总额 */
 @property (nonatomic, assign) NSInteger fundTotalPrice;
 /** 单价 */
-@property (nonatomic, assign) double unitPrice;
+@property (nonatomic, assign) NSInteger unitPrice;
 /** 面积 */
-@property (nonatomic, assign) double area;
+@property (nonatomic, assign) NSInteger area;
 /** 按揭年数 */
 @property (nonatomic, assign) NSInteger mortgageYear;
 /** 按揭成数 */

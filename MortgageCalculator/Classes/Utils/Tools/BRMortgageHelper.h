@@ -13,13 +13,13 @@
 /** =================================== 商业贷款 =================================== */
 
 /** 按商业贷款等额本息总价计算(总价) */
-+ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel;
++ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)inputModel;
 /** 按商业贷款等额本金总价计算(总价) */
-+ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel;
++ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)inputModel;
 /** 按商业贷款等额本息单价计算(单价和面积) */
-+ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel;
++ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)inputModel;
 /** 按商业贷款等额本金单价计算(单价和面积) */
-+ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel;
++ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)inputModel;
 
 /** =================================== 公积金贷款 =================================== */
 

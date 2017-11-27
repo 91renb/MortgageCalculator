@@ -114,6 +114,10 @@
             avgMonthRepayText = [NSString stringWithFormat:@"首月还款\n %@元", self.resultModel.firstMonthRepayment];
             changeText = [NSString stringWithFormat:@"%@", self.resultModel.firstMonthRepayment];
         }
+        if (self.calculateWay == BRCalculateWayUnitPriceAndArea) {
+            avgMonthRepayText = [NSString stringWithFormat:@"首期付款\n %@元", self.resultModel.firstMonthRepayment];
+            changeText = [NSString stringWithFormat:@"%@", self.resultModel.firstMonthRepayment];
+        }
         avgMonthRepayLabel.attributedText = [self setLabelText:avgMonthRepayText changeText:changeText changeFont:[UIFont systemFontOfSize:28.0f * kScaleFit] changeTextColor:[UIColor whiteColor] paragraphSpacing:10 * kScaleFit];
         [_headView addSubview:avgMonthRepayLabel];
         [avgMonthRepayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
