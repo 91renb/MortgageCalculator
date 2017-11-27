@@ -16,16 +16,16 @@ typedef enum : NSUInteger {
 
 /// 还款方式
 typedef enum : NSUInteger {
-    BRRepaymentWayPriceInterestSame,  // 等额本息
-    BRRepaymentWayPriceSame           // 等额本金
-} BRRepaymentWay;
+    BRRepayWayPriceInterestSame,  // 等额本息
+    BRRepayWayPriceSame           // 等额本金
+} BRRepayWay;
 
 @class BRResultModel;
 @interface BRCalculateResultViewController : BaseViewController
 /** 贷款计算方式 */
 @property (nonatomic, assign) BRCalculateWay calculateWay;
 /** 还款方式 */
-@property (nonatomic, assign) BRRepaymentWay repaymentWay;
+@property (nonatomic, assign) BRRepayWay repayWay;
 /** 计算结果模型 */
 @property (nonatomic, strong) BRResultModel *resultModel;
 

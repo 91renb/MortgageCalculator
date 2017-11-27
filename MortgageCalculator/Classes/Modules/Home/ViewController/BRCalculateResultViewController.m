@@ -110,7 +110,7 @@
         avgMonthRepayLabel.textAlignment = NSTextAlignmentCenter;
         NSString *avgMonthRepayText = [NSString stringWithFormat:@"月均还款\n %@元", self.resultModel.avgMonthRepayment];
         NSString *changeText = [NSString stringWithFormat:@"%@", self.resultModel.avgMonthRepayment];
-        if (self.repaymentWay == BRRepaymentWayPriceSame) {
+        if (self.repayWay == BRRepayWayPriceSame) {
             avgMonthRepayText = [NSString stringWithFormat:@"首月还款\n %@元", self.resultModel.firstMonthRepayment];
             changeText = [NSString stringWithFormat:@"%@", self.resultModel.firstMonthRepayment];
         }

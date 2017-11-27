@@ -10,32 +10,20 @@
 
 @class BRInputModel, BRResultModel;
 @interface BRMortgageHelper : NSObject
-/** =================================== 商业贷款 =================================== */
-
-/** 按商业贷款等额本息总价计算(总价) */
-+ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)inputModel;
-/** 按商业贷款等额本金总价计算(总价) */
-+ (BRResultModel *)calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)inputModel;
-/** 按商业贷款等额本息单价计算(单价和面积) */
-+ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)inputModel;
-/** 按商业贷款等额本金单价计算(单价和面积) */
-+ (BRResultModel *)calculateBusinessLoanAsUnitPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)inputModel;
-
-/** =================================== 公积金贷款 =================================== */
-
-/** 按公积金贷款等额本息总价计算(总价) */
-+ (BRResultModel *)calculateFundLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel;
-/** 按公积金贷款等额本金总价计算(总价) */
-+ (BRResultModel *)calculateFundLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel;
-/** 按公积金贷款等额本息单价计算(单价和面积) */
-+ (BRResultModel *)calculateFundLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel;
-/** 按公积金贷款等额本金单价计算(单价和面积) */
-+ (BRResultModel *)calculateFundLoanAsUnitPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel;
+/** =================================== 商业贷款/公积金贷款 =================================== */
+/** 等额本息（按总价计算） */
++ (BRResultModel *)calculateLoanAsTotalPriceAndEqualPrincipalInterest:(BRInputModel *)inputModel;
+/** 等额本金（按总价计算）*/
++ (BRResultModel *)calculateLoanAsTotalPriceAndEqualPrincipal:(BRInputModel *)inputModel;
+/** 等额本息（按单价和面积计算） */
++ (BRResultModel *)calculateLoanAsUnitPriceAreaAndEqualPrincipalInterest:(BRInputModel *)inputModel;
+/** 等额本金（按单价和面积计算） */
++ (BRResultModel *)calculateLoanAsUnitPriceAreaAndEqualPrincipal:(BRInputModel *)inputModel;
 
 /** =================================== 组合型贷款 =================================== */
-/** 按组合型贷款等额本息总价计算(总价) */
-+ (BRResultModel *)calculateCombinedLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:(BRInputModel *)calcModel;
-/** 按组合型贷款等额本金总价计算(总价) */
-+ (BRResultModel *)calculateCombinedLoanAsTotalPriceAndEqualPrincipalWithCalcModel:(BRInputModel *)calcModel;
+/** 等额本息（按总价计算） */
++ (BRResultModel *)calculateCombinedLoanAsEqualPrincipalInterest:(BRInputModel *)inputModel;
+/** 等额本金（按总价计算） */
++ (BRResultModel *)calculateCombinedLoanAsEqualPrincipal:(BRInputModel *)inputModel;
 
 @end

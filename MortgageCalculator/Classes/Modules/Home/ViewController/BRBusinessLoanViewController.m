@@ -454,17 +454,17 @@
     inputModel.mortgageYear = [self.loanTimeTF.text integerValue];
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
     if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
-        BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsTotalPriceAndEqualPrincipalInterestWithCalcModel:inputModel];
+        BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipalInterest:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
-        calculateResultVC.repaymentWay = BRRepaymentWayPriceInterestSame;
+        calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
-        BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsTotalPriceAndEqualPrincipalWithCalcModel:inputModel];
+        BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipal:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
-        calculateResultVC.repaymentWay = BRRepaymentWayPriceSame;
+        calculateResultVC.repayWay = BRRepayWayPriceSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     }
@@ -478,17 +478,17 @@
     inputModel.mortgageMulti = [self.loanPercentageTF.text integerValue];
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
     if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
-        BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsUnitPriceAndEqualPrincipalInterestWithCalcModel:inputModel];
+        BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsUnitPriceAreaAndEqualPrincipalInterest:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayUnitPriceAndArea;
-        calculateResultVC.repaymentWay = BRRepaymentWayPriceInterestSame;
+        calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
-        BRResultModel *resultModel = [BRMortgageHelper calculateBusinessLoanAsUnitPriceAndEqualPrincipalWithCalcModel:inputModel];
+        BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsUnitPriceAreaAndEqualPrincipal:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayUnitPriceAndArea;
-        calculateResultVC.repaymentWay = BRRepaymentWayPriceSame;
+        calculateResultVC.repayWay = BRRepayWayPriceSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
     }
