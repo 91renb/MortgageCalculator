@@ -66,7 +66,11 @@
 
 /** 添加脚部刷新 */
 - (void)addFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshBlock {
-    self.mj_footer=[MJRefreshAutoFooter footerWithRefreshingBlock:refreshBlock];
+    MJRefreshAutoNormalFooter *customRef = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshBlock];
+    //customRef.lastUpdatedTimeLabel.hidden = NO;
+    //customRef.stateLabel.hidden = NO;
+    self.mj_footer = customRef;
+    //self.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:refreshBlock];
 }
 /** 开始脚部刷新 */
 - (void)beginFooterRefresh {
@@ -75,6 +79,11 @@
 /** 结束脚部刷新 */
 - (void)endFooterRefresh {
     [self.mj_footer endRefreshing];
+}
+
+/** 结束脚部刷新，没有跟多数据 */
+- (void)endFooterRefreshWithNoMoreData {
+    [self.mj_footer endRefreshingWithNoMoreData];
 }
 
 @end

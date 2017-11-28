@@ -25,5 +25,7 @@
 - (void)beginFooterRefresh;
 /** 结束脚部刷新 */
 - (void)endFooterRefresh;
+/** 结束脚部刷新，没有跟多数据 */
+- (void)endFooterRefreshWithNoMoreData;
 
 @end

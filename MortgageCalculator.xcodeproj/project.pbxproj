@@ -59,6 +59,10 @@
 		C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */; };
 		C5C287101FCAA7C3005DE4E7 /* BRCalculateResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */; };
 		C5C287121FCBC028005DE4E7 /* fundLoanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */; };
+		C5C287151FCCF2F4005DE4E7 /* BRNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287141FCCF2F4005DE4E7 /* BRNewsListCell.m */; };
+		C5C287181FCCF33F005DE4E7 /* BRNewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287171FCCF33F005DE4E7 /* BRNewsListModel.m */; };
+		C5C2871B1FCD6221005DE4E7 /* BRNewsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */; };
+		C5C287211FCD7336005DE4E7 /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */; };
 		E2BC6EBA81495840BB780812 /* libPods-MortgageCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B658DF9A1BB2760BC0954 /* libPods-MortgageCalculator.a */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +176,14 @@
 		C5C2870E1FCAA7C3005DE4E7 /* BRCalculateResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultCell.h; sourceTree = "<group>"; };
 		C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultCell.m; sourceTree = "<group>"; };
 		C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fundLoanRates.plist; sourceTree = "<group>"; };
+		C5C287131FCCF2F4005DE4E7 /* BRNewsListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsListCell.h; sourceTree = "<group>"; };
+		C5C287141FCCF2F4005DE4E7 /* BRNewsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsListCell.m; sourceTree = "<group>"; };
+		C5C287161FCCF33F005DE4E7 /* BRNewsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsListModel.h; sourceTree = "<group>"; };
+		C5C287171FCCF33F005DE4E7 /* BRNewsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsListModel.m; sourceTree = "<group>"; };
+		C5C287191FCD6221005DE4E7 /* BRNewsHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsHandler.h; sourceTree = "<group>"; };
+		C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsHandler.m; sourceTree = "<group>"; };
+		C5C2871F1FCD7336005DE4E7 /* NSDate+BRAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
+		C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
 		E40FA558D620B74354F7C4D4 /* Pods-MortgageCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MortgageCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MortgageCalculator/Pods-MortgageCalculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -411,6 +423,8 @@
 				C54D41941FC5957100DECD23 /* UIScrollView+Refresh.m */,
 				C5C286911FC69ED1005DE4E7 /* UIView+BRAdd.h */,
 				C5C286921FC69ED1005DE4E7 /* UIView+BRAdd.m */,
+				C5C2871F1FCD7336005DE4E7 /* NSDate+BRAdd.h */,
+				C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -472,6 +486,8 @@
 		C5C286711FC67E72005DE4E7 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				C5C287191FCD6221005DE4E7 /* BRNewsHandler.h */,
+				C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -479,6 +495,8 @@
 		C5C286721FC67E72005DE4E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5C287131FCCF2F4005DE4E7 /* BRNewsListCell.h */,
+				C5C287141FCCF2F4005DE4E7 /* BRNewsListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +504,8 @@
 		C5C286731FC67E72005DE4E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5C287161FCCF33F005DE4E7 /* BRNewsListModel.h */,
+				C5C287171FCCF33F005DE4E7 /* BRNewsListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -751,7 +771,9 @@
 				C50C2ADC1FC5980E00D23C85 /* NSString+BRAdd.m in Sources */,
 				C50C2ADD1FC5980E00D23C85 /* UIButton+CountDown.m in Sources */,
 				C50C2B0C1FC65EF200D23C85 /* BRInputModel.m in Sources */,
+				C5C2871B1FCD6221005DE4E7 /* BRNewsHandler.m in Sources */,
 				C50C2ADE1FC5980E00D23C85 /* UIImage+BRAdd.m in Sources */,
+				C5C287151FCCF2F4005DE4E7 /* BRNewsListCell.m in Sources */,
 				C50C2ADF1FC5980E00D23C85 /* UIImageView+BRAdd.m in Sources */,
 				C5C286931FC69ED1005DE4E7 /* UIView+BRAdd.m in Sources */,
 				C50C2AE01FC5980E00D23C85 /* UIScrollView+Refresh.m in Sources */,
@@ -772,11 +794,13 @@
 				C54D41421FC5928600DECD23 /* AppDelegate.m in Sources */,
 				C54D417A1FC594DE00DECD23 /* WapWebViewController.m in Sources */,
 				C54D41671FC594B700DECD23 /* BaseViewController.m in Sources */,
+				C5C287181FCCF33F005DE4E7 /* BRNewsListModel.m in Sources */,
 				C50C2AF21FC59C7E00D23C85 /* BRHomeViewController.m in Sources */,
 				C54D415D1FC593B000DECD23 /* AppDelegate+Push.m in Sources */,
 				C54D41771FC594DE00DECD23 /* BRNavigationController.m in Sources */,
 				C54D41791FC594DE00DECD23 /* BRTabBarController.m in Sources */,
 				C54D41781FC594DE00DECD23 /* BRTabBarButton.m in Sources */,
+				C5C287211FCD7336005DE4E7 /* NSDate+BRAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #define APIConfig_h
 
 // 是否发布(0 测试环境  1 正式环境)
-#define IS_DISTRIBUTION 0
+#define IS_PRODUCT 0
 
 /** TODO:APP配置信息 */
 #define APP_ID @"c8app165" // 测试1：cbapp105  测试2：c8app165
@@ -23,7 +23,7 @@
 #define App_MyStatus @"2"           // 自定义我的状态
 
 /** TODO:服务器地址 */
-#if IS_DISTRIBUTION
+#if IS_PRODUCT
 /** ------------------发布状态------------------ */
 #define SERVER_HOST @"http://client.lotunion.com"
 
@@ -37,14 +37,16 @@
 #define AppBaseUrl [NSString stringWithFormat:@"%@/api/xxx", SERVER_HOST]
 
 /** TODO:API新闻列表地址 */
-#define API_News @"https://smapi.159cai.com/discovery/news/szc/index.json?cfrom=ios&channel=tzhongcp&version=1"
+// 分页加载：offset=0&count=10 （每次上拉，offset加10）
+#define API_NewsList @"http://o.go2yd.com/open-api/caijing/channel?appid=x01Gjdp0kvyAVA6SZn7DGAt9&secretkey=98bcc4fa979b2e818fd5dfd2d971258a793d56f2&channel_id=%E6%88%BF%E4%BA%A7"
+
+//#define API_NewsList @"http://o.go2yd.com/open-api/caijing/channel?appid=x01Gjdp0kvyAVA6SZn7DGAt9&nonce=sfdyuiy62&timestamp=1511789418&secretkey=98bcc4fa979b2e818fd5dfd2d971258a793d56f2&channel_id=%E6%88%BF%E4%BA%A7&offset=0&count=10"
+
 
 /** TODO:URL详细地址 */
 
 /** 获取短信验证码地址 */
 #define PhoneMessageCodeUrl @"http://ibaby.junbaotech.cn/FSFY/disPatchJson?clazz=RMISERVICE&sUserID=null&key=SENDSMS&sExParams=http://apps.junbaotech.cn/FSFY/disPatchJson&sParams="
 
-// 开奖URL
-#define URL_KaiJiang @"https://qs.888.qq.com/m_qq/mqq2.info.html?_wv=1&vb2ctag=4_2087_3_2581&nodownload=1&id=805#info=getIssueAll"
 
 #endif /* APIConfig_h */
