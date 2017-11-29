@@ -33,12 +33,10 @@
 }
 
 - (void)initUI {
+    [self setupNav];
     // webView
     [self.view addSubview:self.webView];
-    [self.view addSubview:self.navImageView];
     [self.view addSubview:self.progressView];
-    // 返回按钮
-    self.backBtn.hidden = NO;
 }
 
 // 加载URL
@@ -56,6 +54,69 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+#pragma mark - 设置导航栏
+- (void)setupNav {
+    // 设置导航栏背景图片
+    UIImageView *navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, NAV_HEIGHT)];
+    navImageView.backgroundColor = kNavBarColor;
+    //navImageView.image = [UIImage imageNamed:@""];
+    [self.view addSubview:navImageView];
+    self.navImageView = navImageView;
+    // 设置分割线
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - 0.5, SCREEN_WIDTH, 0.5)];
+    lineView.backgroundColor = RGB_HEX(0XE3E3E3, 1.0);
+    [navImageView addSubview:lineView];
+    // 导航栏标题
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont boldSystemFontOfSize:17.0f * kScaleFit];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = self.title;
+    [self.view addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(STATUSBAR_HEIGHT);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(44);
+    }];
+    
+    // 返回按钮
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.backgroundColor = [UIColor clearColor];
+    backBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f * kScaleFit];
+    [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"navbar_return"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"navbar_return"] forState:UIControlStateHighlighted];
+    //backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -12, 0, 0);
+    //[backBtn sizeToFit]; // 图片自动适应按钮大小
+    [backBtn addTarget:self action:@selector(clickBackButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(STATUSBAR_HEIGHT + 2);
+        make.left.mas_equalTo(5);
+        make.size.mas_equalTo(CGSizeMake(60, 40));
+    }];
+    self.backBtn = backBtn;
+    // 关闭按钮
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeBtn.backgroundColor = [UIColor clearColor];
+    closeBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f * kScaleFit];
+    [closeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
+    [closeBtn sizeToFit]; // 图片自动适应按钮大小
+    closeBtn.hidden = YES;
+    [closeBtn addTarget:self action:@selector(clickCloseBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeBtn];
+    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(STATUSBAR_HEIGHT + 2);
+        make.left.mas_equalTo(backBtn.mas_right).with.offset(5);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    self.closeBtn = closeBtn;
 }
 
 #pragma mark - WKNavigationDelegate
@@ -91,18 +152,10 @@
     if ([currentURL containsString:@"xxxx###.html"]) {
         decisionHandler(WKNavigationActionPolicyCancel); //取消加载
         // 关闭webView，回到原生页面
-        [self closeNative];
+        [self clickCloseBtn];
     } else {
         decisionHandler(WKNavigationActionPolicyAllow); //允许加载
     }
-}
-
-- (UIImageView *)navImageView {
-    if (!_navImageView) {
-        _navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAV_HEIGHT)];
-        _navImageView.image = [UIImage imageNamed:@"navbar_bg"];
-    }
-    return _navImageView;
 }
 
 - (WKWebView *)webView {
@@ -139,32 +192,12 @@
 - (UIProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _progressView.frame = CGRectMake(0, 64, SCREEN_WIDTH, 1);
+        _progressView.frame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, 1);
         _progressView.trackTintColor = [UIColor colorWithWhite:1.0f alpha:0.0f];
         // 设置进度条颜色
         _progressView.tintColor = [UIColor colorWithRed:0.400 green:0.863 blue:0.133 alpha:1.000];
     }
     return _progressView;
-}
-
-- (UIButton *)backBtn {
-    if (!_backBtn) {
-        _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backBtn.backgroundColor = [UIColor clearColor];
-        _backBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [_backBtn setTitle:@"返回" forState:UIControlStateNormal];
-        [_backBtn setImage:[UIImage imageNamed:@"navbar_return"] forState:UIControlStateNormal];
-        [_backBtn setImage:[UIImage imageNamed:@"navbar_return"] forState:UIControlStateHighlighted];
-        [_backBtn sizeToFit]; // 图片自动适应按钮大小
-        [_backBtn addTarget:self action:@selector(clickBackButton) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_backBtn];
-        [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(5);
-            make.centerY.mas_equalTo(self.view.mas_top).with.offset(42);
-            make.size.mas_equalTo(CGSizeMake(60, 40));
-        }];
-    }
-    return _backBtn;
 }
 
 //点击返回的方法
@@ -177,32 +210,12 @@
         self.backBtn.hidden = NO;
         self.closeBtn.hidden = NO;
     } else {
-        [self closeNative];
+        [self clickCloseBtn];
     }
-}
-
-- (UIButton *)closeBtn {
-    if (!_closeBtn) {
-        _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _closeBtn.backgroundColor = [UIColor clearColor];
-        _closeBtn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [_closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
-        [_closeBtn sizeToFit]; // 图片自动适应按钮大小
-        _closeBtn.hidden = YES;
-        [_closeBtn addTarget:self action:@selector(closeNative) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_closeBtn];
-        [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.backBtn.mas_right).with.offset(5);
-            make.centerY.mas_equalTo(self.view.mas_top).with.offset(42);
-            make.size.mas_equalTo(CGSizeMake(40, 40));
-            
-        }];
-    }
-    return _closeBtn;
 }
 
 //关闭H5页面，直接回到原生页面
-- (void)closeNative {
+- (void)clickCloseBtn {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

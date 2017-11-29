@@ -16,22 +16,26 @@
 @implementation BRNewsHandler
 
 + (void)executeNewsListTaskWithPageOffset:(NSInteger)pageOffset pageSize:(NSInteger)pageSize Success:(SuccessBlock)success failed:(FailedBlock)failed {
-    NSString *timestamp = [NSDate currentTimestamp];
-    // 临时标记
-    NSString *nonce = [NSString stringWithFormat:@"sfdyuiy%@", [timestamp substringFromIndex:timestamp.length - 2]];
-    NSDictionary *params = @{@"nonce": nonce, @"offset": @(pageOffset), @"count": @(pageSize), @"timestamp": timestamp};
-    [HttpTool getWithUrl:API_NewsList params:params success:^(id responseObject) {
+    // 加载本地数据（实际开发中这里写网络请求，从服务端请求数据...）
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"资讯：%@", responseObject);
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == SuccessFlag) {
-            success([BRNewsListModel parse:responseObject[@"result"]]);
+        NSString *status = responseObject[@"status"];
+        if ([status isEqualToString:@"success"]) {
+            NSArray *allModelArr = [BRNewsListModel parse:responseObject[@"result"]];
+            NSMutableArray *listModelArr = [NSMutableArray array];
+            for (NSInteger i = pageOffset; i < pageOffset + pageSize; i++) {
+                if (i < allModelArr.count) {
+                    [listModelArr addObject:allModelArr[i]];
+                }
+            }
+            success(listModelArr);
         } else {
             failed(@"请求失败");
         }
-    } failure:^(NSError *error) {
-        NSLog(@"请求错误：%@", error);
-        failed(@"请求错误");
-    }];
+    });
 }
 
 @end

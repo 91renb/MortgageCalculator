@@ -86,4 +86,9 @@
     [self.mj_footer endRefreshingWithNoMoreData];
 }
 
+/** 重置没有更多的数据（消除没有更多数据的状态） */
+- (void)resetNoMoreData {
+    [self.mj_footer resetNoMoreData];
+}
+
 @end

@@ -21,7 +21,7 @@
     // 取消自动调整滚动视图间距 (ViewController + Nav 下会自动调整 tableView 的 contentInset)
     self.automaticallyAdjustsScrollViewInsets = NO; // 自动滚动调整，默认为YES
     // 导航栏右滑返回手势
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    //self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     // 键盘统一收回处理
     [self configureBoardManager];
 }

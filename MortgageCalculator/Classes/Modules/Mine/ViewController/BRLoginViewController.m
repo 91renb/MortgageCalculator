@@ -74,18 +74,18 @@
 #pragma mark - 绘制登陆界面
 - (void)initUI {
     //白色背景视图
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
-    [backView setBackgroundColor:[UIColor whiteColor]];
-    backView.layer.borderWidth = 0.4;
-    backView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
-    [self.view addSubview:backView];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
+    [whiteView setBackgroundColor:[UIColor whiteColor]];
+    whiteView.layer.borderWidth = 0.4;
+    whiteView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
+    [self.view addSubview:whiteView];
     
     //手机图标
     UIImageView *phoneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kkRowHeight, kkRowHeight)];
     phoneImageView.backgroundColor = [UIColor clearColor];
     phoneImageView.contentMode = UIViewContentModeCenter;
     phoneImageView.image = [UIImage imageNamed:@"dl_nmb"];
-    [backView addSubview:phoneImageView];
+    [whiteView addSubview:phoneImageView];
     
     //手机号TextField
     UITextField *phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
@@ -99,20 +99,20 @@
     phoneTF.leftView = phoneImageView;
     phoneTF.leftViewMode = UITextFieldViewModeAlways;
     phoneTF.delegate = self;
-    [backView addSubview:phoneTF];
+    [whiteView addSubview:phoneTF];
     self.phoneTF = phoneTF;
     
     //分割线
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, kkRowHeight, SCREEN_WIDTH - 10 - 10, 0.5)];
     lineView.backgroundColor = RGB_HEX(0xe0e0e0, 1.0f);
-    [backView addSubview:lineView];
+    [whiteView addSubview:lineView];
     
     //创建密码视图
     UIImageView *pwdImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kkRowHeight, kkRowHeight)];
     pwdImageView.backgroundColor = [UIColor clearColor];
     pwdImageView.contentMode = UIViewContentModeCenter;
     pwdImageView.image = [UIImage imageNamed:@"dl_Lock"];
-    [backView addSubview:pwdImageView];
+    [whiteView addSubview:pwdImageView];
     
     //密码TextField
     UITextField *pwdTF = [[UITextField alloc] initWithFrame:CGRectMake(0, kkRowHeight, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
@@ -126,12 +126,12 @@
     pwdTF.leftView = pwdImageView;
     pwdTF.leftViewMode = UITextFieldViewModeAlways;
     pwdTF.delegate = self;
-    [backView addSubview:pwdTF];
+    [whiteView addSubview:pwdTF];
     self.pwdTF = pwdTF;
     
     //记住密码按钮
     UIButton *rememberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rememberBtn.frame = CGRectMake(backView.frame.origin.x, backView.bottom+7, 90, 30);
+    rememberBtn.frame = CGRectMake(whiteView.frame.origin.x, whiteView.bottom+7, 90, 30);
     [rememberBtn setTitle:@"  记住密码" forState:UIControlStateNormal];
     [rememberBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     rememberBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -144,7 +144,7 @@
     
     //登录按钮
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    loginBtn.frame = CGRectMake(backView.origin.x, backView.bottom + 80, backView.frame.size.width, 40);
+    loginBtn.frame = CGRectMake(whiteView.origin.x, whiteView.bottom + 80, whiteView.frame.size.width, 40);
     loginBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.8];
     loginBtn.layer.cornerRadius = 2;
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];

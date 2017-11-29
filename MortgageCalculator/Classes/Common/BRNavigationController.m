@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 1.设置导航栏背景颜色
-    self.navigationBar.barTintColor = RGB_HEX(0x4181e1, 1.0f);
+    self.navigationBar.barTintColor = kNavBarColor;
     //[self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_bg"] forBarMetrics:UIBarMetricsDefault];
     
     // 此行代码能将状态栏和导航栏字体颜色全体改变,只能是黑色或白色

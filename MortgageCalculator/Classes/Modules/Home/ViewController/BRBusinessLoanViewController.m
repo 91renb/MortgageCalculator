@@ -74,7 +74,7 @@
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT - 40 * kScaleFit) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -440,11 +440,16 @@
         }
     }
     if (self.calculateWay == BRCalculateWayUnitPriceAndArea) {
-        // 按单价和面积计算
-        [self unitPriceAreaWayStartCalculatorResult];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            // 按单价和面积计算
+            [self unitPriceAreaWayStartCalculatorResult];
+        });
+        
     } else if (self.calculateWay == BRCalculateWayTotalPrice) {
-        // 按房屋总价计算
-        [self houseTotalWayStartCalculatorResult];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            // 按房屋总价计算
+            [self houseTotalWayStartCalculatorResult];
+        });
     }
 }
 
@@ -455,18 +460,22 @@
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
     if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipalInterest:inputModel];
-        BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
-        calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
-        calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
-        calculateResultVC.resultModel = resultModel;
-        [self.navigationController pushViewController:calculateResultVC animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
+            calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
+            calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
+            calculateResultVC.resultModel = resultModel;
+            [self.navigationController pushViewController:calculateResultVC animated:YES];
+        });
     } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipal:inputModel];
-        BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
-        calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
-        calculateResultVC.repayWay = BRRepayWayPriceSame;
-        calculateResultVC.resultModel = resultModel;
-        [self.navigationController pushViewController:calculateResultVC animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
+            calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
+            calculateResultVC.repayWay = BRRepayWayPriceSame;
+            calculateResultVC.resultModel = resultModel;
+            [self.navigationController pushViewController:calculateResultVC animated:YES];
+        });
     }
 }
 

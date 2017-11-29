@@ -17,6 +17,11 @@
 #define JPushAppKey  @"25c723449a62fc1e813efa6e"
 #define BmobAppKey @"fa7df0110db72351c1748cad874def8c"
 #define API_AppSetting @"http://appmgr.jwoquxoc.com/frontApi/getAboutUs" // 获取app的设置信息
+/** appstore更新地址 */
+#define APP_STORE_URL @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1316098171"
+#define APP_STORE_URL2 @"itms-apps://itunes.apple.com/app/id1316098171"
+
+#define APP_STORE_ID @"1316098171"
 
 #define App_ReviewingStatus @"0"    // 送审状态
 #define App_SuccessStatus @"1"      // 审核成功状态
@@ -35,12 +40,6 @@
 
 /** TODO:API基本地址 */
 #define AppBaseUrl [NSString stringWithFormat:@"%@/api/xxx", SERVER_HOST]
-
-/** TODO:API新闻列表地址 */
-// 分页加载：offset=0&count=10 （每次上拉，offset加10）
-#define API_NewsList @"http://o.go2yd.com/open-api/caijing/channel?appid=x01Gjdp0kvyAVA6SZn7DGAt9&secretkey=98bcc4fa979b2e818fd5dfd2d971258a793d56f2&channel_id=%E6%88%BF%E4%BA%A7"
-
-//#define API_NewsList @"http://o.go2yd.com/open-api/caijing/channel?appid=x01Gjdp0kvyAVA6SZn7DGAt9&nonce=sfdyuiy62&timestamp=1511789418&secretkey=98bcc4fa979b2e818fd5dfd2d971258a793d56f2&channel_id=%E6%88%BF%E4%BA%A7&offset=0&count=10"
 
 
 /** TODO:URL详细地址 */

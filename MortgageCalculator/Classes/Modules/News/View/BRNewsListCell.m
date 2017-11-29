@@ -9,6 +9,7 @@
 #import "BRNewsListCell.h"
 #import "BRNewsListModel.h"
 #import "UIImageView+BRAdd.h"
+#import "NSDate+BRAdd.h"
 
 @interface BRNewsListCell ()
 @property (nonatomic, strong) UIImageView *iconImageView;
@@ -36,7 +37,7 @@
     [self.iconImageView br_setImageWithPath:[model.images lastObject] placeholder:@""];
     self.titleLabel.text = model.title;
     self.typeLabel.text = @"房贷计算器";
-    self.dateLabel.text = model.date;
+    self.dateLabel.text = [NSDate dateDescriptionWithTargetDate:model.date andTargetDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
 - (void)layoutSubviews {

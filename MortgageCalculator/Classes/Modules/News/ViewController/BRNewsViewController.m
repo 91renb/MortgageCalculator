@@ -11,6 +11,7 @@
 #import "BRNewsHandler.h"
 #import "BRNewsListCell.h"
 #import "BRNewsListModel.h"
+#import "BRWebViewController.h"
 
 @interface BRNewsViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -49,23 +50,29 @@
     [BRNewsHandler executeNewsListTaskWithPageOffset:_pageOffset pageSize:_pageSize Success:^(id obj) {
         NSLog(@"请求成功！");
         NSArray *resultModelArr = obj;
-        if (_pageOffset == 0) {
-            // 下拉刷新
-            self.tableDataArr = [resultModelArr mutableCopy];
-        } else {
-            // 上拉加载更多
-            [self.tableDataArr addObjectsFromArray:resultModelArr];
-            if (!resultModelArr || resultModelArr.count == 0) {
-                [self.tableView endFooterRefreshWithNoMoreData];
+        // 回到主线程刷新表格
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_pageOffset == 0) {
+                // 下拉刷新
+                self.tableDataArr = [resultModelArr mutableCopy];
+                [self.tableView resetNoMoreData];
+            } else {
+                // 上拉加载更多
+                if (!resultModelArr || resultModelArr.count == 0) {
+                    [self.tableView endFooterRefreshWithNoMoreData];
+                } else {
+                    [self.tableDataArr addObjectsFromArray:resultModelArr];
+                }
             }
-        }
-        [self.tableView reloadData];
-        
-        if (self.tableDataArr.count == 0) {
-            [self addEmptyDataView];
-        } else {
-            [self removeEmptyDataViewFromSuperView];
-        }
+            
+            [self.tableView reloadData];
+            
+            if (self.tableDataArr.count == 0) {
+                [self addEmptyDataView];
+            } else {
+                [self removeEmptyDataViewFromSuperView];
+            }
+        });
     } failed:^(id error) {
         
     }];
@@ -100,7 +107,7 @@
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         // iOS11之后要设置这两个属性，才会去掉默认的分区头部、尾部的高度
@@ -154,11 +161,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    BRNewsListModel *model = self.tableDataArr[indexPath.row];
-//    JBNewsDetailsViewController *newsDetailsVC = [[JBNewsDetailsViewController alloc]init];
-//    newsDetailsVC.model = model;
-//    newsDetailsVC.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:newsDetailsVC animated:YES];
+    BRNewsListModel *model = self.tableDataArr[indexPath.row];
+    BRWebViewController *newsDetailsVC = [[BRWebViewController alloc]init];
+    newsDetailsVC.title = @"资讯详情";
+    newsDetailsVC.urlString = model.url;
+    [self.navigationController pushViewController:newsDetailsVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

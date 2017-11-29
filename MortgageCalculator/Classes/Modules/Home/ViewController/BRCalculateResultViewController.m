@@ -33,7 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 隐藏导航栏
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -67,7 +67,7 @@
 - (UIView *)headView {
     if (!_headView) {
         _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderH)];
-        _headView.backgroundColor = kThemeColor;
+        //_headView.backgroundColor = kThemeColor;
         [_headView setGradientColor:RGB_HEX(0x46b2f0, 1.0f) toColor:RGB_HEX(0x4181e1, 1.0f)];
         
         // 返回按钮
@@ -295,6 +295,18 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = text;
     return label;
+}
+
+// 注意：隐藏导航栏或没有导航栏时，此方法才会起作用。不然不能作用到当前的视图控制器上
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (BRResultModel *)resultModel {
+    if (!_resultModel) {
+        _resultModel = [[BRResultModel alloc]init];
+    }
+    return _resultModel;
 }
 
 - (NSArray *)tableDataArr {

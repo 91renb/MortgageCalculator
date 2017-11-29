@@ -12,6 +12,8 @@
 #import "NSString+BRAdd.h"
 #import <UIView+YYAdd.h>
 #import "UIImage+BRAdd.h"
+#import "BRFeedbackViewController.h"
+#import "BRAboutUsViewController.h"
 
 #define kHeaderH 200 * kScaleFit
 
@@ -124,7 +126,7 @@
     _headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     // 设置图像裁切（裁切外部的）
     _headerImageView.clipsToBounds = YES;
-    bgImageView.image = [UIImage imageNamed:@"scenter_bg.png"];
+    bgImageView.image = [UIImage imageNamed:@"mine_head_bg"];
     [_headView addSubview:bgImageView];
     self.headerImageView = bgImageView;
     
@@ -133,7 +135,7 @@
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.font = [UIFont systemFontOfSize:16.0f * kScaleFit];
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.textColor = RGB_HEX(0x666666, 1.0f);
     nameLabel.text = @"登录/注册";
     [_headView addSubview:nameLabel];
     nameLabel.userInteractionEnabled = YES;
@@ -152,9 +154,9 @@
     avatarImageView.backgroundColor = [UIColor clearColor];
     avatarImageView.layer.cornerRadius = 36 * kScaleFit;
     avatarImageView.layer.borderWidth = 1.0f;
-    avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    avatarImageView.layer.borderColor = RGB_HEX(0xeeeeee, 1.0f).CGColor;
     avatarImageView.layer.masksToBounds = YES;
-    avatarImageView.image = [UIImage imageNamed:@"scenter_ph.png"];
+    avatarImageView.image = [UIImage imageNamed:@"icon_default_avatar"];
     [_headView addSubview:avatarImageView];
     [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(nameLabel.mas_top).with.offset(-20 * kScaleFit);
@@ -208,7 +210,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -260,15 +262,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            //[self pushHelpManalBook]; // 帮助指南
+            [self pushShareView]; // 分享给朋友
         } else if (indexPath.row == 1) {
-            //[self pushLotteryTicket]; // 中奖查询
+            [self pushFiveStar]; // 五星好评
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            //[self pushCatchNumber]; // 追号记录
-        } else if (indexPath.row == 1) {
             [self pushCallService]; // 客服电话
+        } else if (indexPath.row == 1) {
+            [self pushFeedback]; // 意见反馈
         } else if (indexPath.row == 2) {
             [self clearCache]; // 清除缓存
         }
@@ -277,10 +279,61 @@
     }
 }
 
+//TODO:分享视图
+- (void)pushShareView {
+    //分享的标题
+    NSString *textToShare = @"房贷计算器";
+    //分享的图片
+    UIImage *imageToShare = [UIImage imageNamed:@"logo"];
+    //分享的url
+    NSURL *urlToShare = [NSURL URLWithString:APP_STORE_URL];
+    //在这里呢 如果想分享图片 就把图片添加进去  文字什么的通上
+    NSArray *activityItems = @[textToShare, imageToShare, urlToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+    // 指定隐藏的活动项目
+    NSMutableArray *activityTypes = [NSMutableArray arrayWithArray:@[UIActivityTypeAirDrop, UIActivityTypeMail, UIActivityTypePostToTencentWeibo, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo]];
+    if (@available(iOS 9.0, *)) {
+        [activityTypes addObject:UIActivityTypeOpenInIBooks];
+    }
+    if (@available(iOS 11.0, *)) {
+        [activityTypes addObject:UIActivityTypeMarkupAsPDF];
+    }
+    activityVC.excludedActivityTypes = [activityTypes copy];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+    // 分享之后的回调
+    activityVC.completionWithItemsHandler = ^(UIActivityType  _Nullable activityType, BOOL completed, NSArray * _Nullable returnedItems, NSError * _Nullable activityError) {
+        if (completed) {
+            NSLog(@"completed");
+            //分享 成功
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"分享成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertView show];
+        } else  {
+            NSLog(@"cancled");
+            //分享 取消
+            //UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"取消分享" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            //[alertView show];
+        }
+    };
+}
+
+//TODO:五星好评
+- (void)pushFiveStar {
+    // 跳转到AppStore应用评价页
+    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@&pageNumber=0&sortOrdering=2&mt=8", APP_STORE_ID];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
 //TODO:客服电话
 - (void)pushCallService {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请咨询QQ客户:1032904627" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
     [alert show];
+}
+
+//TODO:意见反馈
+- (void)pushFeedback {
+    BRFeedbackViewController *feedbackVC = [[BRFeedbackViewController alloc]init];
+    [self.navigationController pushViewController:feedbackVC animated:YES];
 }
 
 //TODO:清除缓存
@@ -334,7 +387,8 @@
 
 //TODO:关于我们
 - (void)pushAboutUs {
-    
+    BRAboutUsViewController *aboutUsVC = [[BRAboutUsViewController alloc] init];
+    [self.navigationController pushViewController:aboutUsVC animated:YES];
 }
 
 
@@ -391,19 +445,16 @@
     _headerImageView.height = _headView.height;
 }
 
-
 // 注意：隐藏导航栏或没有导航栏时，此方法才会起作用。不然不能作用到当前的视图控制器上
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
-
-/// @[@"投注记录",@"中奖记录",@"送彩票记录",@"追号记录", @"账户明细",@"我的收藏",@"个人信息",@"修改密码",]
 - (NSArray *)dataArr {
     if (!_dataArr) {
         _dataArr = @[
-                     @[@[@"mine_help.png", @"帮助指南"], @[@"mine_zjcx.png", @"中奖查询"]],
-                     @[@[@"mine_jilu.png", @"追号记录"], @[@"mine_phone.png", @"咨询客服"], @[@"mine_cache.png", @"清除缓存"]],
+                     @[@[@"mine_help.png", @"分享给朋友"], @[@"mine_zjcx.png", @"五星好评"]],
+                     @[@[@"mine_phone.png", @"咨询客服"], @[@"mine_jilu.png", @"意见反馈"], @[@"mine_cache.png", @"清除缓存"]],
                      @[@[@"mine_about.png", @"关于我们"]]];
     }
     return _dataArr;

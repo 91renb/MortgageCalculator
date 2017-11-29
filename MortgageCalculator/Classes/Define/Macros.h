@@ -34,8 +34,8 @@
 #define TABBAR_HEIGHT ((STATUSBAR_HEIGHT == 44) ? 83 : 49)
 
 #define kThemeColor RGB_HEX(0x46b2f0, 1.0f)
-
 #define kTextDefaultColor RGB_HEX(0x464646, 1.0f)
+#define kNavBarColor RGB_HEX(0x4181e1, 1.0f)
 
 // 一个像素点
 #define LINE_HEIGHT (1 / [UIScreen mainScreen].scale)
