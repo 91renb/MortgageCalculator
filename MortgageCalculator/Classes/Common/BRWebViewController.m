@@ -219,10 +219,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 - (void)dealloc {
     // 3. 移除观察者
     [_webView removeObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress))];

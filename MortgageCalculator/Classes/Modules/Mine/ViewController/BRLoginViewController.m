@@ -75,17 +75,17 @@
 - (void)initUI {
     //白色背景视图
     UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
-    [whiteView setBackgroundColor:[UIColor whiteColor]];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    whiteView.layer.cornerRadius = 3.0f * kScaleFit;
     whiteView.layer.borderWidth = 0.4;
     whiteView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
     [self.view addSubview:whiteView];
     
     //手机图标
-    UIImageView *phoneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kkRowHeight, kkRowHeight)];
+    UIImageView *phoneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, (kkRowHeight - 20) / 2.0f, kkRowHeight, 20)];
     phoneImageView.backgroundColor = [UIColor clearColor];
     phoneImageView.contentMode = UIViewContentModeCenter;
-    phoneImageView.image = [UIImage imageNamed:@"dl_nmb"];
-    [whiteView addSubview:phoneImageView];
+    phoneImageView.image = [UIImage imageNamed:@"icon_phone"];
     
     //手机号TextField
     UITextField *phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
@@ -108,11 +108,10 @@
     [whiteView addSubview:lineView];
     
     //创建密码视图
-    UIImageView *pwdImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kkRowHeight, kkRowHeight)];
+    UIImageView *pwdImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, (kkRowHeight - 24) / 2.0f, kkRowHeight, 22)];
     pwdImageView.backgroundColor = [UIColor clearColor];
     pwdImageView.contentMode = UIViewContentModeCenter;
-    pwdImageView.image = [UIImage imageNamed:@"dl_Lock"];
-    [whiteView addSubview:pwdImageView];
+    pwdImageView.image = [UIImage imageNamed:@"icon_pwd"];
     
     //密码TextField
     UITextField *pwdTF = [[UITextField alloc] initWithFrame:CGRectMake(0, kkRowHeight, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
@@ -131,49 +130,49 @@
     
     //记住密码按钮
     UIButton *rememberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rememberBtn.frame = CGRectMake(whiteView.frame.origin.x, whiteView.bottom+7, 90, 30);
+    rememberBtn.frame = CGRectMake(whiteView.frame.origin.x + 10, whiteView.bottom + 10, 90, 30);
     [rememberBtn setTitle:@"  记住密码" forState:UIControlStateNormal];
     [rememberBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    rememberBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [rememberBtn setImage:[UIImage imageNamed:@"dl_kuang.png"] forState:UIControlStateNormal];
-    [rememberBtn setImage:[UIImage imageNamed:@"dl_kuang1.png"] forState:UIControlStateSelected];
+    rememberBtn.titleLabel.font = [UIFont systemFontOfSize:15 * kScaleFit];
+    [rememberBtn setImage:[UIImage imageNamed:@"icon_remember_nor"] forState:UIControlStateNormal];
+    [rememberBtn setImage:[UIImage imageNamed:@"icon_remember_sel"] forState:UIControlStateSelected];
+    rememberBtn.contentMode = UIViewContentModeLeft;
     [rememberBtn addTarget:self action:@selector(clickRememberPwd:) forControlEvents:UIControlEventTouchUpInside];
     rememberBtn.selected = [BRUserHelper pwd].length > 0 ? YES : NO;
     isRememberPwd = rememberBtn.isSelected;
     [self.view addSubview:rememberBtn];
     
     //登录按钮
-    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    loginBtn.frame = CGRectMake(whiteView.origin.x, whiteView.bottom + 80, whiteView.frame.size.width, 40);
-    loginBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.8];
-    loginBtn.layer.cornerRadius = 2;
+    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    loginBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 80, SCREEN_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
+    loginBtn.backgroundColor = kThemeColor;
+    loginBtn.layer.cornerRadius = 3.0f * kScaleFit;
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(clickLoginBtn) forControlEvents:UIControlEventTouchUpInside];
-    loginBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:loginBtn];
     
     // 注册按钮
-    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    registerBtn.frame = CGRectMake(loginBtn.origin.x, loginBtn.bottom + 10, loginBtn.frame.size.width, loginBtn.frame.size.height);
+    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    registerBtn.frame = CGRectMake(loginBtn.origin.x, loginBtn.bottom + 10 * kScaleFit, loginBtn.frame.size.width, loginBtn.frame.size.height);
     registerBtn.backgroundColor = [UIColor whiteColor];
     registerBtn.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
     registerBtn.layer.borderWidth = 0.5;
-    registerBtn.layer.cornerRadius = 2;
+    registerBtn.layer.cornerRadius = 3.0f * kScaleFit;
+    registerBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
     [registerBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registerBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [registerBtn addTarget:self action:@selector(clickRegisterBtn) forControlEvents:UIControlEventTouchUpInside];
-    registerBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:registerBtn];
     
     // 忘记密码按钮
-    UIButton *forgetBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    forgetBtn.frame = CGRectMake(registerBtn.origin.x, registerBtn.bottom+10, registerBtn.frame.size.width, 30);
-    forgetBtn.layer.cornerRadius = 0;
+    UIButton *forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    forgetBtn.frame = CGRectMake((SCREEN_WIDTH - 100 * kScaleFit) / 2.0f, registerBtn.bottom + 10, 100 * kScaleFit, 30 * kScaleFit);
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [forgetBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [forgetBtn addTarget:self action:@selector(clickResetPwd) forControlEvents:UIControlEventTouchUpInside];
-    forgetBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    forgetBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f * kScaleFit];
     [self.view addSubview:forgetBtn];
 }
 
@@ -239,7 +238,7 @@
             return NO;
         }
     }
-    // 限制验证码长度
+    // 限制密码长度
     if (textField == self.pwdTF) {
         if (detailString.length > 16) {
             return NO;

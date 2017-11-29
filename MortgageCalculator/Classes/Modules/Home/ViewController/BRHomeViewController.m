@@ -37,7 +37,10 @@
 - (WMPageController *)pageController {
     if (!_pageController) {
         _pageController = [[WMPageController alloc]init];
-        _pageController.viewFrame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT);
+        // 导航栏的不透明度translucent = NO，
+        // 这里的TABBAR_HEIGHT是自定义的view，所以还要减去这个防遮挡视图。
+        // 此时 self.view.frame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT);
+        _pageController.viewFrame = CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - TABBAR_HEIGHT);
         _pageController.menuBGColor = [UIColor whiteColor];
         _pageController.titleSizeNormal = 15.0f * kScaleFit;
         _pageController.titleSizeSelected = 16.0f * kScaleFit;
@@ -48,7 +51,7 @@
         //_pageController.progressWidth = 6;
         _pageController.progressViewWidths = @[@(12 * kScaleFit), @(12 * kScaleFit), @(12 * kScaleFit)];
         _pageController.progressHeight = 6.0f * kScaleFit;
-        _pageController.menuItemWidth = SCREEN_WIDTH / self.titleData.count;
+        _pageController.menuItemWidth = VIEW_WIDTH / self.titleData.count;
         _pageController.menuHeight = 40 * kScaleFit;
         _pageController.dataSource = self;
         _pageController.delegate = self;
@@ -58,7 +61,7 @@
 
 - (UIView *)lineView {
     if (!_lineView) {
-        _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT + 40 * kScaleFit, SCREEN_WIDTH, 1.5f * kScaleFit)];
+        _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 40 * kScaleFit, VIEW_WIDTH, 1.5f * kScaleFit)];
         _lineView.backgroundColor = kThemeColor;
     }
     return _lineView;

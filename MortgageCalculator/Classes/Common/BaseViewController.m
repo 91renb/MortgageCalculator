@@ -50,6 +50,17 @@
     manager.enableAutoToolbar = YES;
 }
 
+/**
+ *  改变状态栏颜色的两种情况：
+ *    1.有导航栏时，
+ *          // 将【状态栏】和【导航栏】字体颜色全变为白色（此行代码只能作用于有导航栏的视图控制器下）
+ *          self.navigationBar.barStyle = UIBarStyleBlack;
+ *    2.没有导航栏/隐藏导航栏时，此方法(preferredStatusBarStyle)才会起作用。不然不能作用到当前的视图控制器上
+ */
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)dealloc {
     // 销毁当前网络请求
     NSLog(@"%@ dealloc", NSStringFromClass([self class]));

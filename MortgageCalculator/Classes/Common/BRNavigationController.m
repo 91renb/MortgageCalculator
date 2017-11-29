@@ -7,6 +7,7 @@
 //
 
 #import "BRNavigationController.h"
+#import "UIImage+BRAdd.h"
 
 @interface BRNavigationController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 /** 自定义导航栏的返回按钮 */
@@ -19,20 +20,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 1.设置导航栏背景颜色
-    self.navigationBar.barTintColor = kNavBarColor;
-    //[self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar_bg"] forBarMetrics:UIBarMetricsDefault];
+    // self.navigationBar.barTintColor = kNavBarColor;
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:kNavBarColor] forBarMetrics:UIBarMetricsDefault];
     
-    // 此行代码能将状态栏和导航栏字体颜色全体改变,只能是黑色或白色
-    self.navigationBar.barStyle = UIBarStyleBlack;
+    // 2.关闭半透明度效果（iOS7.0开始默认YES(半透明)）
+        // 当translucent = YES，有导航栏的Controller，其self.view的原点是从导航栏【左上角】开始计算
+        // 当translucent = NO，有导航栏的Controller，其self.view的原点是从导航栏【左下角】开始计算
+            // iOS7之后由于navigationBar.translucent默认是YES，坐标零点默认在（0，0）点
+            // 当navigationBar不透明的时候，零点坐标在（0，64）；如果你想设置成透明的，而且还要零点从（0，64）开始，那就添加：self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationBar.translucent = NO;
+    /**
+         总结：translucent的值影响导航栏下Controller的self.view的大小
+             当translucent = NO(导航栏不透明)：（有导航栏的Controller）
+                 self.view.frame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT);
+     
+             其它情况下（包含translucent = YES有导航栏，或没有导航栏下）
+                 self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+     */
     
-    // 2.设置导航栏所有子视图（返回图片）的颜色
+    // 3.设置导航栏所有子视图（返回图片）的颜色
     self.navigationBar.tintColor = [UIColor whiteColor];
     
-    // 3.设置 title 颜色
+    // 4.设置 title 颜色
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationBar.backIndicatorImage = [UIImage new];
-    
-    // 将系统默认的返回按钮设置到导航栏可见区域外（防止与自定义的返回按钮重叠）
+    // 5.将【状态栏】和【导航栏】字体颜色全变为白色（此行代码只能作用于有导航栏的视图控制器下）
+    self.navigationBar.barStyle = UIBarStyleBlack;
+    // 6.将系统默认的返回按钮设置到导航栏可见区域外（防止与自定义的返回按钮重叠）
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
     
     self.delegate = self;

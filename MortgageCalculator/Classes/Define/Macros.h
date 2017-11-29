@@ -14,6 +14,11 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+// 当前控制器的view的大小、宽、高
+#define VIEW_BOUNDS self.view.bounds
+#define VIEW_WIDTH self.view.frame.size.width
+#define VIEW_HEIGHT self.view.frame.size.height
+
 // 当前线程
 #define CURRENT_THREAD NSLog(@"当前线程：%@", [NSThread currentThread]);
 
@@ -35,7 +40,7 @@
 
 #define kThemeColor RGB_HEX(0x46b2f0, 1.0f)
 #define kTextDefaultColor RGB_HEX(0x464646, 1.0f)
-#define kNavBarColor RGB_HEX(0x4181e1, 1.0f)
+#define kNavBarColor RGB_HEX(0x46b2f0, 1.0f)
 
 // 一个像素点
 #define LINE_HEIGHT (1 / [UIScreen mainScreen].scale)

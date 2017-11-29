@@ -40,7 +40,7 @@
     NSString *sParams = [NSString stringWithFormat:@"%@$您的验证码是：【%@】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！", self.phoneTF.text, _authCode];
     [BRMineHandler executeSendMessageCodeTaskWithStringParams:sParams Success:^(id obj) {
         // 开始60秒倒计时
-        [button startWithTime:60 color:[UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.9] countDownColor:[UIColor darkGrayColor]];
+        [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
     } failed:^(id error) {
         NSLog(@"请求失败：%@", error);
         [MBProgressHUD showError:@"网络不给力"];
@@ -55,62 +55,62 @@
     return authCodeStr;
 }
 
-
 #pragma mark - 设置UI
 - (void)initUI {
     //白色背景视图
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
-    [backView setBackgroundColor:[UIColor whiteColor]];
-    backView.layer.borderWidth = 0.4;
-    backView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
-    [self.view addSubview:backView];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
+    [whiteView setBackgroundColor:[UIColor whiteColor]];
+    whiteView.layer.cornerRadius = 3.0f * kScaleFit;
+    whiteView.layer.borderWidth = 0.4;
+    whiteView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
+    [self.view addSubview:whiteView];
     
     //1.手机号
     UILabel *phoneLabel = [self getLabelWithOriginY:0 andText:@"手机号码："];
-    [backView addSubview:phoneLabel];
+    [whiteView addSubview:phoneLabel];
     
     UITextField *phoneTF = [self getTextFieldWithPlaceholder:@"请输入手机号码"];
-    phoneTF.frame = CGRectMake(100, 0, backView.width - 10 - 100, kkRowHeight);
+    phoneTF.frame = CGRectMake(100, 0, whiteView.width - 10 - 100, kkRowHeight);
     phoneTF.keyboardType = UIKeyboardTypeNumberPad;
-    [backView addSubview:phoneTF];
+    [whiteView addSubview:phoneTF];
     phoneTF.text = [BRUserHelper username];
     self.phoneTF = phoneTF;
     
     //分割线
-    [backView addSubview:[self getLineViewWithOriginY:kkRowHeight]];
+    [whiteView addSubview:[self getLineViewWithOriginY:kkRowHeight]];
     
     //2.验证码
     UILabel *codeLabel = [self getLabelWithOriginY:kkRowHeight andText:@"验证码："];
-    [backView addSubview:codeLabel];
+    [whiteView addSubview:codeLabel];
     
     UITextField *codeTF = [self getTextFieldWithPlaceholder:@"请输入验证码"];
-    codeTF.frame = CGRectMake(100, kkRowHeight, backView.width - 10 - 100 - 100, kkRowHeight);
+    codeTF.frame = CGRectMake(100, kkRowHeight, whiteView.width - 10 - 100 - 100, kkRowHeight);
     codeTF.keyboardType = UIKeyboardTypeNumberPad;
-    [backView addSubview:codeTF];
+    [whiteView addSubview:codeTF];
     self.codeTF = codeTF;
     
     UIButton *codeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 80, kkRowHeight - 20);
     codeBtn.layer.cornerRadius = 4;
-    codeBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.9];
+    codeBtn.backgroundColor = kThemeColor;
     codeBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f * kScaleFit];
     [codeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [codeBtn addTarget:self action:@selector(clickCodeBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [backView addSubview:codeBtn];
+    [whiteView addSubview:codeBtn];
     
     //分割线
-    [backView addSubview:[self getLineViewWithOriginY:kkRowHeight * 2]];
+    [whiteView addSubview:[self getLineViewWithOriginY:kkRowHeight * 2]];
     
     // 下一步按钮
-    UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    nextBtn.frame = CGRectMake(backView.origin.x, backView.bottom + 50, backView.frame.size.width, 40);
-    nextBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.8];
-    nextBtn.layer.cornerRadius = 2;
+    UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    nextBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 40 * kScaleFit, SCREEN_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
+    nextBtn.backgroundColor = kThemeColor;
+    nextBtn.layer.cornerRadius = 3.0f * kScaleFit;
+    nextBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
     [nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(clickNextBtn) forControlEvents:UIControlEventTouchUpInside];
-    nextBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:nextBtn];
     
 }

@@ -297,11 +297,6 @@
     return label;
 }
 
-// 注意：隐藏导航栏或没有导航栏时，此方法才会起作用。不然不能作用到当前的视图控制器上
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 - (BRResultModel *)resultModel {
     if (!_resultModel) {
         _resultModel = [[BRResultModel alloc]init];

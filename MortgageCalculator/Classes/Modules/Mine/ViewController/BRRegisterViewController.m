@@ -70,7 +70,7 @@
     NSString *sParams = [NSString stringWithFormat:@"%@$您的验证码是：【%@】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！", self.phoneTF.text, _authCode];
     [BRMineHandler executeSendMessageCodeTaskWithStringParams:sParams Success:^(id obj) {
         // 开始60秒倒计时
-        [button startWithTime:60 color:[UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.9] countDownColor:[UIColor darkGrayColor]];
+        [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
     } failed:^(id error) {
         NSLog(@"请求失败：%@", error);
         [MBProgressHUD showError:@"网络不给力"];
@@ -88,82 +88,83 @@
 #pragma mark - 设置UI
 - (void)initUI {
     //白色背景视图
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 4)];
-    [backView setBackgroundColor:[UIColor whiteColor]];
-    backView.layer.borderWidth = 0.4;
-    backView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
-    [self.view addSubview:backView];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 4)];
+    [whiteView setBackgroundColor:[UIColor whiteColor]];
+    whiteView.layer.cornerRadius = 3.0f * kScaleFit;
+    whiteView.layer.borderWidth = 0.4;
+    whiteView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
+    [self.view addSubview:whiteView];
     
     //1.手机号
     UILabel *phoneLabel = [self getLabelWithOriginY:0 andText:@"手机号码："];
-    [backView addSubview:phoneLabel];
+    [whiteView addSubview:phoneLabel];
     
     UITextField *phoneTF = [self getTextFieldWithPlaceholder:@"请输入手机号码"];
-    phoneTF.frame = CGRectMake(100, 0, backView.width - 10 - 100, kkRowHeight);
+    phoneTF.frame = CGRectMake(100, 0, whiteView.width - 10 - 100, kkRowHeight);
     phoneTF.keyboardType = UIKeyboardTypeNumberPad;
-    [backView addSubview:phoneTF];
+    [whiteView addSubview:phoneTF];
     self.phoneTF = phoneTF;
     
     //分割线
-    [backView addSubview:[self getLineViewWithOriginY:kkRowHeight]];
+    [whiteView addSubview:[self getLineViewWithOriginY:kkRowHeight]];
     
     //2.验证码
     UILabel *codeLabel = [self getLabelWithOriginY:kkRowHeight andText:@"验证码："];
-    [backView addSubview:codeLabel];
+    [whiteView addSubview:codeLabel];
     
     UITextField *codeTF = [self getTextFieldWithPlaceholder:@"请输入验证码"];
-    codeTF.frame = CGRectMake(100, kkRowHeight, backView.width - 10 - 100 - 100, kkRowHeight);
+    codeTF.frame = CGRectMake(100, kkRowHeight, whiteView.width - 10 - 100 - 100, kkRowHeight);
     codeTF.keyboardType = UIKeyboardTypeNumberPad;
-    [backView addSubview:codeTF];
+    [whiteView addSubview:codeTF];
     self.codeTF = codeTF;
     
     UIButton *codeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 80, kkRowHeight - 20);
     codeBtn.layer.cornerRadius = 4;
-    codeBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.9];
+    codeBtn.backgroundColor = kThemeColor;
     codeBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f * kScaleFit];
     [codeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [codeBtn addTarget:self action:@selector(clickCodeBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [backView addSubview:codeBtn];
+    [whiteView addSubview:codeBtn];
     
     //分割线
-    [backView addSubview:[self getLineViewWithOriginY:kkRowHeight * 2]];
+    [whiteView addSubview:[self getLineViewWithOriginY:kkRowHeight * 2]];
     
     //3.登录密码
     UILabel *pwdLabel = [self getLabelWithOriginY:kkRowHeight * 2 andText:@"登录密码："];
-    [backView addSubview:pwdLabel];
+    [whiteView addSubview:pwdLabel];
     
     UITextField *pwdTF = [self getTextFieldWithPlaceholder:@"请输入6~16位字符"];
-    pwdTF.frame = CGRectMake(100, kkRowHeight * 2, backView.width - 10 - 100, kkRowHeight);
+    pwdTF.frame = CGRectMake(100, kkRowHeight * 2, whiteView.width - 10 - 100, kkRowHeight);
     pwdTF.keyboardType = UIKeyboardTypeDefault;
     pwdTF.secureTextEntry = YES;
-    [backView addSubview:pwdTF];
+    [whiteView addSubview:pwdTF];
     self.pwdTF = pwdTF;
     
     //分割线
-    [backView addSubview:[self getLineViewWithOriginY:kkRowHeight * 3]];
+    [whiteView addSubview:[self getLineViewWithOriginY:kkRowHeight * 3]];
     
     //4.确认密码
     UILabel *pwd2Label = [self getLabelWithOriginY:kkRowHeight * 3 andText:@"确认密码："];
-    [backView addSubview:pwd2Label];
+    [whiteView addSubview:pwd2Label];
     
     UITextField *pwd2TF = [self getTextFieldWithPlaceholder:@"请输入6~16位字符"];
-    pwd2TF.frame = CGRectMake(100, kkRowHeight * 3, backView.width - 10 - 100, kkRowHeight);
+    pwd2TF.frame = CGRectMake(100, kkRowHeight * 3, whiteView.width - 10 - 100, kkRowHeight);
     pwd2TF.keyboardType = UIKeyboardTypeDefault;
     pwd2TF.secureTextEntry = YES;
-    [backView addSubview:pwd2TF];
+    [whiteView addSubview:pwd2TF];
     self.pwd2TF = pwd2TF;
     
     // 注册按钮
-    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    registerBtn.frame = CGRectMake(backView.origin.x, backView.bottom + 50, backView.frame.size.width, 40);
-    registerBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.8];
-    registerBtn.layer.cornerRadius = 2;
+    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    registerBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 40 * kScaleFit, SCREEN_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
+    registerBtn.backgroundColor = kThemeColor;
+    registerBtn.layer.cornerRadius = 3.0f * kScaleFit;
+    registerBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
     [registerBtn setTitle:@"注册" forState:UIControlStateNormal];
     [registerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [registerBtn addTarget:self action:@selector(clickRegisterBtn) forControlEvents:UIControlEventTouchUpInside];
-    registerBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:registerBtn];
     
 }
