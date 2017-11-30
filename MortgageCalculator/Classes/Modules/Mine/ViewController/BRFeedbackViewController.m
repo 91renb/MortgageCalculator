@@ -32,7 +32,7 @@
 
 - (BRTextView *)textView {
     if (_textView == nil) {
-        _textView = [[BRTextView alloc]initWithFrame:CGRectMake(10 * kScaleFit, NAV_HEIGHT + 10 * kScaleFit, SCREEN_WIDTH - 20 * kScaleFit, 120 * kScaleFit)];
+        _textView = [[BRTextView alloc]initWithFrame:CGRectMake(10 * kScaleFit, 10 * kScaleFit, VIEW_WIDTH - 20 * kScaleFit, 120 * kScaleFit)];
         _textView.backgroundColor = [UIColor whiteColor];
         _textView.layer.cornerRadius = 4.0f;
         _textView.layer.borderColor = RGB(227, 224, 216, 1.0f).CGColor;
@@ -54,7 +54,7 @@
     if (_sendButton == nil) {
         _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _sendButton.layer.cornerRadius = 3.0f * kScaleFit;
-        _sendButton.frame = CGRectMake(30 * kScaleFit, NAV_HEIGHT + 30 * kScaleFit + 130 * kScaleFit, SCREEN_WIDTH - 60 * kScaleFit, 44 * kScaleFit);
+        _sendButton.frame = CGRectMake(30 * kScaleFit, self.textView.frame.origin.y + self.textView.frame.size.height + 30 * kScaleFit, VIEW_WIDTH - 60 * kScaleFit, 44 * kScaleFit);
         _sendButton.backgroundColor = kThemeColor;
         [_sendButton setTitle:@"提交" forState:UIControlStateNormal];
         [_sendButton addTarget:self action:@selector(clickSendButton) forControlEvents:UIControlEventTouchUpInside];

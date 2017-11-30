@@ -80,7 +80,7 @@
 
 - (UIView *)addEmptyDataView {
     if (!_emptyDataView) {
-        _emptyDataView = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, (SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT - 40 - 100) / 2, 100, 100)];
+        _emptyDataView = [[UIView alloc]initWithFrame:CGRectMake((VIEW_WIDTH - 100) / 2, (VIEW_HEIGHT - TABBAR_HEIGHT - 40 - 100) / 2, 100, 100)];
         _emptyDataView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_emptyDataView];
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 60, 51)];

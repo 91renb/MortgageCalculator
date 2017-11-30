@@ -14,6 +14,9 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+// 等比例适配系数
+#define kScaleFit (SCREEN_WIDTH / 375.0f)
+
 // 当前控制器的view的大小、宽、高
 #define VIEW_BOUNDS self.view.bounds
 #define VIEW_WIDTH self.view.frame.size.width
@@ -21,9 +24,6 @@
 
 // 当前线程
 #define CURRENT_THREAD NSLog(@"当前线程：%@", [NSThread currentThread]);
-
-// 等比例适配系数
-#define kScaleFit (SCREEN_WIDTH / 375.0f)
 
 #define SuccessFlag 0
 

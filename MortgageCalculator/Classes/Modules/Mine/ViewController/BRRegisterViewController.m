@@ -88,7 +88,7 @@
 #pragma mark - 设置UI
 - (void)initUI {
     //白色背景视图
-    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 4)];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, 20, VIEW_WIDTH - 10 - 10, kkRowHeight * 4)];
     [whiteView setBackgroundColor:[UIColor whiteColor]];
     whiteView.layer.cornerRadius = 3.0f * kScaleFit;
     whiteView.layer.borderWidth = 0.4;
@@ -158,7 +158,7 @@
     
     // 注册按钮
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    registerBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 40 * kScaleFit, SCREEN_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
+    registerBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 40 * kScaleFit, VIEW_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
     registerBtn.backgroundColor = kThemeColor;
     registerBtn.layer.cornerRadius = 3.0f * kScaleFit;
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
@@ -191,7 +191,7 @@
 }
 
 - (UIView *)getLineViewWithOriginY:(CGFloat)y {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, y, SCREEN_WIDTH - 10 - 10, 0.5)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, y, VIEW_WIDTH - 10 - 10, 0.5)];
     view.backgroundColor = RGB_HEX(0xe0e0e0, 1.0f);
     return view;
 }

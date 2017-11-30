@@ -84,7 +84,7 @@
 /** 自定义导航栏 */
 - (void)setupNav {
     // 背景图片
-    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAV_HEIGHT)];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, NAV_HEIGHT)];
     bgImageView.backgroundColor = [UIColor clearColor];
     bgImageView.image = [UIImage imageWithColor:RGB_HEX(0x4181e1, 1.0f)];
     [self.view addSubview:bgImageView];
@@ -93,7 +93,7 @@
     
     // 设置分割线
     CGFloat lineHeight = 1 / [UIScreen mainScreen].scale; // 一个像素点
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - lineHeight, SCREEN_WIDTH, lineHeight)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - lineHeight, bgImageView.width, lineHeight)];
     lineView.backgroundColor = RGB_HEX(0XE3E3E3, 1.0);
     [bgImageView addSubview:lineView];
     
@@ -115,7 +115,7 @@
 
 /** 设置头视图 */
 - (void)setupHeaderView {
-    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderH)];
+    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, kHeaderH)];
     _headView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_headView];
     
@@ -175,7 +175,7 @@
 
 - (UIView *)footerView {
     if (!_footerView) {
-        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60 * kScaleFit)];
+        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 60 * kScaleFit)];
         _footerView.backgroundColor = [UIColor clearColor];
         // 退出登录按钮
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -189,7 +189,7 @@
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
             make.centerX.mas_equalTo(_footerView.mas_centerX);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH * 2 / 3, 36));
+            make.size.mas_equalTo(CGSizeMake(_footerView.width * 2 / 3, 36));
         }];
     }
     return _footerView;
@@ -210,7 +210,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT - TABBAR_HEIGHT) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;

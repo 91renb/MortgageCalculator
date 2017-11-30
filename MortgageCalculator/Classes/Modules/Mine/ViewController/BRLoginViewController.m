@@ -55,7 +55,6 @@
     [BmobUser loginWithUsernameInBackground:username password:password block:^(BmobUser *user, NSError *error) {
         //登陆后返回的用户信息
         NSLog(@"登录请求：%@", user);
-        CURRENT_THREAD
         if (user != nil) {
             [BRUserHelper setUsername:username];
             if (isRememberPwd) {
@@ -74,7 +73,7 @@
 #pragma mark - 绘制登陆界面
 - (void)initUI {
     //白色背景视图
-    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 2)];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(10, 20, VIEW_WIDTH - 10 - 10, kkRowHeight * 2)];
     whiteView.backgroundColor = [UIColor whiteColor];
     whiteView.layer.cornerRadius = 3.0f * kScaleFit;
     whiteView.layer.borderWidth = 0.4;
@@ -88,7 +87,7 @@
     phoneImageView.image = [UIImage imageNamed:@"icon_phone"];
     
     //手机号TextField
-    UITextField *phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
+    UITextField *phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH - 10 - 10, kkRowHeight)];
     phoneTF.backgroundColor = [UIColor clearColor];
     phoneTF.placeholder = @"请输入手机号";
     phoneTF.font = [UIFont systemFontOfSize:16.0f];
@@ -103,7 +102,7 @@
     self.phoneTF = phoneTF;
     
     //分割线
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, kkRowHeight, SCREEN_WIDTH - 10 - 10, 0.5)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, kkRowHeight, VIEW_WIDTH - 10 - 10, 0.5)];
     lineView.backgroundColor = RGB_HEX(0xe0e0e0, 1.0f);
     [whiteView addSubview:lineView];
     
@@ -114,7 +113,7 @@
     pwdImageView.image = [UIImage imageNamed:@"icon_pwd"];
     
     //密码TextField
-    UITextField *pwdTF = [[UITextField alloc] initWithFrame:CGRectMake(0, kkRowHeight, SCREEN_WIDTH - 10 - 10, kkRowHeight)];
+    UITextField *pwdTF = [[UITextField alloc] initWithFrame:CGRectMake(0, kkRowHeight, VIEW_WIDTH - 10 - 10, kkRowHeight)];
     pwdTF.backgroundColor = [UIColor clearColor];
     pwdTF.placeholder = @"请输入密码";
     pwdTF.font = [UIFont systemFontOfSize:16.0f];
@@ -135,6 +134,7 @@
     [rememberBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     rememberBtn.titleLabel.font = [UIFont systemFontOfSize:15 * kScaleFit];
     [rememberBtn setImage:[UIImage imageNamed:@"icon_remember_nor"] forState:UIControlStateNormal];
+    [rememberBtn setImage:[UIImage imageNamed:@"icon_remember_nor"] forState:UIControlStateHighlighted];
     [rememberBtn setImage:[UIImage imageNamed:@"icon_remember_sel"] forState:UIControlStateSelected];
     rememberBtn.contentMode = UIViewContentModeLeft;
     [rememberBtn addTarget:self action:@selector(clickRememberPwd:) forControlEvents:UIControlEventTouchUpInside];
@@ -144,7 +144,7 @@
     
     //登录按钮
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 80, SCREEN_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
+    loginBtn.frame = CGRectMake(20 * kScaleFit, whiteView.bottom + 80, VIEW_WIDTH - 40 * kScaleFit, 44 * kScaleFit);
     loginBtn.backgroundColor = kThemeColor;
     loginBtn.layer.cornerRadius = 3.0f * kScaleFit;
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
@@ -168,7 +168,7 @@
     
     // 忘记密码按钮
     UIButton *forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    forgetBtn.frame = CGRectMake((SCREEN_WIDTH - 100 * kScaleFit) / 2.0f, registerBtn.bottom + 10, 100 * kScaleFit, 30 * kScaleFit);
+    forgetBtn.frame = CGRectMake((VIEW_WIDTH - 100 * kScaleFit) / 2.0f, registerBtn.bottom + 10, 100 * kScaleFit, 30 * kScaleFit);
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [forgetBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [forgetBtn addTarget:self action:@selector(clickResetPwd) forControlEvents:UIControlEventTouchUpInside];

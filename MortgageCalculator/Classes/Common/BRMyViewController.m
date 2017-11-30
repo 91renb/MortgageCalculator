@@ -23,7 +23,7 @@
 
 - (UITextView *)textView {
     if (!_textView) {
-        _textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 40, SCREEN_WIDTH - 40, SCREEN_HEIGHT - 80)];
+        _textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 40, VIEW_WIDTH - 40, VIEW_HEIGHT - 80)];
         _textView.backgroundColor = [UIColor blackColor];
         _textView.textColor = [UIColor whiteColor];
         _textView.font = [UIFont systemFontOfSize:30];

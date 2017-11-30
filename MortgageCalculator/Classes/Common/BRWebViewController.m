@@ -59,13 +59,13 @@
 #pragma mark - 设置导航栏
 - (void)setupNav {
     // 设置导航栏背景图片
-    UIImageView *navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, NAV_HEIGHT)];
+    UIImageView *navImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, NAV_HEIGHT)];
     navImageView.backgroundColor = kNavBarColor;
     //navImageView.image = [UIImage imageNamed:@""];
     [self.view addSubview:navImageView];
     self.navImageView = navImageView;
     // 设置分割线
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - 0.5, SCREEN_WIDTH, 0.5)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT - 0.5, VIEW_WIDTH, 0.5)];
     lineView.backgroundColor = RGB_HEX(0XE3E3E3, 1.0);
     [navImageView addSubview:lineView];
     // 导航栏标题
@@ -160,7 +160,7 @@
 
 - (WKWebView *)webView {
     if (!_webView) {
-        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT)];
+        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, VIEW_WIDTH, VIEW_HEIGHT - NAV_HEIGHT)];
         _webView.backgroundColor = [UIColor clearColor];
         // 允许左右滑动手势返回
         //_webView.allowsBackForwardNavigationGestures = YES;
@@ -192,7 +192,7 @@
 - (UIProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _progressView.frame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, 1);
+        _progressView.frame = CGRectMake(0, NAV_HEIGHT, VIEW_WIDTH, 1);
         _progressView.trackTintColor = [UIColor colorWithWhite:1.0f alpha:0.0f];
         // 设置进度条颜色
         _progressView.tintColor = [UIColor colorWithRed:0.400 green:0.863 blue:0.133 alpha:1.000];

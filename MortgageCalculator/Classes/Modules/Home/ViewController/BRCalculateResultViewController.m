@@ -66,7 +66,7 @@
 
 - (UIView *)headView {
     if (!_headView) {
-        _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHeaderH)];
+        _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, kHeaderH)];
         //_headView.backgroundColor = kThemeColor;
         [_headView setGradientColor:RGB_HEX(0x46b2f0, 1.0f) toColor:RGB_HEX(0x4181e1, 1.0f)];
         
@@ -123,7 +123,7 @@
         [avgMonthRepayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(_headView).with.offset(NAV_HEIGHT + 20 * kScaleFit);
             make.centerX.mas_equalTo(_headView.mas_centerX);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 70 * kScaleFit));
+            make.size.mas_equalTo(CGSizeMake(VIEW_WIDTH, 70 * kScaleFit));
         }];
         // 还款总额
         UILabel *repayTotalPriceLabel = [[UILabel alloc]init];
@@ -139,7 +139,7 @@
         [repayTotalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
             make.left.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
+            make.size.mas_equalTo(CGSizeMake(VIEW_WIDTH / 3, 60 * kScaleFit));
         }];
         // 贷款总额
         UILabel *loanTotalPriceLabel = [[UILabel alloc]init];
@@ -154,8 +154,8 @@
         [_headView addSubview:loanTotalPriceLabel];
         [loanTotalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
-            make.left.mas_equalTo(SCREEN_WIDTH / 3);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
+            make.left.mas_equalTo(VIEW_WIDTH / 3);
+            make.size.mas_equalTo(CGSizeMake(VIEW_WIDTH / 3, 60 * kScaleFit));
         }];
         // 累计利息
         UILabel *repayTotalInterestLabel = [[UILabel alloc]init];
@@ -170,8 +170,8 @@
         [_headView addSubview:repayTotalInterestLabel];
         [repayTotalInterestLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(20 * kScaleFit);
-            make.left.mas_equalTo(SCREEN_WIDTH * 2 / 3);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH / 3, 60 * kScaleFit));
+            make.left.mas_equalTo(VIEW_WIDTH * 2 / 3);
+            make.size.mas_equalTo(CGSizeMake(VIEW_WIDTH / 3, 60 * kScaleFit));
         }];
         // 分割线
         UIView *spLineView = [[UIView alloc]init];
@@ -180,14 +180,14 @@
         [spLineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(15 * kScaleFit);
             make.left.mas_equalTo(0);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 0.3 * kScaleFit));
+            make.size.mas_equalTo(CGSizeMake(VIEW_WIDTH, 0.3 * kScaleFit));
         }];
         UIView *szLineView1 = [[UIView alloc]init];
         szLineView1.backgroundColor = RGB_HEX(0xe2e2e2, 1.0f);
         [_headView addSubview:szLineView1];
         [szLineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(30 * kScaleFit);
-            make.left.mas_equalTo(SCREEN_WIDTH / 3);
+            make.left.mas_equalTo(VIEW_WIDTH / 3);
             make.size.mas_equalTo(CGSizeMake(0.5 * kScaleFit, 40 * kScaleFit));
         }];
         UIView *szLineView2 = [[UIView alloc]init];
@@ -195,7 +195,7 @@
         [_headView addSubview:szLineView2];
         [szLineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(avgMonthRepayLabel.mas_bottom).with.offset(30 * kScaleFit);
-            make.left.mas_equalTo(SCREEN_WIDTH * 2 / 3);
+            make.left.mas_equalTo(VIEW_WIDTH * 2 / 3);
             make.size.mas_equalTo(CGSizeMake(0.5 * kScaleFit, 40 * kScaleFit));
         }];
     }
@@ -223,7 +223,7 @@
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:VIEW_BOUNDS style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -272,15 +272,15 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *sectionHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30 * kScaleFit)];
+    UIView *sectionHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 30 * kScaleFit)];
     sectionHeaderView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    UILabel *numberLabel = [self getLabel:@"期数" centerX:SCREEN_WIDTH / 8];
+    UILabel *numberLabel = [self getLabel:@"期数" centerX:VIEW_WIDTH / 8];
     [sectionHeaderView addSubview:numberLabel];
-    UILabel *totalPriceLabel = [self getLabel:@"月供(元)" centerX:SCREEN_WIDTH / 8 + SCREEN_WIDTH / 4];
+    UILabel *totalPriceLabel = [self getLabel:@"月供(元)" centerX:VIEW_WIDTH / 8 + VIEW_WIDTH / 4];
     [sectionHeaderView addSubview:totalPriceLabel];
-    UILabel *priceLabel = [self getLabel:@"本金(元)" centerX:SCREEN_WIDTH / 8 + SCREEN_WIDTH * 2 / 4];
+    UILabel *priceLabel = [self getLabel:@"本金(元)" centerX:VIEW_WIDTH / 8 + VIEW_WIDTH * 2 / 4];
     [sectionHeaderView addSubview:priceLabel];
-    UILabel *interestLabel = [self getLabel:@"利息(元)" centerX:SCREEN_WIDTH / 8 + SCREEN_WIDTH * 3 / 4];
+    UILabel *interestLabel = [self getLabel:@"利息(元)" centerX:VIEW_WIDTH / 8 + VIEW_WIDTH * 3 / 4];
     [sectionHeaderView addSubview:interestLabel];
     
     return sectionHeaderView;

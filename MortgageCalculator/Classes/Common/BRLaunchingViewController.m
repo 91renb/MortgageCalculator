@@ -23,7 +23,7 @@
 
 - (UIImageView *)imageView {
     if (_imageView == nil) {
-        _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
         _imageView.backgroundColor = [UIColor redColor];
         _imageView.image = [UIImage imageNamed:@"launchImage"];
         [self.view addSubview:_imageView];

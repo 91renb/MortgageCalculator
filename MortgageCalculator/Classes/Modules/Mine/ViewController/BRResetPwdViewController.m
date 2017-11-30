@@ -46,7 +46,7 @@
 #pragma mark - 设置UI
 - (void)initUI {
     //白色背景视图
-    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, NAV_HEIGHT + 20, SCREEN_WIDTH - 10 - 10, kkRowHeight * 3)];
+    UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(10, 20, VIEW_WIDTH - 10 - 10, kkRowHeight * 3)];
     [backView setBackgroundColor:[UIColor whiteColor]];
     backView.layer.borderWidth = 0.4;
     backView.layer.borderColor = RGB_HEX(0xe0e0e0, 1.0f).CGColor;
@@ -95,11 +95,11 @@
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     sureBtn.frame = CGRectMake(backView.origin.x, backView.bottom + 50, backView.frame.size.width, 40);
     sureBtn.backgroundColor = [UIColor colorWithRed:180/255.0 green:45/255.0  blue:25/255.0 alpha:0.8];
-    sureBtn.layer.cornerRadius = 2;
+    sureBtn.layer.cornerRadius = 3.0f * kScaleFit;
+    sureBtn.titleLabel.font = [UIFont systemFontOfSize:16 * kScaleFit];
     [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
     [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(clickSureBtn) forControlEvents:UIControlEventTouchUpInside];
-    sureBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.view addSubview:sureBtn];
     
 }
@@ -126,7 +126,7 @@
 }
 
 - (UIView *)getLineViewWithOriginY:(CGFloat)y {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, y, SCREEN_WIDTH - 10 - 10, 0.5)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, y, VIEW_WIDTH - 10 - 10, 0.5)];
     view.backgroundColor = RGB_HEX(0xe0e0e0, 1.0f);
     return view;
 }
