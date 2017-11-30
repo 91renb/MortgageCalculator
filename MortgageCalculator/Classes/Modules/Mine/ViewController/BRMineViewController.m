@@ -448,9 +448,8 @@
 - (NSArray *)dataArr {
     if (!_dataArr) {
         _dataArr = @[
-                     @[@[@"mine_help.png", @"分享给朋友"], @[@"mine_zjcx.png", @"五星好评"]],
-                     @[@[@"mine_phone.png", @"咨询客服"], @[@"mine_jilu.png", @"意见反馈"], @[@"mine_cache.png", @"清除缓存"]],
-                     @[@[@"mine_about.png", @"关于我们"]]];
+                     @[@[@"mine_share.png", @"分享给朋友"], @[@"mine_comment.png", @"五星好评"]],
+                     @[@[@"mine_service.png", @"咨询客服"], @[@"mine_feedback.png", @"意见反馈"], @[@"mine_cache.png", @"清除缓存"]], @[@[@"mine_about.png", @"关于我们"]]];
     }
     return _dataArr;
 }

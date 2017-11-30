@@ -82,6 +82,14 @@
 		C50C2B0E1FC65F0900D23C85 /* BRResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRResultModel.m; sourceTree = "<group>"; };
 		C50C2B101FC6609300D23C85 /* BRMortgageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRMortgageHelper.h; sourceTree = "<group>"; };
 		C50C2B111FC6609300D23C85 /* BRMortgageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRMortgageHelper.m; sourceTree = "<group>"; };
+		C52F817D1FCFFF47002D9ED3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		C52F817E1FCFFF47002D9ED3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C52F817F1FCFFF69002D9ED3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		C52F81801FCFFF6A002D9ED3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C52F81811FCFFF89002D9ED3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		C52F81821FCFFF89002D9ED3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C52F81831FD00768002D9ED3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		C52F81841FD00768002D9ED3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C54D413D1FC5928600DECD23 /* MortgageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54D41401FC5928600DECD23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54D41411FC5928600DECD23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -831,6 +839,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				C54D41471FC5928600DECD23 /* Base */,
+				C52F817D1FCFFF47002D9ED3 /* zh-Hans */,
+				C52F817F1FCFFF69002D9ED3 /* ja */,
+				C52F81811FCFFF89002D9ED3 /* ko */,
+				C52F81831FD00768002D9ED3 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -839,6 +851,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				C54D414C1FC5928600DECD23 /* Base */,
+				C52F817E1FCFFF47002D9ED3 /* zh-Hans */,
+				C52F81801FCFFF6A002D9ED3 /* ja */,
+				C52F81821FCFFF89002D9ED3 /* ko */,
+				C52F81841FD00768002D9ED3 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -850,6 +866,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -905,6 +922,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
