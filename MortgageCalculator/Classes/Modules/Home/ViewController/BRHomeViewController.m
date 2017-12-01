@@ -11,6 +11,8 @@
 #import "BRBusinessLoanViewController.h"
 #import "BRFundLoanViewController.h"
 #import "BRCombinedLoanViewController.h"
+#import "NSBundle+Language.h"
+#import "BRTabBarController.h"
 
 @interface BRHomeViewController ()<WMPageControllerDataSource, WMPageControllerDelegate>
 @property (nonatomic, strong) WMPageController *pageController;
@@ -24,8 +26,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"首页";
+    NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSString *language1 = langArr1.firstObject;
+    NSLog(@"模拟器语言切换之前：%@",language1);
+    // NSLocalizedString(key, comment) 本质
+    // NSlocalizeString 第一个参数是key,根据key去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@""。
+    self.navigationItem.title = NSLocalizedString(@"首页", nil);
     [self initUI];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"多语言", nil) style:UIBarButtonItemStylePlain target:self action:@selector(clickChangeLanguage)];
+}
+
+- (void)clickChangeLanguage {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"切换语言", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"English" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self changeLanguageTo:@"en"];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"中文简体" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self changeLanguageTo:@"zh-Hans"];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"中文繁體" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self changeLanguageTo:@"zh-Hant"];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+- (void)changeLanguageTo:(NSString *)language {
+    // 设置语言
+    [NSBundle setLanguage:language];
+    
+    // 然后将设置好的语言存储好，下次进来直接加载
+    [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"myLanguage"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // 我们要把系统windown的rootViewController替换掉
+    BRTabBarController *tabarVC = [[BRTabBarController alloc] init];
+    self.view.window.rootViewController = tabarVC;
+    // 跳转到设置页
+    //tabarVC.selectedIndex = 0;
 }
 
 - (void)initUI {
@@ -51,7 +89,10 @@
         //_pageController.progressWidth = 6;
         _pageController.progressViewWidths = @[@(12 * kScaleFit), @(12 * kScaleFit), @(12 * kScaleFit)];
         _pageController.progressHeight = 6.0f * kScaleFit;
-        _pageController.menuItemWidth = VIEW_WIDTH / self.titleData.count;
+        //_pageController.menuItemWidth = VIEW_WIDTH / self.titleData.count;
+        // 自动通过字符串计算 MenuItem 的宽度
+        _pageController.automaticallyCalculatesItemWidths = YES;
+        _pageController.itemMargin = 15 * kScaleFit;
         _pageController.menuHeight = 40 * kScaleFit;
         _pageController.dataSource = self;
         _pageController.delegate = self;
@@ -95,7 +136,7 @@
 #pragma mark 标题数组
 - (NSArray *)titleData {
     if (!_titleData) {
-        _titleData = @[@"商业贷款", @"公积金贷款", @"组合贷款"];
+        _titleData = @[NSLocalizedString(@"商业贷款", nil), NSLocalizedString(@"公积金贷款", nil), NSLocalizedString(@"组合贷款", nil)];
     }
     return _titleData;
 }

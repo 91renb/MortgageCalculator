@@ -49,21 +49,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"公积金贷款";
+    self.navigationItem.title = NSLocalizedString(@"公积金贷款", nil);
     self.calculateWay = BRCalculateWayTotalPrice;
     [self initDefaultData];
     [self initUI];
 }
 
 - (void)initDefaultData {
-    _calculateWayValue = @"房屋总价";
+    _calculateWayValue = NSLocalizedString(@"房屋总价", nil);
     _fundLoanTotalPriceValue = @"";
-    _loanTimeValue = @"20年（240期）";
+    _loanTimeValue = NSLocalizedString(@"20年（240期）", nil);
     _loanRatesValue = @"3.25";
-    _repaymentWayValue = @"等额本息";
+    _repaymentWayValue = NSLocalizedString(@"等额本息", nil);
     _unitPriceValue = @"";
     _areaValue = @"";
-    _loanPercentageValue = @"7成";
+    _loanPercentageValue = NSLocalizedString(@"7成", nil);
     
     _currentStandRates = 3.25;
 }
@@ -168,17 +168,17 @@
     fundLoanTotalPriceTF.delegate = self;
     fundLoanTotalPriceTF.tag = 0;
     fundLoanTotalPriceTF.keyboardType = UIKeyboardTypeNumberPad; //数字键盘，没有小数点
-    fundLoanTotalPriceTF.placeholder = @"请输入贷款金额";
+    fundLoanTotalPriceTF.placeholder = NSLocalizedString(@"请输入贷款金额", nil);
     fundLoanTotalPriceTF.text = _fundLoanTotalPriceValue;
     self.fundLoanTotalPriceTF = fundLoanTotalPriceTF;
-    [self addUnitLabel:cell rightMargin:-15 * kScaleFit text:@"万"];
+    [self addUnitLabel:cell rightMargin:-15 * kScaleFit text:NSLocalizedString(@"万", nil)];
 }
 
 #pragma mark - 贷款期限
 - (void)setupLoanTimeCell:(UITableViewCell *)cell {
     UITextField *loanTimeTF = [self getTextField:cell rightMargin:0 * kScaleFit];
     loanTimeTF.enabled = NO;
-    loanTimeTF.placeholder = @"请选择贷款期限";
+    loanTimeTF.placeholder = NSLocalizedString(@"请选择贷款期限", nil);
     loanTimeTF.text = _loanTimeValue;
     self.loanTimeTF = loanTimeTF;
 }
@@ -189,7 +189,7 @@
     loanRatesTF.delegate = self;
     loanRatesTF.tag = 1;
     loanRatesTF.keyboardType = UIKeyboardTypeDecimalPad;
-    loanRatesTF.placeholder = @"请输入贷款利率";
+    loanRatesTF.placeholder = NSLocalizedString(@"请输入贷款利率", nil);
     loanRatesTF.text = _loanRatesValue;
     self.loanRatesTF = loanRatesTF;
     [self addUnitLabel:cell rightMargin:-35 * kScaleFit text:@"%"];
@@ -210,10 +210,10 @@
     unitPriceTF.delegate = self;
     unitPriceTF.tag = 2;
     unitPriceTF.keyboardType = UIKeyboardTypeNumberPad;
-    unitPriceTF.placeholder = @"请输入房屋单价";
+    unitPriceTF.placeholder = NSLocalizedString(@"请输入房屋单价", nil);
     unitPriceTF.text = _unitPriceValue;
     self.unitPriceTF = unitPriceTF;
-    [self addUnitLabel:cell rightMargin:-15 * kScaleFit text:@"元"];
+    [self addUnitLabel:cell rightMargin:-15 * kScaleFit text:NSLocalizedString(@"元", nil)];
 }
 
 #pragma mark - 房屋面积
@@ -222,7 +222,7 @@
     areaTF.delegate = self;
     areaTF.tag = 3;
     areaTF.keyboardType = UIKeyboardTypeNumberPad;
-    areaTF.placeholder = @"请输入房屋面积";
+    areaTF.placeholder = NSLocalizedString(@"请输入房屋面积", nil);
     areaTF.text = _areaValue;
     self.areaTF = areaTF;
     [self addUnitLabel:cell rightMargin:-15 * kScaleFit text:@"㎡"];
@@ -232,7 +232,7 @@
 - (void)setupLoanPercentageCell:(UITableViewCell *)cell {
     UITextField *loanPercentageTF = [self getTextField:cell rightMargin:0 * kScaleFit];
     loanPercentageTF.enabled = NO;
-    loanPercentageTF.placeholder = @"请选择按揭成数";
+    loanPercentageTF.placeholder = NSLocalizedString(@"请选择按揭成数", nil);
     loanPercentageTF.text = _loanPercentageValue;
     self.loanPercentageTF = loanPercentageTF;
 }
@@ -285,11 +285,11 @@
 
 - (void)didTapSelectDownImageView {
     NSLog(@"选择公积金贷款利率");
-    [BRStringPickerView showStringPickerWithTitle:@"请选择贷款利率" plistName:@"fundLoanRates" defaultSelValue:@"基准利率" isAutoSelect:NO resultBlock:^(id selectValue) {
+    [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择贷款利率", nil) plistName:NSLocalizedString(@"fundLoanRates", nil) defaultSelValue:NSLocalizedString(@"基准利率", nil) isAutoSelect:NO resultBlock:^(id selectValue) {
         // 筛选出数字
-        NSString *result = [selectValue stringByReplacingOccurrencesOfString:@"基准利率" withString:@""];
-        if ([result containsString:@"倍"]) {
-            result = [result stringByReplacingOccurrencesOfString:@"倍" withString:@""];
+        NSString *result = [selectValue stringByReplacingOccurrencesOfString:NSLocalizedString(@"基准利率", nil) withString:@""];
+        if ([result containsString:NSLocalizedString(@"倍", nil)]) {
+            result = [result stringByReplacingOccurrencesOfString:NSLocalizedString(@"倍", nil) withString:@""];
             CGFloat rate = [result floatValue];
             result = [NSString stringWithFormat:@"%.2f", rate * _currentStandRates + 0.0005];
             self.loanRatesTF.text = _loanRatesValue = result;
@@ -302,15 +302,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         NSLog(@"选择计算方式");
-        [BRStringPickerView showStringPickerWithTitle:@"请选择计算方式" dataSource:@[@"房屋总价", @"单价和面积"] defaultSelValue:self.calculateWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+        [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择计算方式", nil) dataSource:@[NSLocalizedString(@"房屋总价", nil), NSLocalizedString(@"单价和面积", nil)] defaultSelValue:self.calculateWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
             self.calculateWayTF.text = _calculateWayValue = selectValue;
             // 更新数据源
-            if ([selectValue isEqualToString:@"房屋总价"]) {
+            if ([selectValue isEqualToString:NSLocalizedString(@"房屋总价", nil)]) {
                 self.calculateWay = BRCalculateWayTotalPrice;
-                self.tableDataArr = @[@[@"计算方式"], @[@"贷款总额", @"贷款期限", @"贷款利率", @"还款方式"]];
-            } else if ([selectValue isEqualToString:@"单价和面积"]) {
+                self.tableDataArr = @[@[NSLocalizedString(@"计算方式", nil)], @[NSLocalizedString(@"贷款总额", nil), NSLocalizedString(@"贷款期限", nil), NSLocalizedString(@"贷款利率", nil), NSLocalizedString(@"还款方式", nil)]];
+            } else if ([selectValue isEqualToString:NSLocalizedString(@"单价和面积", nil)]) {
                 self.calculateWay = BRCalculateWayUnitPriceAndArea;
-                self.tableDataArr = @[@[@"计算方式"], @[@"房屋单价", @"房屋面积", @"贷款期限", @"按揭成数", @"贷款利率", @"还款方式"]];
+                self.tableDataArr = @[@[NSLocalizedString(@"计算方式", nil)], @[NSLocalizedString(@"房屋单价", nil), NSLocalizedString(@"房屋面积", nil), NSLocalizedString(@"贷款期限", nil), NSLocalizedString(@"按揭成数", nil), NSLocalizedString(@"贷款利率", nil), NSLocalizedString(@"还款方式", nil)]];
             }
             // 更新UI
             [self.tableView reloadSections:[[NSIndexSet alloc]initWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -319,9 +319,9 @@
     if (self.calculateWay == BRCalculateWayTotalPrice) {
         if (indexPath.section == 1 && indexPath.row == 1) {
             NSLog(@"选择贷款期限");
-            [BRStringPickerView showStringPickerWithTitle:@"请选择贷款期限" plistName:@"loanTime" defaultSelValue:self.loanTimeTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择贷款期限", nil) plistName:NSLocalizedString(@"loanTime", nil) defaultSelValue:self.loanTimeTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
                 self.loanTimeTF.text = _loanTimeValue = selectValue;
-                NSInteger loanYear = [[[selectValue componentsSeparatedByString:@"年"] firstObject] integerValue];
+                NSInteger loanYear = [[[selectValue componentsSeparatedByString:NSLocalizedString(@"年", nil)] firstObject] integerValue];
                 // 根据贷款期限更新贷款基准利率
                 if (loanYear <= 5) {
                     _currentStandRates = 2.75;
@@ -333,16 +333,16 @@
             }];
         } else if (indexPath.section == 1 && indexPath.row == 3) {
             NSLog(@"选择还款方式");
-            [BRStringPickerView showStringPickerWithTitle:@"请选择还款方式" dataSource:@[@"等额本息", @"等额本金"] defaultSelValue:self.repaymentWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择还款方式", nil) dataSource:@[NSLocalizedString(@"等额本息", nil), NSLocalizedString(@"等额本金", nil)] defaultSelValue:self.repaymentWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
                 self.repaymentWayTF.text = _repaymentWayValue = selectValue;
             }];
         }
     } else if (self.calculateWay == BRCalculateWayUnitPriceAndArea) {
         if (indexPath.section == 1 && indexPath.row == 2) {
             NSLog(@"选择贷款期限");
-            [BRStringPickerView showStringPickerWithTitle:@"请选择贷款期限" plistName:@"loanTime" defaultSelValue:self.loanTimeTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择贷款期限", nil) plistName:NSLocalizedString(@"loanTime", nil) defaultSelValue:self.loanTimeTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
                 self.loanTimeTF.text = _loanTimeValue = selectValue;
-                NSInteger loanYear = [[[selectValue componentsSeparatedByString:@"年"] firstObject] integerValue];
+                NSInteger loanYear = [[[selectValue componentsSeparatedByString:NSLocalizedString(@"年", nil)] firstObject] integerValue];
                 // 根据贷款期限更新贷款基准利率
                 if (loanYear <= 5) {
                     _currentStandRates = 2.75;
@@ -354,13 +354,12 @@
             }];
         } else if (indexPath.section == 1 && indexPath.row == 3) {
             NSLog(@"选择按揭成数");
-            NSArray *dataSource = @[@"1成", @"2成", @"3成", @"4成", @"5成", @"6成", @"7成", @"8成", @"9成"];
-            [BRStringPickerView showStringPickerWithTitle:@"请选择按揭成数" dataSource:dataSource defaultSelValue:self.loanPercentageTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择按揭成数", nil) plistName:NSLocalizedString(@"percentage", nil) defaultSelValue:self.loanPercentageTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
                 self.loanPercentageTF.text = _loanPercentageValue = selectValue;
             }];
         } else if (indexPath.section == 1 && indexPath.row == 5) {
             NSLog(@"选择还款方式");
-            [BRStringPickerView showStringPickerWithTitle:@"请选择还款方式" dataSource:@[@"等额本息", @"等额本金"] defaultSelValue:self.repaymentWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:NSLocalizedString(@"请选择还款方式", nil) dataSource:@[NSLocalizedString(@"等额本息", nil), NSLocalizedString(@"等额本金", nil)] defaultSelValue:self.repaymentWayTF.text isAutoSelect:NO resultBlock:^(id selectValue) {
                 self.repaymentWayTF.text = _repaymentWayValue = selectValue;
             }];
         }
@@ -388,7 +387,7 @@
         calculatorBtn.layer.masksToBounds = YES;
         calculatorBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f * kScaleFit];
         [calculatorBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [calculatorBtn setTitle:@"开始计算" forState:UIControlStateNormal];
+        [calculatorBtn setTitle:NSLocalizedString(@"开始计算", nil) forState:UIControlStateNormal];
         [calculatorBtn addTarget:self action:@selector(clickCalculatorBtn) forControlEvents:UIControlEventTouchUpInside];
         [_footerSectionView addSubview:calculatorBtn];
         [calculatorBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -404,26 +403,26 @@
 - (void)clickCalculatorBtn {
     NSLog(@"开始计算");
     if (self.loanRatesTF.text.length == 0) {
-        [MBProgressHUD showMessage:@"贷款利率不能为空"];
+        [MBProgressHUD showMessage:NSLocalizedString(@"贷款利率不能为空", nil)];
         return;
     }
     if ([self.loanRatesTF.text floatValue] < 1) {
-        [MBProgressHUD showMessage:@"贷款利率不能小于1%"];
+        [MBProgressHUD showMessage:NSLocalizedString(@"贷款利率不能小于1%", nil)];
         return;
     }
     if (self.calculateWay == BRCalculateWayTotalPrice) {
         if (self.fundLoanTotalPriceTF.text.length == 0) {
-            [MBProgressHUD showMessage:@"请输入贷款总额"];
+            [MBProgressHUD showMessage:NSLocalizedString(@"请输入贷款金额", nil)];
             return;
         }
         
     } else if (self.calculateWay == BRCalculateWayUnitPriceAndArea) {
         if (self.unitPriceTF.text.length == 0) {
-            [MBProgressHUD showMessage:@"请输入房屋单价"];
+            [MBProgressHUD showMessage:NSLocalizedString(@"请输入房屋单价", nil)];
             return;
         }
         if (self.areaTF.text.length == 0) {
-            [MBProgressHUD showMessage:@"请输入房屋面积"];
+            [MBProgressHUD showMessage:NSLocalizedString(@"请输入房屋面积", nil)];
             return;
         }
     }
@@ -441,14 +440,14 @@
     inputModel.businessTotalPrice = [self.fundLoanTotalPriceTF.text integerValue];
     inputModel.mortgageYear = [self.loanTimeTF.text integerValue];
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
-    if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
+    if ([self.repaymentWayTF.text isEqualToString:NSLocalizedString(@"等额本息", nil)]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipalInterest:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
         calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
-    } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
+    } else if ([self.repaymentWayTF.text isEqualToString:NSLocalizedString(@"等额本金", nil)]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsTotalPriceAndEqualPrincipal:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayTotalPrice;
@@ -465,14 +464,14 @@
     inputModel.mortgageYear = [self.loanTimeTF.text integerValue];
     inputModel.mortgageMulti = [self.loanPercentageTF.text integerValue];
     inputModel.bankRate = [self.loanRatesTF.text doubleValue];
-    if ([self.repaymentWayTF.text isEqualToString:@"等额本息"]) {
+    if ([self.repaymentWayTF.text isEqualToString:NSLocalizedString(@"等额本息", nil)]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsUnitPriceAreaAndEqualPrincipalInterest:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayUnitPriceAndArea;
         calculateResultVC.repayWay = BRRepayWayPriceInterestSame;
         calculateResultVC.resultModel = resultModel;
         [self.navigationController pushViewController:calculateResultVC animated:YES];
-    } else if ([self.repaymentWayTF.text isEqualToString:@"等额本金"]) {
+    } else if ([self.repaymentWayTF.text isEqualToString:NSLocalizedString(@"等额本金", nil)]) {
         BRResultModel *resultModel = [BRMortgageHelper calculateLoanAsUnitPriceAreaAndEqualPrincipal:inputModel];
         BRCalculateResultViewController *calculateResultVC = [[BRCalculateResultViewController alloc]init];
         calculateResultVC.calculateWay = BRCalculateWayUnitPriceAndArea;
@@ -505,11 +504,11 @@
         NSInteger maxLength = 6;
         CGFloat maxValue = 9;
         if (currentString.length > maxLength) {
-            [MBProgressHUD showMessage:@"请输入少于5个字符的数字"];
+            [MBProgressHUD showMessage:NSLocalizedString(@"请输入少于5个字符的数字", nil)];
             return NO;
         }
         if ([currentString floatValue] > maxValue) {
-            [MBProgressHUD showMessage:@"请输入小于10的数字"];
+            [MBProgressHUD showMessage:NSLocalizedString(@"请输入小于10的数字", nil)];
             return NO;
         }
     } else if (textField.tag == 2) {
@@ -544,7 +543,7 @@
 
 - (NSArray *)tableDataArr {
     if (!_tableDataArr) {
-        _tableDataArr = @[@[@"计算方式"], @[@"贷款总额", @"贷款期限", @"贷款利率", @"还款方式"]];
+        _tableDataArr = @[@[NSLocalizedString(@"计算方式", nil)], @[NSLocalizedString(@"贷款总额", nil), NSLocalizedString(@"贷款期限", nil), NSLocalizedString(@"贷款利率", nil), NSLocalizedString(@"还款方式", nil)]];
     }
     return _tableDataArr;
 }

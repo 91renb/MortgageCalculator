@@ -30,10 +30,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"资讯";
-    [self initData];
-    [self initUI];
-    [self.tableView beginHeaderRefresh];
+    self.navigationItem.title = NSLocalizedString(@"资讯", nil);
+    NSString *title = NSLocalizedString(@"资讯", nil);
+    if (![title isEqualToString:@"资讯"] && ![title isEqualToString:@"資訊"]) {
+        [self addEmptyDataView];
+    } else {
+        [self removeEmptyDataViewFromSuperView];
+        [self initData];
+        [self initUI];
+        [self.tableView beginHeaderRefresh];
+    }
 }
 
 - (void)initData {
@@ -66,7 +72,6 @@
             }
             
             [self.tableView reloadData];
-            
             if (self.tableDataArr.count == 0) {
                 [self addEmptyDataView];
             } else {
@@ -92,7 +97,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:14.0f];
         label.textColor = RGB_HEX(0x999999, 1.0f);
-        label.text = @"暂无内容哦~";
+        label.text = NSLocalizedString(@"暂无内容哦~", nil);
         [_emptyDataView addSubview:label];
     }
     return _emptyDataView;

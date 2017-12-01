@@ -22,6 +22,21 @@
 		C50C2B0C1FC65EF200D23C85 /* BRInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B0B1FC65EF200D23C85 /* BRInputModel.m */; };
 		C50C2B0F1FC65F0900D23C85 /* BRResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B0E1FC65F0900D23C85 /* BRResultModel.m */; };
 		C50C2B121FC6609300D23C85 /* BRMortgageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C2B111FC6609300D23C85 /* BRMortgageHelper.m */; };
+		C545F6DB1FD0FDC100A271CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C545F6DD1FD0FDC100A271CF /* Localizable.strings */; };
+		C545F6E21FD13DCD00A271CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C545F6E41FD13DCD00A271CF /* InfoPlist.strings */; };
+		C545F6E91FD144BF00A271CF /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = C545F6E81FD144BF00A271CF /* NSBundle+Language.m */; };
+		C545F6F61FD171A100A271CF /* loanTime_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6F31FD171A100A271CF /* loanTime_en.plist */; };
+		C545F6F71FD171A100A271CF /* loanTime_zh-Hant.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6F41FD171A100A271CF /* loanTime_zh-Hant.plist */; };
+		C545F6F81FD171A100A271CF /* loanTime_zh-Hans.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6F51FD171A100A271CF /* loanTime_zh-Hans.plist */; };
+		C545F6FF1FD1743600A271CF /* fundLoanRates_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6F91FD1743500A271CF /* fundLoanRates_en.plist */; };
+		C545F7001FD1743600A271CF /* fundLoanRates_zh-Hant.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6FA1FD1743600A271CF /* fundLoanRates_zh-Hant.plist */; };
+		C545F7011FD1743600A271CF /* fundLoanRates_zh-Hans.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6FB1FD1743600A271CF /* fundLoanRates_zh-Hans.plist */; };
+		C545F7021FD1743600A271CF /* loanRates_zh-Hans.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6FC1FD1743600A271CF /* loanRates_zh-Hans.plist */; };
+		C545F7031FD1743600A271CF /* loanRates_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6FD1FD1743600A271CF /* loanRates_en.plist */; };
+		C545F7041FD1743600A271CF /* loanRates_zh-Hant.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F6FE1FD1743600A271CF /* loanRates_zh-Hant.plist */; };
+		C545F7061FD1B3C400A271CF /* percentage_zh-Hans.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */; };
+		C545F7091FD1B49800A271CF /* percentage_zh-Hant.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */; };
+		C545F70A1FD1B49800A271CF /* percentage_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7081FD1B49800A271CF /* percentage_en.plist */; };
 		C54D41421FC5928600DECD23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41411FC5928600DECD23 /* AppDelegate.m */; };
 		C54D41481FC5928600DECD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54D41461FC5928600DECD23 /* Main.storyboard */; };
 		C54D414A1FC5928600DECD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C54D41491FC5928600DECD23 /* Assets.xcassets */; };
@@ -54,11 +69,8 @@
 		C5C286A71FC6A6CD005DE4E7 /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2869D1FC6A6AE005DE4E7 /* BRBaseView.m */; };
 		C5C286A81FC6A6CD005DE4E7 /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286A11FC6A6AE005DE4E7 /* BRDatePickerView.m */; };
 		C5C286A91FC6A6CD005DE4E7 /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */; };
-		C5C286AF1FC6FCD7005DE4E7 /* loanTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */; };
-		C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C286B01FC70DFF005DE4E7 /* loanRates.plist */; };
 		C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */; };
 		C5C287101FCAA7C3005DE4E7 /* BRCalculateResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */; };
-		C5C287121FCBC028005DE4E7 /* fundLoanRates.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */; };
 		C5C287151FCCF2F4005DE4E7 /* BRNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287141FCCF2F4005DE4E7 /* BRNewsListCell.m */; };
 		C5C287181FCCF33F005DE4E7 /* BRNewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287171FCCF33F005DE4E7 /* BRNewsListModel.m */; };
 		C5C2871B1FCD6221005DE4E7 /* BRNewsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */; };
@@ -90,6 +102,26 @@
 		C52F81821FCFFF89002D9ED3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C52F81831FD00768002D9ED3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		C52F81841FD00768002D9ED3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C545F6DC1FD0FDC100A271CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F6DE1FD0FDC900A271CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C545F6DF1FD0FDCC00A271CF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C545F6E31FD13DCD00A271CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F6E51FD13DD300A271CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C545F6E61FD13DD700A271CF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C545F6E71FD144BF00A271CF /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		C545F6E81FD144BF00A271CF /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		C545F6F31FD171A100A271CF /* loanTime_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = loanTime_en.plist; sourceTree = "<group>"; };
+		C545F6F41FD171A100A271CF /* loanTime_zh-Hant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "loanTime_zh-Hant.plist"; sourceTree = "<group>"; };
+		C545F6F51FD171A100A271CF /* loanTime_zh-Hans.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "loanTime_zh-Hans.plist"; sourceTree = "<group>"; };
+		C545F6F91FD1743500A271CF /* fundLoanRates_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fundLoanRates_en.plist; sourceTree = "<group>"; };
+		C545F6FA1FD1743600A271CF /* fundLoanRates_zh-Hant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fundLoanRates_zh-Hant.plist"; sourceTree = "<group>"; };
+		C545F6FB1FD1743600A271CF /* fundLoanRates_zh-Hans.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fundLoanRates_zh-Hans.plist"; sourceTree = "<group>"; };
+		C545F6FC1FD1743600A271CF /* loanRates_zh-Hans.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "loanRates_zh-Hans.plist"; sourceTree = "<group>"; };
+		C545F6FD1FD1743600A271CF /* loanRates_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = loanRates_en.plist; sourceTree = "<group>"; };
+		C545F6FE1FD1743600A271CF /* loanRates_zh-Hant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "loanRates_zh-Hant.plist"; sourceTree = "<group>"; };
+		C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "percentage_zh-Hans.plist"; sourceTree = "<group>"; };
+		C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "percentage_zh-Hant.plist"; sourceTree = "<group>"; };
+		C545F7081FD1B49800A271CF /* percentage_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = percentage_en.plist; sourceTree = "<group>"; };
 		C54D413D1FC5928600DECD23 /* MortgageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54D41401FC5928600DECD23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54D41411FC5928600DECD23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,13 +212,10 @@
 		C5C286A11FC6A6AE005DE4E7 /* BRDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
 		C5C286A31FC6A6AE005DE4E7 /* BRStringPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
 		C5C286A41FC6A6AE005DE4E7 /* BRStringPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
-		C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanTime.plist; sourceTree = "<group>"; };
-		C5C286B01FC70DFF005DE4E7 /* loanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = loanRates.plist; sourceTree = "<group>"; };
 		C5C286B21FC82513005DE4E7 /* BRCalculateResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultViewController.h; sourceTree = "<group>"; };
 		C5C286B31FC82513005DE4E7 /* BRCalculateResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultViewController.m; sourceTree = "<group>"; };
 		C5C2870E1FCAA7C3005DE4E7 /* BRCalculateResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCalculateResultCell.h; sourceTree = "<group>"; };
 		C5C2870F1FCAA7C3005DE4E7 /* BRCalculateResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCalculateResultCell.m; sourceTree = "<group>"; };
-		C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fundLoanRates.plist; sourceTree = "<group>"; };
 		C5C287131FCCF2F4005DE4E7 /* BRNewsListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsListCell.h; sourceTree = "<group>"; };
 		C5C287141FCCF2F4005DE4E7 /* BRNewsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsListCell.m; sourceTree = "<group>"; };
 		C5C287161FCCF33F005DE4E7 /* BRNewsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRNewsListModel.h; sourceTree = "<group>"; };
@@ -443,6 +472,8 @@
 				C5C286921FC69ED1005DE4E7 /* UIView+BRAdd.m */,
 				C5C2871F1FCD7336005DE4E7 /* NSDate+BRAdd.h */,
 				C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */,
+				C545F6E71FD144BF00A271CF /* NSBundle+Language.h */,
+				C545F6E81FD144BF00A271CF /* NSBundle+Language.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -461,11 +492,22 @@
 		C54D41981FC5958900DECD23 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C545F6F91FD1743500A271CF /* fundLoanRates_en.plist */,
+				C545F6FB1FD1743600A271CF /* fundLoanRates_zh-Hans.plist */,
+				C545F6FA1FD1743600A271CF /* fundLoanRates_zh-Hant.plist */,
+				C545F6FD1FD1743600A271CF /* loanRates_en.plist */,
+				C545F6FC1FD1743600A271CF /* loanRates_zh-Hans.plist */,
+				C545F6FE1FD1743600A271CF /* loanRates_zh-Hant.plist */,
+				C545F6F31FD171A100A271CF /* loanTime_en.plist */,
+				C545F6F51FD171A100A271CF /* loanTime_zh-Hans.plist */,
+				C545F6F41FD171A100A271CF /* loanTime_zh-Hant.plist */,
+				C545F7081FD1B49800A271CF /* percentage_en.plist */,
+				C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */,
+				C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */,
 				C54D41491FC5928600DECD23 /* Assets.xcassets */,
-				C5C286AE1FC6FCD7005DE4E7 /* loanTime.plist */,
-				C5C286B01FC70DFF005DE4E7 /* loanRates.plist */,
-				C5C287111FCBC028005DE4E7 /* fundLoanRates.plist */,
 				C5C287221FCE49CA005DE4E7 /* newsList.json */,
+				C545F6E41FD13DCD00A271CF /* InfoPlist.strings */,
+				C545F6DD1FD0FDC100A271CF /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -688,6 +730,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = C54D41341FC5928600DECD23;
 			productRefGroup = C54D413E1FC5928600DECD23 /* Products */;
@@ -704,13 +748,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C545F6FF1FD1743600A271CF /* fundLoanRates_en.plist in Resources */,
+				C545F7041FD1743600A271CF /* loanRates_zh-Hant.plist in Resources */,
+				C545F6F81FD171A100A271CF /* loanTime_zh-Hans.plist in Resources */,
+				C545F6F61FD171A100A271CF /* loanTime_en.plist in Resources */,
+				C545F7001FD1743600A271CF /* fundLoanRates_zh-Hant.plist in Resources */,
+				C545F7021FD1743600A271CF /* loanRates_zh-Hans.plist in Resources */,
+				C545F7091FD1B49800A271CF /* percentage_zh-Hant.plist in Resources */,
+				C545F7031FD1743600A271CF /* loanRates_en.plist in Resources */,
 				C54D414D1FC5928600DECD23 /* LaunchScreen.storyboard in Resources */,
-				C5C286AF1FC6FCD7005DE4E7 /* loanTime.plist in Resources */,
+				C545F70A1FD1B49800A271CF /* percentage_en.plist in Resources */,
+				C545F7061FD1B3C400A271CF /* percentage_zh-Hans.plist in Resources */,
 				C54D414A1FC5928600DECD23 /* Assets.xcassets in Resources */,
+				C545F6DB1FD0FDC100A271CF /* Localizable.strings in Resources */,
 				C54D41481FC5928600DECD23 /* Main.storyboard in Resources */,
-				C5C286B11FC70DFF005DE4E7 /* loanRates.plist in Resources */,
-				C5C287121FCBC028005DE4E7 /* fundLoanRates.plist in Resources */,
+				C545F6E21FD13DCD00A271CF /* InfoPlist.strings in Resources */,
+				C545F6F71FD171A100A271CF /* loanTime_zh-Hant.plist in Resources */,
 				C5C287231FCE49CA005DE4E7 /* newsList.json in Resources */,
+				C545F7011FD1743600A271CF /* fundLoanRates_zh-Hans.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +869,7 @@
 				C5C2866A1FC67A57005DE4E7 /* BRBusinessLoanViewController.m in Sources */,
 				C5C286701FC67BF1005DE4E7 /* BRCombinedLoanViewController.m in Sources */,
 				C54D417C1FC594DE00DECD23 /* BRWebViewController.m in Sources */,
+				C545F6E91FD144BF00A271CF /* NSBundle+Language.m in Sources */,
 				C54D41761FC594DE00DECD23 /* BRLaunchingViewController.m in Sources */,
 				C54D415A1FC5937400DECD23 /* AppDelegate+Category.m in Sources */,
 				C54D41641FC5948700DECD23 /* BaseHandler.m in Sources */,
@@ -835,6 +891,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C545F6DD1FD0FDC100A271CF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C545F6DC1FD0FDC100A271CF /* en */,
+				C545F6DE1FD0FDC900A271CF /* zh-Hans */,
+				C545F6DF1FD0FDCC00A271CF /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C545F6E41FD13DCD00A271CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C545F6E31FD13DCD00A271CF /* en */,
+				C545F6E51FD13DD300A271CF /* zh-Hans */,
+				C545F6E61FD13DD700A271CF /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		C54D41461FC5928600DECD23 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

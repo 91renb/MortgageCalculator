@@ -66,7 +66,7 @@
 - (void)loadData {
     if ([NSString isBlankString:[BRUserHelper username]]) {
         self.nameLabel.userInteractionEnabled = YES;
-        self.nameLabel.text = @"登录/注册";
+        self.nameLabel.text = [NSString stringWithFormat:@"%@ / %@", NSLocalizedString(@"登录", nil), NSLocalizedString(@"注册", nil)];
         self.footerView.hidden = YES;
     } else {
         self.nameLabel.userInteractionEnabled = NO;
@@ -86,7 +86,7 @@
     // 背景图片
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, NAV_HEIGHT)];
     bgImageView.backgroundColor = [UIColor clearColor];
-    bgImageView.image = [UIImage imageWithColor:RGB_HEX(0x4181e1, 1.0f)];
+    bgImageView.image = [UIImage imageWithColor:kThemeColor];
     [self.view addSubview:bgImageView];
     bgImageView.alpha = 0;
     self.navBgImageView = bgImageView;
@@ -136,7 +136,7 @@
     nameLabel.font = [UIFont systemFontOfSize:16.0f * kScaleFit];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     nameLabel.textColor = RGB_HEX(0x666666, 1.0f);
-    nameLabel.text = @"登录/注册";
+    nameLabel.text = [NSString stringWithFormat:@"%@ / %@", NSLocalizedString(@"登录", nil), NSLocalizedString(@"注册", nil)];
     [_headView addSubview:nameLabel];
     nameLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer *myTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapNameLabel)];
@@ -183,7 +183,7 @@
         btn.layer.cornerRadius = 18;
         btn.titleLabel.font = [UIFont systemFontOfSize:17.0f * kScaleFit];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setTitle:@"退出登录" forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"退出登录", nil) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(clickLogOutBtn) forControlEvents:UIControlEventTouchUpInside];
         [_footerView addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,7 +197,7 @@
 
 - (void)clickLogOutBtn {
     NSLog(@"退出登录");
-    [MBProgressHUD showLoading:@"正在退出"];
+    [MBProgressHUD showLoading:nil];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUD];
         [BRUserHelper setUsername:@""];
@@ -282,7 +282,7 @@
 //TODO:分享视图
 - (void)pushShareView {
     //分享的标题
-    NSString *textToShare = @"房贷计算器";
+    NSString *textToShare = APP_Name;
     //分享的图片
     UIImage *imageToShare = [UIImage imageNamed:@"logo"];
     //分享的url
@@ -306,7 +306,7 @@
         if (completed) {
             NSLog(@"completed");
             //分享 成功
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"分享成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"分享成功", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"确定", nil) otherButtonTitles:nil, nil];
             [alertView show];
         } else  {
             NSLog(@"cancled");
@@ -344,9 +344,9 @@
         [self cleanCaches:LIBRARY_PATH_CACHE];
         [self cleanCaches:TEMP_PATH];
         _cacheLabel.text = @"0.00M";
-        [MBProgressHUD showSuccess:@"清除缓存成功"];
+        [MBProgressHUD showSuccess:NSLocalizedString(@"清除缓存成功", nil)];
     } else {
-        [MBProgressHUD showMessage:@"暂无可清理缓存"];
+        [MBProgressHUD showMessage:NSLocalizedString(@"暂无可清理缓存", nil)];
     }
 }
 
@@ -436,7 +436,7 @@
         // 根据透明度来修改导航栏的颜色
         self.navBgImageView.alpha = 1 - alpha;
         if (self.navBgImageView.alpha > 0.5) {
-            self.titleLabel.text = @"我的";
+            self.titleLabel.text = NSLocalizedString(@"我的", nil);
         } else {
             self.titleLabel.text = @"";
         }
@@ -448,8 +448,8 @@
 - (NSArray *)dataArr {
     if (!_dataArr) {
         _dataArr = @[
-                     @[@[@"mine_share.png", @"分享给朋友"], @[@"mine_comment.png", @"五星好评"]],
-                     @[@[@"mine_service.png", @"咨询客服"], @[@"mine_feedback.png", @"意见反馈"], @[@"mine_cache.png", @"清除缓存"]], @[@[@"mine_about.png", @"关于我们"]]];
+                     @[@[@"mine_share.png", NSLocalizedString(@"分享给朋友", nil)], @[@"mine_comment.png", NSLocalizedString(@"五星好评", nil)]],
+                     @[@[@"mine_service.png", NSLocalizedString(@"咨询客服", nil)], @[@"mine_feedback.png", NSLocalizedString(@"意见反馈", nil)], @[@"mine_cache.png", NSLocalizedString(@"清除缓存", nil)]], @[@[@"mine_about.png", NSLocalizedString(@"关于我们", nil)]]];
     }
     return _dataArr;
 }

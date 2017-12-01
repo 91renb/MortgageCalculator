@@ -27,6 +27,8 @@
 
 #define SuccessFlag 0
 
+#define MyLocalizedString(key, comment) \
+[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:nil]
 
 // 状态栏的高度(20 / 44(iPhoneX))
 #define STATUSBAR_HEIGHT ([UIApplication sharedApplication].statusBarFrame.size.height)

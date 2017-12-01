@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"关于我们";
+    self.navigationItem.title = NSLocalizedString(@"About Us", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     [self initUI];
 }
@@ -54,7 +54,7 @@
         _nameLabel.font = [UIFont systemFontOfSize:16.0f * kScaleFit];
         _nameLabel.textColor = kTextDefaultColor;
         _nameLabel.textAlignment = NSTextAlignmentCenter;
-        _nameLabel.text = APP_Name;
+        _nameLabel.text = NSLocalizedString(@"房贷计算器", nil);
         [self.view addSubview:_nameLabel];
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.logoImageView.mas_bottom).with.offset(10 * kScaleFit);

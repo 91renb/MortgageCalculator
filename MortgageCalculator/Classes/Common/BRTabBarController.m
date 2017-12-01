@@ -49,7 +49,7 @@
 - (void)setupDataSource {
     // 1.初始化数据
     _childVCArr = @[@"BRHomeViewController", @"BRNewsViewController", @"BRMineViewController"];
-    _titleArr = @[@"首页", @"资讯", @"我的"];
+    _titleArr = @[NSLocalizedString(@"首页", nil), NSLocalizedString(@"资讯", nil), NSLocalizedString(@"我的", nil)];
     _imageArr = @[@"tabbar_home", @"tabbar_news", @"tabbar_mine"];
     _selImageArr = @[@"tabbar_home_sel", @"tabbar_news_sel", @"tabbar_mine_sel"];
     // 2.设置控制器

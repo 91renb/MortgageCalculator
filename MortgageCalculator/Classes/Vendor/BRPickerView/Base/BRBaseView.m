@@ -72,7 +72,7 @@
         _leftBtn.layer.masksToBounds = YES;
         _leftBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [_leftBtn setTitleColor:kThemeColor forState:UIControlStateNormal];
-        [_leftBtn setTitle:@"取消" forState:UIControlStateNormal];
+        [_leftBtn setTitle:NSLocalizedString(@"取消", nil) forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(clickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftBtn;
@@ -88,7 +88,7 @@
         _rightBtn.layer.masksToBounds = YES;
         _rightBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_rightBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [_rightBtn setTitle:NSLocalizedString(@"确定", nil) forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(clickRightBtn) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;

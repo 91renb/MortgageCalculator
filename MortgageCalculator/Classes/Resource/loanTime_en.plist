@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>1 Year（12 Months）</string>
+	<string>2 Year（24 Months）</string>
+	<string>3 Year（36 Months）</string>
+	<string>4 Year（48 Months）</string>
+	<string>5 Year（60 Months）</string>
+	<string>6 Year（72 Months）</string>
+	<string>7 Year（84 Months）</string>
+	<string>8 Year（96 Months）</string>
+	<string>9 Year（108 Months）</string>
+	<string>10 Year（120 Months）</string>
+	<string>11 Year（132 Months）</string>
+	<string>12 Year（144 Months）</string>
+	<string>13 Year（156 Months）</string>
+	<string>14 Year（168 Months）</string>
+	<string>15 Year（180 Months）</string>
+	<string>16 Year（192 Months）</string>
+	<string>17 Year（204 Months）</string>
+	<string>18 Year（216 Months）</string>
+	<string>19 Year（228 Months）</string>
+	<string>20 Year（240 Months）</string>
+	<string>21 Year（252 Months）</string>
+	<string>22 Year（264 Months）</string>
+	<string>23 Year（276 Months）</string>
+	<string>24 Year（288 Months）</string>
+	<string>25 Year（300 Months）</string>
+	<string>26 Year（312 Months）</string>
+	<string>27 Year（324 Months）</string>
+	<string>28 Year（336 Months）</string>
+	<string>29 Year（348 Months）</string>
+	<string>30 Year（360 Months）</string>
+</array>
+</plist>

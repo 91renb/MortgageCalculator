@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"组合贷款";
+    self.navigationItem.title = NSLocalizedString(@"组合贷款", nil);
     [self initDefaultData];
     [self initUI];
 }
@@ -330,7 +330,7 @@
         calculatorBtn.layer.masksToBounds = YES;
         calculatorBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f * kScaleFit];
         [calculatorBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [calculatorBtn setTitle:@"开始计算" forState:UIControlStateNormal];
+        [calculatorBtn setTitle:NSLocalizedString(@"Start Calculation", nil) forState:UIControlStateNormal];
         [calculatorBtn addTarget:self action:@selector(clickCalculatorBtn) forControlEvents:UIControlEventTouchUpInside];
         [_footerSectionView addSubview:calculatorBtn];
         [calculatorBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -13,6 +13,7 @@
 #import "AppDelegate+Push.h"
 #import <BmobSDK/Bmob.h>
 #import "BRLaunchingViewController.h"
+#import "NSBundle+Language.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 配置网络状态监控
     [self configNetworkStateMonitoring];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"] && ![[[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"] isEqualToString:@""]) {
+        [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:@"myLanguage"]];
+    }
     
     // 设置根视图控制器
     self.window.rootViewController = [[BRLaunchingViewController alloc]init];
