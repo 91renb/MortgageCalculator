@@ -37,6 +37,7 @@
 		C545F7061FD1B3C400A271CF /* percentage_zh-Hans.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */; };
 		C545F7091FD1B49800A271CF /* percentage_zh-Hant.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */; };
 		C545F70A1FD1B49800A271CF /* percentage_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C545F7081FD1B49800A271CF /* percentage_en.plist */; };
+		C545F71D1FD4F18100A271CF /* BRLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C545F71C1FD4F18100A271CF /* BRLanguageViewController.m */; };
 		C54D41421FC5928600DECD23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D41411FC5928600DECD23 /* AppDelegate.m */; };
 		C54D41481FC5928600DECD23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54D41461FC5928600DECD23 /* Main.storyboard */; };
 		C54D414A1FC5928600DECD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C54D41491FC5928600DECD23 /* Assets.xcassets */; };
@@ -122,6 +123,25 @@
 		C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "percentage_zh-Hans.plist"; sourceTree = "<group>"; };
 		C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "percentage_zh-Hant.plist"; sourceTree = "<group>"; };
 		C545F7081FD1B49800A271CF /* percentage_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = percentage_en.plist; sourceTree = "<group>"; };
+		C545F70B1FD4DA9200A271CF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F70C1FD4DA9400A271CF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F70D1FD4DD3B00A271CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		C545F70E1FD4DD3B00A271CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C545F70F1FD4DD3C00A271CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F7101FD4DD3C00A271CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F7111FD4DD7300A271CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		C545F7121FD4DD7300A271CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C545F7131FD4DD7300A271CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F7141FD4DD7300A271CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F7151FD4DD9700A271CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		C545F7161FD4DD9700A271CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C545F7171FD4DD9700A271CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C545F7181FD4DD9700A271CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F7191FD4DDDA00A271CF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F71A1FD4DDDC00A271CF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C545F71B1FD4F18100A271CF /* BRLanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRLanguageViewController.h; sourceTree = "<group>"; };
+		C545F71C1FD4F18100A271CF /* BRLanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRLanguageViewController.m; sourceTree = "<group>"; };
+		C545F71E1FD58A6D00A271CF /* MortgageCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MortgageCalculator.entitlements; sourceTree = "<group>"; };
 		C54D413D1FC5928600DECD23 /* MortgageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54D41401FC5928600DECD23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54D41411FC5928600DECD23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -330,6 +350,7 @@
 		C54D413F1FC5928600DECD23 /* MortgageCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				C545F71E1FD58A6D00A271CF /* MortgageCalculator.entitlements */,
 				C54D41561FC592BB00DECD23 /* Classes */,
 			);
 			path = MortgageCalculator;
@@ -609,6 +630,8 @@
 			children = (
 				C5C286811FC67E86005DE4E7 /* BRMineViewController.h */,
 				C5C286821FC67E86005DE4E7 /* BRMineViewController.m */,
+				C545F71B1FD4F18100A271CF /* BRLanguageViewController.h */,
+				C545F71C1FD4F18100A271CF /* BRLanguageViewController.m */,
 				C5C2867F1FC67E86005DE4E7 /* BRLoginViewController.h */,
 				C5C286801FC67E86005DE4E7 /* BRLoginViewController.m */,
 				C5C286831FC67E86005DE4E7 /* BRRegisterViewController.h */,
@@ -720,6 +743,11 @@
 					C54D413C1FC5928600DECD23 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -732,6 +760,11 @@
 				Base,
 				"zh-Hans",
 				"zh-Hant",
+				ja,
+				ko,
+				fr,
+				ru,
+				es,
 			);
 			mainGroup = C54D41341FC5928600DECD23;
 			productRefGroup = C54D413E1FC5928600DECD23 /* Products */;
@@ -866,6 +899,7 @@
 				C54D41501FC5928600DECD23 /* main.m in Sources */,
 				C50C2B121FC6609300D23C85 /* BRMortgageHelper.m in Sources */,
 				C5C286B41FC82513005DE4E7 /* BRCalculateResultViewController.m in Sources */,
+				C545F71D1FD4F18100A271CF /* BRLanguageViewController.m in Sources */,
 				C5C2866A1FC67A57005DE4E7 /* BRBusinessLoanViewController.m in Sources */,
 				C5C286701FC67BF1005DE4E7 /* BRCombinedLoanViewController.m in Sources */,
 				C54D417C1FC594DE00DECD23 /* BRWebViewController.m in Sources */,
@@ -897,6 +931,11 @@
 				C545F6DC1FD0FDC100A271CF /* en */,
 				C545F6DE1FD0FDC900A271CF /* zh-Hans */,
 				C545F6DF1FD0FDCC00A271CF /* zh-Hant */,
+				C545F7101FD4DD3C00A271CF /* fr */,
+				C545F7141FD4DD7300A271CF /* ru */,
+				C545F7181FD4DD9700A271CF /* es */,
+				C545F7191FD4DDDA00A271CF /* ja */,
+				C545F71A1FD4DDDC00A271CF /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -907,6 +946,11 @@
 				C545F6E31FD13DCD00A271CF /* en */,
 				C545F6E51FD13DD300A271CF /* zh-Hans */,
 				C545F6E61FD13DD700A271CF /* zh-Hant */,
+				C545F70B1FD4DA9200A271CF /* ja */,
+				C545F70C1FD4DA9400A271CF /* ko */,
+				C545F70F1FD4DD3C00A271CF /* fr */,
+				C545F7131FD4DD7300A271CF /* ru */,
+				C545F7171FD4DD9700A271CF /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -919,6 +963,9 @@
 				C52F817F1FCFFF69002D9ED3 /* ja */,
 				C52F81811FCFFF89002D9ED3 /* ko */,
 				C52F81831FD00768002D9ED3 /* zh-Hant */,
+				C545F70D1FD4DD3B00A271CF /* fr */,
+				C545F7111FD4DD7300A271CF /* ru */,
+				C545F7151FD4DD9700A271CF /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -931,6 +978,9 @@
 				C52F81801FCFFF6A002D9ED3 /* ja */,
 				C52F81821FCFFF89002D9ED3 /* ko */,
 				C52F81841FD00768002D9ED3 /* zh-Hant */,
+				C545F70E1FD4DD3B00A271CF /* fr */,
+				C545F7121FD4DD7300A271CF /* ru */,
+				C545F7161FD4DD9700A271CF /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1050,14 +1100,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MortgageCalculator/MortgageCalculator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G75M8TE39H;
+				DEVELOPMENT_TEAM = W76HNZUJGJ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MortgageCalculator/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MortgageCalculator/Classes/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aijk.platform.jbzg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.focus.br.MortgageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1068,14 +1121,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MortgageCalculator/MortgageCalculator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G75M8TE39H;
+				DEVELOPMENT_TEAM = W76HNZUJGJ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MortgageCalculator/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MortgageCalculator/Classes/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aijk.platform.jbzg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.focus.br.MortgageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
