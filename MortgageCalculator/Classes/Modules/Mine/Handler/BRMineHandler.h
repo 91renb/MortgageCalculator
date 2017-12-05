@@ -10,14 +10,4 @@
 
 @interface BRMineHandler : BaseHandler
 
-/**
- *  发送手机验证码
- *
- *  @param sParams  请求参数
- *  @param success  成功后的回调
- *  @param failed   失败后的回调
- *
- */
-+ (void)executeSendMessageCodeTaskWithStringParams:(NSString *)sParams Success:(SuccessBlock)success failed:(FailedBlock)failed;
-
 @end

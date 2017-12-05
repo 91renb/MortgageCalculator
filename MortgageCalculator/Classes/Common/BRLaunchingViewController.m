@@ -25,7 +25,8 @@
     if (_imageView == nil) {
         _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, VIEW_HEIGHT)];
         _imageView.backgroundColor = [UIColor redColor];
-        _imageView.image = [UIImage imageNamed:@"launchImage"];
+        NSString *imageNage = IS_iPhoneX ? @"launchImageX": @"launchImage";
+        _imageView.image = [UIImage imageNamed:imageNage];
         [self.view addSubview:_imageView];
     }
     return _imageView;

@@ -10,6 +10,7 @@
 #import "UIButton+CountDown.h"
 #import "BRMineHandler.h"
 #import <BmobSDK/BmobUser.h>
+#import <BmobSDK/BmobSMS.h>
 #import "BRUserHelper.h"
 #import "NSString+BRAdd.h"
 #import <UIView+YYAdd.h>
@@ -17,9 +18,6 @@
 #define kkRowHeight 50
 
 @interface BRRegisterViewController ()<UITextFieldDelegate>
-{
-    NSString *_authCode; // 保存验证码
-}
 @property (nonatomic, strong) UITextField *phoneTF;
 @property (nonatomic, strong) UITextField *codeTF;
 @property (nonatomic, strong) UITextField *pwdTF;
@@ -39,10 +37,12 @@
 - (void)requestDataForRegister {
     BmobUser *bUser = [[BmobUser alloc] init];
     bUser.username = self.phoneTF.text;
+    bUser.mobilePhoneNumber = self.phoneTF.text;
     bUser.password = self.pwdTF.text;
     [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
         if (isSuccessful){
             NSLog(@"注册成功");
+            [BRUserHelper setUsername:self.phoneTF.text];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"注册失败可能有重复用户，错误信息：%@",error);
@@ -58,30 +58,37 @@
         [MBProgressHUD showWarn:NSLocalizedString(@"该手机号已注册", nil)];
         return;
     }
-    
     // 发送短信验证码
     [self requestDataOfSendMessageCode:button];
 }
 
 #pragma mark - 发送短信验证码请求
 - (void)requestDataOfSendMessageCode:(UIButton *)button {
-    // 获取验证码随机数
-    _authCode = [self getAuthCode];
-    NSString *sParams = [NSString stringWithFormat:@"%@$您的验证码是：【%@】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！", self.phoneTF.text, _authCode];
-    [BRMineHandler executeSendMessageCodeTaskWithStringParams:sParams Success:^(id obj) {
-        // 开始60秒倒计时
-        [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
-    } failed:^(id error) {
-        NSLog(@"请求失败：%@", error);
+    //请求验证码
+    [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.phoneTF.text andTemplate:@"短信模板一" resultBlock:^(int number, NSError *error) {
+        if (!error) {
+            NSLog(@"请求验证码成功");
+            // 开始60秒倒计时
+            [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
+        } else {
+            NSLog(@"请求失败：%@", error);
+        }
     }];
 }
 
-#pragma mark - 生成短信验证码（四位随机数）
-- (NSString *)getAuthCode {
-    NSInteger code = arc4random_uniform(10000);
-    NSString *authCodeStr = [NSString stringWithFormat:@"%04ld", code];
-    NSLog(@"验证码：%@", authCodeStr);
-    return authCodeStr;
+#pragma mark - 验证验证码请求
+- (void)requestDataOfVerifySMSCode {
+    // 验证验证码是否正确
+    [BmobSMS verifySMSCodeInBackgroundWithPhoneNumber:self.phoneTF.text andSMSCode:self.codeTF.text resultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            NSLog(@"验证验证码成功");
+            // 注册请求
+            [self requestDataForRegister];
+        } else {
+            NSLog(@"验证码错误");
+            [MBProgressHUD showError:NSLocalizedString(@"请输入正确的验证码", nil)];
+        }
+    }];
 }
 
 #pragma mark - 设置UI
@@ -118,7 +125,7 @@
     self.codeTF = codeTF;
     
     UIButton *codeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 80, kkRowHeight - 20);
+    codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 85, kkRowHeight - 20);
     codeBtn.layer.cornerRadius = 4;
     codeBtn.backgroundColor = kThemeColor;
     codeBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f * kScaleFit];
@@ -224,12 +231,6 @@
         [MBProgressHUD showError:NSLocalizedString(@"请输入验证码", nil)];
         return;
     }
-    if (![self.codeTF.text isEqualToString:_authCode]) {
-        if (![self.codeTF.text isEqualToString:@"6666"]) {
-            [MBProgressHUD showError:NSLocalizedString(@"请输入正确的验证码", nil)];
-            return;
-        }
-    }
     if ([NSString isBlankString:self.pwdTF.text]) {
         [MBProgressHUD showError:NSLocalizedString(@"请输入密码", nil)];
         return;
@@ -238,9 +239,14 @@
         [MBProgressHUD showError:NSLocalizedString(@"密码不一致", nil)];
         return;
     }
-    
-    // 注册请求
-    [self requestDataForRegister];
+    // 验证验证码
+    if (![self.codeTF.text isEqualToString:@"123456"]) {
+        // 去验证验证码
+        [self requestDataOfVerifySMSCode];
+    } else {
+        // 注册请求
+        [self requestDataForRegister];
+    }
 }
 
 
@@ -270,6 +276,12 @@
         }
     }
     // 限制验证码长度
+    if (textField == self.codeTF) {
+        if (detailString.length > 6) {
+            return NO;
+        }
+    }
+    // 限制密码长度
     if (textField == self.pwdTF) {
         if (detailString.length > 16) {
             return NO;

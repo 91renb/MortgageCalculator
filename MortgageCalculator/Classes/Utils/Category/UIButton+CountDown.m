@@ -24,7 +24,7 @@
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 weakSelf.backgroundColor = color;
-                [weakSelf setTitle:@"重新发送" forState:UIControlStateNormal];
+                [weakSelf setTitle:NSLocalizedString(@"重新发送", nil) forState:UIControlStateNormal];
                 weakSelf.userInteractionEnabled = YES;
             });
         } else {
@@ -32,7 +32,7 @@
             NSString * timeStr = [NSString stringWithFormat:@"%02d",seconds];
             dispatch_async(dispatch_get_main_queue(), ^{
                 weakSelf.backgroundColor = countDownColor;
-                [weakSelf setTitle:[NSString stringWithFormat:@"重新获取(%@)",timeStr] forState:UIControlStateNormal];
+                [weakSelf setTitle:[NSString stringWithFormat:@"%@ s",timeStr] forState:UIControlStateNormal];
                 weakSelf.userInteractionEnabled = NO;
             });
             timeOut--;

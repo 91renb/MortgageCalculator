@@ -36,7 +36,7 @@
     // 注册极光推送
     [self setJupsh:launchOptions];
     
-    // 注册云服务（Bmob账号：fdjsqios@163.com / fdjsqios123）
+    // 注册云服务
     [Bmob registerWithAppKey:BmobAppID];
     
     return YES;

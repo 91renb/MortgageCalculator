@@ -40,6 +40,8 @@
 /// tabbar高度：49 / 83(iPhoneX)
 #define TABBAR_HEIGHT ((STATUSBAR_HEIGHT == 44) ? 83 : 49)
 
+#define IS_iPhoneX ((STATUSBAR_HEIGHT == 44) ? YES : NO)
+
 #define kThemeColor RGB_HEX(0x46b2f0, 1.0f)
 #define kTextDefaultColor RGB_HEX(0x464646, 1.0f)
 #define kNavBarColor RGB_HEX(0x46b2f0, 1.0f)

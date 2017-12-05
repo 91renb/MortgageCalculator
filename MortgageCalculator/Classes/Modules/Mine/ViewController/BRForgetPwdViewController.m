@@ -13,13 +13,11 @@
 #import "BRUserHelper.h"
 #import "BRResetPwdViewController.h"
 #import <UIView+YYAdd.h>
+#import <BmobSDK/BmobSMS.h>
 
 #define kkRowHeight 50
 
 @interface BRForgetPwdViewController ()<UITextFieldDelegate>
-{
-    NSString *_authCode; // 保存验证码
-}
 @property (nonatomic, strong) UITextField *phoneTF;
 @property (nonatomic, strong) UITextField *codeTF;
 
@@ -35,23 +33,33 @@
 
 #pragma mark - 发送短信验证码请求
 - (void)requestDataOfSendMessageCode:(UIButton *)button {
-    // 获取验证码随机数
-    _authCode = [self getAuthCode];
-    NSString *sParams = [NSString stringWithFormat:@"%@$您的验证码是：【%@】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！", self.phoneTF.text, _authCode];
-    [BRMineHandler executeSendMessageCodeTaskWithStringParams:sParams Success:^(id obj) {
-        // 开始60秒倒计时
-        [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
-    } failed:^(id error) {
-        NSLog(@"请求失败：%@", error);
+    //请求验证码
+    [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.phoneTF.text andTemplate:@"短信模板一" resultBlock:^(int number, NSError *error) {
+        if (!error) {
+            NSLog(@"请求验证码成功");
+            // 开始60秒倒计时
+            [button startWithTime:60 color:kThemeColor countDownColor:RGB_HEX(0xc6c6c6, 1.0f)];
+        } else {
+            NSLog(@"请求失败：%@", error);
+        }
     }];
 }
 
-#pragma mark - 生成短信验证码（四位随机数）
-- (NSString *)getAuthCode {
-    NSInteger code = arc4random_uniform(10000);
-    NSString *authCodeStr = [NSString stringWithFormat:@"%04ld", code];
-    NSLog(@"验证码：%@", authCodeStr);
-    return authCodeStr;
+#pragma mark - 验证验证码请求
+- (void)requestDataOfVerifySMSCode {
+    // 验证验证码是否正确
+    [BmobSMS verifySMSCodeInBackgroundWithPhoneNumber:self.phoneTF.text andSMSCode:self.codeTF.text resultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            NSLog(@"验证验证码成功");
+            // 验证跳过后，跳到下一步页面
+            BRResetPwdViewController *resetPwdVC = [[BRResetPwdViewController alloc]init];
+            resetPwdVC.msgCode = self.codeTF.text;
+            [self.navigationController pushViewController:resetPwdVC animated:YES];
+        } else {
+            NSLog(@"验证码错误");
+            [MBProgressHUD showError:NSLocalizedString(@"请输入正确的验证码", nil)];
+        }
+    }];
 }
 
 #pragma mark - 设置UI
@@ -89,7 +97,7 @@
     self.codeTF = codeTF;
     
     UIButton *codeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 80, kkRowHeight - 20);
+    codeBtn.frame = CGRectMake(codeTF.right + 10, kkRowHeight + 10, 85, kkRowHeight - 20);
     codeBtn.layer.cornerRadius = 4;
     codeBtn.backgroundColor = kThemeColor;
     codeBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f * kScaleFit];
@@ -170,16 +178,8 @@
         [MBProgressHUD showError:NSLocalizedString(@"请输入验证码", nil)];
         return;
     }
-    if (![self.codeTF.text isEqualToString:_authCode]) {
-        if (![self.codeTF.text isEqualToString:@"6666"]) {
-            [MBProgressHUD showError:NSLocalizedString(@"请输入正确的验证码", nil)];
-            return;
-        }
-    }
-    
-    // 跳到下一步页面
-    BRResetPwdViewController *resetPwdVC = [[BRResetPwdViewController alloc]init];
-    [self.navigationController pushViewController:resetPwdVC animated:YES];
+    // 验证验证码是否正确
+    [self requestDataOfVerifySMSCode];
 }
 
 

@@ -228,7 +228,7 @@
 - (void)addSelectDownImageView:(UITableViewCell *)cell rightMargin:(CGFloat)rightMargin tag:(NSInteger)tag {
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.backgroundColor = [UIColor clearColor];
-    imageView.image = [UIImage imageNamed:@"select_down3"];
+    imageView.image = [UIImage imageNamed:@"select_down"];
     [cell.contentView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(cell.contentView);

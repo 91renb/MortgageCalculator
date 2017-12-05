@@ -31,6 +31,7 @@
 
 #pragma mark - 重置密码
 - (void)requestDataForResetPwd {
+    // 利用短信验证码重置帐号密码，只有填写手机号码的用户可用
     [BmobUser resetPasswordInbackgroundWithSMSCode:self.msgCode andNewPassword:self.pwdTF.text block:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             NSLog(@"重置密码成功！");
@@ -39,6 +40,7 @@
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSLog(@"重置密码失败！");
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }

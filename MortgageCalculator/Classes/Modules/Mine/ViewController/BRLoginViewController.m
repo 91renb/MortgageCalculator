@@ -48,11 +48,6 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
 #pragma mark - 登录请求
 - (void)requestDataForLogin {
     NSString *username = self.phoneTF.text;
@@ -103,6 +98,7 @@
     phoneTF.leftView = phoneImageView;
     phoneTF.leftViewMode = UITextFieldViewModeAlways;
     phoneTF.delegate = self;
+    phoneTF.text = [BRUserHelper username];
     [whiteView addSubview:phoneTF];
     self.phoneTF = phoneTF;
     
@@ -129,6 +125,7 @@
     pwdTF.leftView = pwdImageView;
     pwdTF.leftViewMode = UITextFieldViewModeAlways;
     pwdTF.delegate = self;
+    pwdTF.text = [BRUserHelper pwd];
     [whiteView addSubview:pwdTF];
     self.pwdTF = pwdTF;
     

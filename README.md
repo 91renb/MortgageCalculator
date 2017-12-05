@@ -170,8 +170,23 @@ Caractéristiques fonctionnelles
 # 关键字
 
 ```
-关键词：房贷计算器 贷款 期限 利率 公积金 利息 等额本息 等额本金 房产资讯 
-英文：mortgage calculator，loan，Time limit，Interest rate，Provident fund，interest，house，news，Calculator tool
+关键词：房贷计算器 期限 计算器 免费工具  理财助手 利率 公积金 利息 月供 等额本息 等额本金 房产资讯
+
+【英文】：mortgage calculator，Time limit，Interest rate，Provident fund，interest，house，news，Calculator tool
+
+【中文简体】：calculator,房贷计算器,Mortgage期限上海一线城市月供计算重庆公积金买房北京赛车公司时时彩虹小区房产Newspk10计算工具等额本息housepc蛋蛋房产新闻等额本金免费计算器工具
+
+【中文繁体】：calculator,房貸計算器,Mortgage,期限上海北京一線城市月供計算,公積金,買房，理財,資訊,房產資訊,計算工具,等額本息免費理財助手
+
+【韩文】：주택 담보 대출 계산기,기간,계산기,무료 도구,재테크 도우미,공적 자금,부동산 컨설팅,금리,월 납
+
+【日文】：住宅ローン电卓,电卓,無料ツール,財テク助手,積立金,月の給食,不動産资讯,利子
+
+【俄文】：Ипотечные калькулятор,калькулятор,срок,Бесплатный инструмент,Управление финансами помощник
+
+【西班牙语】：Calculadora de hipotecas,plazo,calculadora,Herramienta gratuita para,Asistente de destrezas
+
+【法语】：Calculatrices liées,durée,calculatrice,Outil gratuit,Assistant dans le,fonds,pour
 
 calculator,房贷计算器,Mortgage期限上海一线城市月供计算重庆公积金买房北京赛车公司时时彩虹小区房产Newspk10计算工具等额本息housepc蛋蛋房产新闻等额本金免费计算器工具
 
