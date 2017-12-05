@@ -10,7 +10,7 @@
 #define APIConfig_h
 
 // 是否发布(0 测试环境  1 正式环境)
-#define IS_PRODUCT 0
+#define IS_PRODUCT 1
 
 /** TODO:APP配置信息 */
 #define JPushAppKey  @"61f6302fb0c2abaecfe0e53e"

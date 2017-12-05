@@ -14,7 +14,6 @@
 #import "UIImage+BRAdd.h"
 #import "BRFeedbackViewController.h"
 #import "BRAboutUsViewController.h"
-#import "NSBundle+Language.h"
 #import "BRTabBarController.h"
 #import "BRLanguageViewController.h"
 
@@ -203,12 +202,10 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"确定退出当前账号？", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确认", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [MBProgressHUD showLoading:nil];
-        CURRENT_THREAD
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];
             [BRUserHelper setUsername:@""];
             [BRUserHelper setPwd:@""];
-            CURRENT_THREAD
             BRLoginViewController *loginVC = [[BRLoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
         });
@@ -334,60 +331,6 @@
     // 跳转到AppStore应用评价页
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_COMMENT]];
 }
-
-//TODO:切换语言
-- (void)gotoChangeLanguage {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"切换语言", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    // 中文简体
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"中文简体" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"zh-Hans"];
-    }]];
-    // 中文繁体
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"中文繁體" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"zh-Hant"];
-    }]];
-    // 英语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"English" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"en"];
-    }]];
-    // 韩语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"한국어" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"ko"];
-    }]];
-    // 日本语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"日本语" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"ja"];
-    }]];
-    // 俄语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"Pусский" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"ru"];
-    }]];
-    // 西班牙语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"Español" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"es"];
-    }]];
-    // 法语
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"Français" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self changeLanguageTo:@"fr"];
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alertVC animated:YES completion:nil];
-}
-
-- (void)changeLanguageTo:(NSString *)language {
-    // 设置语言
-    [NSBundle setLanguage:language];
-    
-    // 然后将设置好的语言存储好，下次进来直接加载
-    [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"myLanguage"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // 我们要把系统windown的rootViewController替换掉
-    BRTabBarController *tabarVC = [[BRTabBarController alloc] initWithDefaultSelIndex:2];
-    tabarVC.selectedIndex = 2;
-    self.view.window.rootViewController = tabarVC;
-}
-
 
 //TODO:意见反馈
 - (void)pushFeedback {
