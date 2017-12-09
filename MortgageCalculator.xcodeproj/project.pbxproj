@@ -76,7 +76,6 @@
 		C5C287181FCCF33F005DE4E7 /* BRNewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287171FCCF33F005DE4E7 /* BRNewsListModel.m */; };
 		C5C2871B1FCD6221005DE4E7 /* BRNewsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */; };
 		C5C287211FCD7336005DE4E7 /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */; };
-		C5C287231FCE49CA005DE4E7 /* newsList.json in Resources */ = {isa = PBXBuildFile; fileRef = C5C287221FCE49CA005DE4E7 /* newsList.json */; };
 		C5C287261FCE61B3005DE4E7 /* BRFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287251FCE61B3005DE4E7 /* BRFeedbackViewController.m */; };
 		C5C287291FCE621E005DE4E7 /* BRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C287281FCE621E005DE4E7 /* BRTextView.m */; };
 		C5C2872C1FCE634C005DE4E7 /* BRAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C2872B1FCE634C005DE4E7 /* BRAboutUsViewController.m */; };
@@ -244,7 +243,6 @@
 		C5C2871A1FCD6221005DE4E7 /* BRNewsHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRNewsHandler.m; sourceTree = "<group>"; };
 		C5C2871F1FCD7336005DE4E7 /* NSDate+BRAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
 		C5C287201FCD7336005DE4E7 /* NSDate+BRAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
-		C5C287221FCE49CA005DE4E7 /* newsList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = newsList.json; sourceTree = "<group>"; };
 		C5C287241FCE61B3005DE4E7 /* BRFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRFeedbackViewController.h; sourceTree = "<group>"; };
 		C5C287251FCE61B3005DE4E7 /* BRFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRFeedbackViewController.m; sourceTree = "<group>"; };
 		C5C287271FCE621E005DE4E7 /* BRTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRTextView.h; sourceTree = "<group>"; };
@@ -526,7 +524,6 @@
 				C545F7051FD1B3C400A271CF /* percentage_zh-Hans.plist */,
 				C545F7071FD1B49800A271CF /* percentage_zh-Hant.plist */,
 				C54D41491FC5928600DECD23 /* Assets.xcassets */,
-				C5C287221FCE49CA005DE4E7 /* newsList.json */,
 				C545F6E41FD13DCD00A271CF /* InfoPlist.strings */,
 				C545F6DD1FD0FDC100A271CF /* Localizable.strings */,
 			);
@@ -742,7 +739,7 @@
 				TargetAttributes = {
 					C54D413C1FC5928600DECD23 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -797,7 +794,6 @@
 				C54D41481FC5928600DECD23 /* Main.storyboard in Resources */,
 				C545F6E21FD13DCD00A271CF /* InfoPlist.strings in Resources */,
 				C545F6F71FD171A100A271CF /* loanTime_zh-Hant.plist in Resources */,
-				C5C287231FCE49CA005DE4E7 /* newsList.json in Resources */,
 				C545F7011FD1743600A271CF /* fundLoanRates_zh-Hans.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,7 +1038,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "37dbcc62-f54f-45ff-b49d-d1fa74986894";
+				PROVISIONING_PROFILE = "6fec3057-a825-4ce7-a4b4-6e07db7f16cc";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1094,7 +1090,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "37dbcc62-f54f-45ff-b49d-d1fa74986894";
+				PROVISIONING_PROFILE = "6fec3057-a825-4ce7-a4b4-6e07db7f16cc";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1108,17 +1104,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MortgageCalculator/MortgageCalculator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Li (W76HNZUJGJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Li (W76HNZUJGJ)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = W76HNZUJGJ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MortgageCalculator/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MortgageCalculator/Classes/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.focus.br.MortgageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37dbcc62-f54f-45ff-b49d-d1fa74986894";
-				PROVISIONING_PROFILE_SPECIFIER = fdjsq_adhoc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1131,17 +1127,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MortgageCalculator/MortgageCalculator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Li (W76HNZUJGJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Li (W76HNZUJGJ)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = W76HNZUJGJ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MortgageCalculator/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MortgageCalculator/Classes/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.focus.br.MortgageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37dbcc62-f54f-45ff-b49d-d1fa74986894";
-				PROVISIONING_PROFILE_SPECIFIER = fdjsq_adhoc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
